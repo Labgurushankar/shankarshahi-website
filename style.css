@@ -129,3 +129,18 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .manual-payment-grid p{margin:0 0 8px;font-size:14px}
 .whatsapp-btn{background:#1fa463!important;color:#fff!important}
 @media(max-width:750px){.manual-payment-grid{grid-template-columns:1fr}.manual-payment-grid>img{max-width:220px;margin:auto}.software-price-mini{margin-left:0}.software-offer-card{align-items:flex-start}}
+
+/* Interactive laboratory QC calculators */
+.qc-tools-section{padding-top:24px;padding-bottom:24px}
+.section-intro{max-width:880px;margin:0 auto 16px;color:#597084;text-align:center}
+.qc-tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1180px;margin:16px auto 0;align-items:start}
+.qc-tool-card{background:#fff;border:1px solid #d8e5ee;border-radius:14px;padding:16px;box-shadow:0 5px 18px rgba(31,70,101,.05)}
+.qc-tool-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}.qc-tool-head>span{font-size:28px}.qc-tool-head h3{margin:0;font-size:18px;color:#102b42}.qc-tool-head p{margin:2px 0 0;font-size:12px;color:#6b7e8d}
+.qc-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.qc-tool-card label{display:grid;gap:5px;font-size:12px;font-weight:800;color:#39556b}.qc-tool-card input,.qc-tool-card textarea{width:100%;border:1px solid #cbdce8;border-radius:8px;padding:9px 10px;font:inherit;color:#17324d;background:#fbfdff;outline:none}.qc-tool-card input:focus,.qc-tool-card textarea:focus{border-color:#1478c9;box-shadow:0 0 0 3px rgba(20,120,201,.09)}
+.full-label{margin-top:8px}.qc-tool-card textarea{resize:vertical;min-height:74px}.calc-btn{width:100%;margin-top:9px;border:0;border-radius:8px;padding:10px 12px;background:#1478c9;color:#fff;font-weight:800;cursor:pointer}.calc-btn:hover{filter:brightness(.95)}
+.calc-output{margin-top:10px;border-radius:10px;background:#f1f7fb;border:1px solid #d7e6f0;padding:10px;font-size:13px;line-height:1.55;color:#28485f;min-height:42px}.muted-output{color:#708291}.calc-output strong{color:#102b42}.calc-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.calc-metrics span{display:block;background:#fff;border:1px solid #e0eaf1;border-radius:7px;padding:7px}.qc-status-good{color:#147447;font-weight:900}.qc-status-warn{color:#a96c00;font-weight:900}.qc-status-bad{color:#b22c2c;font-weight:900}
+.chart-wrap{margin-top:10px;overflow-x:auto;border:1px solid #dce7ef;border-radius:10px;background:#fff}.chart-wrap canvas{display:block;min-width:680px;width:100%;height:300px}
+.rule-list{margin:6px 0 0;padding-left:18px}.rule-list li{margin:3px 0}.qc-disclaimer{max-width:1000px;margin:12px auto 0;text-align:center;font-size:11px;color:#718292}
+.feature-title{text-align:center;margin:14px 0 10px;color:#102b42}.software-feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1120px;margin:0 auto 16px}.software-feature-grid>div{background:#fff;border:1px solid #dce7ef;border-radius:11px;padding:12px;box-shadow:0 4px 12px rgba(31,70,101,.035)}.software-feature-grid b{display:block;color:#102b42;font-size:14px;margin-bottom:4px}.software-feature-grid span{display:block;color:#65798a;font-size:12px;line-height:1.45}
+@media(max-width:1000px){.qc-tool-grid{grid-template-columns:1fr 1fr}.software-feature-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.qc-tool-grid,.software-feature-grid{grid-template-columns:1fr}.qc-form-grid{grid-template-columns:1fr}.calc-metrics{grid-template-columns:1fr}.chart-wrap canvas{min-width:620px}}

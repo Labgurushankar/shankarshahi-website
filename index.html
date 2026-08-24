@@ -38,8 +38,7 @@
     <div id="links" class="nav-links">
       <a class="active" href="#home">Home</a>
       <a href="#about">About Me</a>
-      <a href="#laboratory">Laboratory</a>
-      <a href="#quality">Quality Control</a>
+      <a href="#quality">QC Calculators</a>
       <a href="#qms">QMS System</a>
       <a href="#youtube">YouTube</a>
       <a href="#books">Books</a>
@@ -70,34 +69,63 @@
   </div>
 </section>
 
-<section id="laboratory" class="alt">
-  <small>LABORATORY</small>
-  <h2>Laboratory &amp; Quality Control</h2>
-  <div class="cards">
-    <article>🧪<h3>Biochemistry</h3><p>Practical testing and quality-focused laboratory work.</p></article>
-    <article>📊<h3>Quality Control</h3><p>IQC, QC statistics, Westgard concepts and result reliability.</p></article>
-    <article>⚙️<h3>Equipment</h3><p>Instrument operation, maintenance, calibration and documentation.</p></article>
-  </div>
-</section>
+<section id="quality" class="alt qc-tools-section">
+  <small>LABORATORY QUALITY CONTROL SYSTEM</small>
+  <h2>Practical QC Calculators</h2>
+  <p class="section-intro">Interactive tools for Internal QC statistics, Levey-Jennings charting and Westgard rule screening. Enter your own QC data and calculate instantly.</p>
 
-<section id="quality" class="alt">
-  <small>QUALITY CONTROL</small>
-  <h2>Laboratory Quality &amp; QC</h2>
-  <div class="cards">
-    <article>📊<h3>Internal QC</h3><p>Mean, SD, CV%, bias, SDI and QC decision concepts.</p></article>
-    <article>📈<h3>Levey-Jennings</h3><p>Practical QC chart interpretation and monitoring.</p></article>
-    <article>⚖️<h3>Westgard Rules</h3><p>1₃s, 2₂s, R₄s, 4₁s and 10x concepts.</p></article>
+  <div class="qc-tool-grid">
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>📊</span><div><h3>Internal QC Calculator</h3><p>Mean, SD, CV%, Bias% and SDI</p></div></div>
+      <div class="qc-form-grid">
+        <label>Target Mean<input id="iqcTargetMean" type="number" step="any" placeholder="e.g. 100"></label>
+        <label>Target SD<input id="iqcTargetSD" type="number" step="any" placeholder="e.g. 2"></label>
+      </div>
+      <label class="full-label">QC Results<textarea id="iqcResults" rows="3" placeholder="Enter results separated by comma, space or new line, e.g. 99.8, 101.2, 100.5"></textarea></label>
+      <button class="calc-btn" type="button" id="calculateIQC">Calculate Internal QC</button>
+      <div id="iqcOutput" class="calc-output muted-output">Enter target values and at least 2 QC results.</div>
+    </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>📈</span><div><h3>Levey-Jennings Calculator</h3><p>Mean ±1SD, ±2SD, ±3SD and QC chart</p></div></div>
+      <div class="qc-form-grid">
+        <label>Target Mean<input id="ljMean" type="number" step="any" placeholder="e.g. 100"></label>
+        <label>Target SD<input id="ljSD" type="number" step="any" placeholder="e.g. 2"></label>
+      </div>
+      <label class="full-label">QC Results<textarea id="ljResults" rows="3" placeholder="Enter sequential QC results"></textarea></label>
+      <button class="calc-btn" type="button" id="plotLJ">Generate LJ Chart</button>
+      <div id="ljSummary" class="calc-output muted-output">Mean and SD limits will appear here.</div>
+      <div class="chart-wrap"><canvas id="ljCanvas" width="760" height="320" aria-label="Levey-Jennings chart"></canvas></div>
+    </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>⚖️</span><div><h3>Westgard Rule Checker</h3><p>1₂s, 1₃s, 2₂s, R₄s, 4₁s and 10x</p></div></div>
+      <div class="qc-form-grid">
+        <label>Target Mean<input id="wgMean" type="number" step="any" placeholder="e.g. 100"></label>
+        <label>Target SD<input id="wgSD" type="number" step="any" placeholder="e.g. 2"></label>
+      </div>
+      <label class="full-label">Sequential QC Results<textarea id="wgResults" rows="3" placeholder="Enter QC results in run order"></textarea></label>
+      <button class="calc-btn" type="button" id="checkWestgard">Check Westgard Rules</button>
+      <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
+    </article>
   </div>
+  <p class="qc-disclaimer">These calculators are educational/practical support tools. Final QC acceptance should follow your laboratory's validated procedure, analyzer instructions and approved QC policy.</p>
 </section>
 
 <section id="qms">
   <small>MY SOFTWARE PROJECT</small>
   <h2>Shankar Quality Management System</h2>
   <p>A laboratory-focused desktop quality management system designed around practical QC and laboratory quality activities.</p>
-  <div class="qms">
-    <span>🏠 Dashboard</span><span>🧪 Internal QC</span><span>⚙️ Equipment</span>
-    <span>📄 Documents</span><span>⚠️ NC &amp; CAPA</span><span>🔍 Internal Audit</span>
-    <span>👨‍🔬 Training</span><span>📊 Quality Indicators</span><span>📈 Reports</span>
+  <h3 class="feature-title">Key Software Features</h3>
+  <div class="software-feature-grid">
+    <div><b>🧪 Internal QC</b><span>QC entry, Mean, SD, CV%, Bias%, SDI and QC status.</span></div>
+    <div><b>📈 Levey-Jennings &amp; Westgard</b><span>LJ charts with mean ±1/2/3 SD and practical rule evaluation.</span></div>
+    <div><b>🧾 Test &amp; Control Master</b><span>Department, test, analyzer, method, control material, lot and expiry management.</span></div>
+    <div><b>🔄 Lot-to-Lot Verification</b><span>Structured QC/patient-sample verification and comparison workflow.</span></div>
+    <div><b>🔬 ILC &amp; EQA</b><span>Inter-laboratory comparison and external quality assessment records.</span></div>
+    <div><b>⚙️ Equipment &amp; Maintenance</b><span>Instrument records, service dates, maintenance and related documentation.</span></div>
+    <div><b>📄 Documents, SOP &amp; CAPA</b><span>Quality documents, nonconformity, corrective and preventive action support.</span></div>
+    <div><b>📊 Reports &amp; PDF</b><span>Date/test-wise reports, QC summaries and printable PDF outputs.</span></div>
   </div>
   <div class="project-card software-offer-card">
     <div><div class="project-icon">💻</div><div><h3>Shankar Quality Management System</h3><p>Windows desktop software • Trial version available • License activation after purchase</p></div></div>

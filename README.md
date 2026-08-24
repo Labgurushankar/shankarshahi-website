@@ -27,3 +27,9 @@ Paid book demo added: Clinical Correlation of Laboratory Findings, Rs. 500 regul
 - Offer price: Rs. 300
 - Preview PDF is public. Full paid PDF is not stored publicly.
 - eSewa production UI is prepared, but live payment must only be enabled after adding merchant Product Code + Secret Key via a secure backend (do not place the Secret Key in GitHub/client JavaScript).
+
+## Added QC calculator tools
+- Internal QC: observed mean, SD, CV%, Bias% and SDI
+- Levey-Jennings: mean ±1/2/3 SD ranges and interactive chart
+- Westgard screening: 1-2s, 1-3s, 2-2s, R-4s, 4-1s and 10x
+- Expanded software feature cards
