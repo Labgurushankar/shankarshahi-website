@@ -90,3 +90,23 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
  .project-card{display:block}.project-actions{margin-top:8px}.download-list>div{align-items:flex-start}.download-list span{flex-direction:column;align-items:flex-start}
  .video-thumb{height:150px}
 }
+
+
+/* Paid book showcase */
+.books-section{padding-top:24px;padding-bottom:24px}
+.book-showcase{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;max-width:1000px;margin:14px auto 0;background:#f8fbfe;border:1px solid #dce7ef;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(31,70,101,.06)}
+.book-cover-wrap{position:relative;max-width:240px;margin:auto}
+.book-cover{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 12px 28px rgba(2,23,44,.18)}
+.discount-badge{position:absolute;top:10px;left:-10px;background:#d93636;color:#fff;padding:7px 11px;border-radius:8px;font-weight:800;font-size:13px;z-index:2;box-shadow:0 5px 14px rgba(0,0,0,.18)}
+.book-label{display:inline-block;color:#1478c9;font-weight:800;font-size:12px;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:4px}
+.book-details h3{font-size:25px;margin:2px 0 5px}.book-subtitle{font-weight:600;color:#3f5f78;margin-top:0}
+.book-meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.book-meta span{background:#eaf3f9;border:1px solid #d5e5f0;border-radius:20px;padding:5px 9px;font-size:12px;font-weight:700}
+.price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:10px 0 2px}.regular-price{text-decoration:line-through;color:#7a8a98;font-weight:700}.offer-price{font-size:28px;font-weight:900;color:#b22c2c}.save-text{font-size:12px;font-weight:800;color:#16734a;background:#e9f8f0;padding:4px 8px;border-radius:14px}
+.book-actions{display:flex;gap:7px;flex-wrap:wrap}.buy-btn{border:0;cursor:pointer}.secure-note{font-size:12px;color:#657b8d;margin:9px 0 0}
+.download-link{display:inline-block;background:#1478c9;color:#fff;text-decoration:none;padding:8px 13px;border-radius:8px;font-size:13px;font-weight:700}
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,15,29,.68);display:none;align-items:center;justify-content:center;padding:20px;z-index:3000}.modal-backdrop.open{display:flex}
+.purchase-modal{position:relative;width:min(560px,96vw);background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.purchase-modal h2{font-size:24px;margin:4px 0 10px}.purchase-modal>small{color:#1478c9;font-weight:800;letter-spacing:1.5px}.modal-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:30px;cursor:pointer;color:#506477}
+.modal-price{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f5f9fc;border-radius:10px;padding:10px 12px;margin:8px 0 12px}.modal-price span{text-decoration:line-through;color:#7a8a98}.modal-price strong{font-size:22px;color:#b22c2c}.modal-price em{font-style:normal;font-size:12px;background:#d93636;color:#fff;padding:4px 8px;border-radius:14px;font-weight:800}
+.payment-steps{display:grid;gap:8px;margin:12px 0}.payment-steps div{display:flex;gap:10px;align-items:flex-start}.payment-steps b{width:25px;height:25px;border-radius:50%;background:#1478c9;color:#fff;display:grid;place-items:center;flex:0 0 auto;font-size:12px}.payment-steps span{font-size:14px;color:#3d566a}.modal-note{font-size:12px;background:#fff7df;border:1px solid #f0dda5;padding:9px 10px;border-radius:8px;color:#665622}.modal-actions{display:flex;gap:7px;flex-wrap:wrap}.modal-actions button{border:0;cursor:not-allowed;opacity:.75}
+@media(max-width:750px){.book-showcase{grid-template-columns:1fr;gap:16px}.book-cover-wrap{max-width:210px}.book-details h3{font-size:21px}.offer-price{font-size:24px}.purchase-modal{padding:20px}}
