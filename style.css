@@ -144,3 +144,7 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .feature-title{text-align:center;margin:14px 0 10px;color:#102b42}.software-feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1120px;margin:0 auto 16px}.software-feature-grid>div{background:#fff;border:1px solid #dce7ef;border-radius:11px;padding:12px;box-shadow:0 4px 12px rgba(31,70,101,.035)}.software-feature-grid b{display:block;color:#102b42;font-size:14px;margin-bottom:4px}.software-feature-grid span{display:block;color:#65798a;font-size:12px;line-height:1.45}
 @media(max-width:1000px){.qc-tool-grid{grid-template-columns:1fr 1fr}.software-feature-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.qc-tool-grid,.software-feature-grid{grid-template-columns:1fr}.qc-form-grid{grid-template-columns:1fr}.calc-metrics{grid-template-columns:1fr}.chart-wrap canvas{min-width:620px}}
+
+/* LJ chart report/download enhancements */
+.lj-meta{margin-top:8px;padding:9px 11px;border:1px solid #dce7ef;border-radius:9px;background:#f8fbfd;color:#39556b;font-size:12px;text-align:center;line-height:1.5}
+.lj-meta strong{color:#102b42}.secondary-calc-btn{background:#315b78}.secondary-calc-btn:disabled{opacity:.5;cursor:not-allowed;filter:none}.chart-wrap canvas{height:390px}

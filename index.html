@@ -89,13 +89,17 @@
     <article class="qc-tool-card">
       <div class="qc-tool-head"><span>📈</span><div><h3>Levey-Jennings Calculator</h3><p>Mean ±1SD, ±2SD, ±3SD and QC chart</p></div></div>
       <div class="qc-form-grid">
+        <label>Test Name<input id="ljTestName" type="text" placeholder="e.g. Glucose"></label>
+        <label>Month<input id="ljMonth" type="month"></label>
         <label>Target Mean<input id="ljMean" type="number" step="any" placeholder="e.g. 100"></label>
         <label>Target SD<input id="ljSD" type="number" step="any" placeholder="e.g. 2"></label>
       </div>
       <label class="full-label">QC Results<textarea id="ljResults" rows="3" placeholder="Enter sequential QC results"></textarea></label>
       <button class="calc-btn" type="button" id="plotLJ">Generate LJ Chart</button>
       <div id="ljSummary" class="calc-output muted-output">Mean and SD limits will appear here.</div>
-      <div class="chart-wrap"><canvas id="ljCanvas" width="760" height="320" aria-label="Levey-Jennings chart"></canvas></div>
+      <div class="chart-wrap"><canvas id="ljCanvas" width="760" height="390" aria-label="Levey-Jennings chart"></canvas></div>
+      <div id="ljMeta" class="lj-meta muted-output">Test, month, mean and SD will appear below the chart.</div>
+      <button class="calc-btn secondary-calc-btn" type="button" id="downloadLJ" disabled>Download LJ Chart (PNG)</button>
     </article>
 
     <article class="qc-tool-card">

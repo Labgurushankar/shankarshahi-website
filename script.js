@@ -53,16 +53,29 @@ if(iqcBtn)iqcBtn.addEventListener('click',()=>{
   out.innerHTML=`<div class="calc-metrics"><span><strong>Observed Mean</strong><br>${fmt(obsMean)}</span><span><strong>Observed SD</strong><br>${fmt(obsSD)}</span><span><strong>CV%</strong><br>${fmt(cv)}%</span><span><strong>Bias%</strong><br>${fmt(bias)}%</span><span><strong>SDI</strong><br>${fmt(sdi)}</span><span><strong>QC Position</strong><br><em class="${cls}">${decision}</em></span></div>`;
 });
 
-function drawLJ(canvas, mean, sd, values){
+function formatMonthLabel(value){
+  if(!value)return 'Not specified';
+  const [y,m]=String(value).split('-').map(Number);
+  if(!y||!m)return value;
+  return new Date(y,m-1,1).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+}
+function safeFilePart(text){return String(text||'LJ-Chart').trim().replace(/[^a-z0-9_-]+/gi,'-').replace(/^-+|-+$/g,'')||'LJ-Chart';}
+function drawLJ(canvas, mean, sd, values, meta={}){
   if(!canvas||!canvas.getContext)return;
   const ctx=canvas.getContext('2d');
-  const w=canvas.width=760, h=canvas.height=320;
+  const w=canvas.width=760, h=canvas.height=390;
   ctx.clearRect(0,0,w,h);
-  const pad={l:52,r:22,t:22,b:38};
+  const pad={l:58,r:28,t:62,b:72};
   const yMin=mean-3.6*sd, yMax=mean+3.6*sd;
   const y=v=>pad.t+(yMax-v)/(yMax-yMin)*(h-pad.t-pad.b);
   const x=i=>pad.l+(values.length===1?0:(i/(values.length-1)))*(w-pad.l-pad.r);
   ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);
+
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#102b42';ctx.font='bold 18px Arial';
+  ctx.fillText('Levey-Jennings QC Chart',w/2,20);
+  ctx.font='bold 13px Arial';ctx.fillStyle='#315b78';
+  ctx.fillText(`${meta.testName||'Test not specified'}  |  ${meta.monthLabel||'Month not specified'}`,w/2,42);
+
   ctx.font='12px Arial';ctx.textAlign='right';ctx.textBaseline='middle';
   const lines=[
     {k:3,label:'+3SD',c:'#b22c2c'},{k:2,label:'+2SD',c:'#d88700'},{k:1,label:'+1SD',c:'#6c9fc2'},
@@ -80,18 +93,43 @@ function drawLJ(canvas, mean, sd, values){
   ctx.strokeStyle='#1478c9';ctx.lineWidth=2;ctx.beginPath();
   values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.stroke();
   values.forEach((v,i)=>{const z=(v-mean)/sd;ctx.beginPath();ctx.arc(x(i),y(v),4.2,0,Math.PI*2);ctx.fillStyle=Math.abs(z)>=3?'#b22c2c':Math.abs(z)>=2?'#d88700':'#1478c9';ctx.fill();});
-  ctx.textAlign='center';ctx.fillStyle='#17324d';ctx.font='bold 12px Arial';ctx.fillText('QC Run', (pad.l+w-pad.r)/2, h-8);
+  ctx.textAlign='center';ctx.fillStyle='#17324d';ctx.font='bold 12px Arial';ctx.fillText('QC Run', (pad.l+w-pad.r)/2, h-pad.b+36);
+
+  ctx.strokeStyle='#dce7ef';ctx.beginPath();ctx.moveTo(pad.l,h-42);ctx.lineTo(w-pad.r,h-42);ctx.stroke();
+  ctx.fillStyle='#17324d';ctx.font='12px Arial';ctx.textAlign='center';
+  ctx.fillText(`Test: ${meta.testName||'Not specified'}    Month: ${meta.monthLabel||'Not specified'}    Mean: ${fmt(mean)}    SD: ${fmt(sd)}`,w/2,h-23);
 }
 
 const ljBtn=byId('plotLJ');
 if(ljBtn)ljBtn.addEventListener('click',()=>{
   const mean=Number(byId('ljMean').value), sd=Number(byId('ljSD').value), values=parseQCValues(byId('ljResults').value), out=byId('ljSummary');
+  const testName=(byId('ljTestName').value||'').trim();
+  const monthValue=byId('ljMonth').value;
+  const monthLabel=formatMonthLabel(monthValue);
   if(!Number.isFinite(mean)||!Number.isFinite(sd)||sd<=0||values.length<1){out.className='calc-output qc-status-bad';out.textContent='Please enter a valid target mean, SD (>0) and one or more QC results.';return;}
   const outside2=values.filter(v=>Math.abs((v-mean)/sd)>=2).length, outside3=values.filter(v=>Math.abs((v-mean)/sd)>=3).length;
   out.className='calc-output';
   out.innerHTML=`<div class="calc-metrics"><span><strong>Mean</strong><br>${fmt(mean)}</span><span><strong>±1 SD</strong><br>${fmt(mean-sd)} to ${fmt(mean+sd)}</span><span><strong>±2 SD</strong><br>${fmt(mean-2*sd)} to ${fmt(mean+2*sd)}</span><span><strong>±3 SD</strong><br>${fmt(mean-3*sd)} to ${fmt(mean+3*sd)}</span><span><strong>Runs ≥2 SD</strong><br>${outside2}</span><span><strong>Runs ≥3 SD</strong><br>${outside3}</span></div>`;
-  drawLJ(byId('ljCanvas'),mean,sd,values);
+  const meta={testName:testName||'Not specified',monthValue,monthLabel};
+  drawLJ(byId('ljCanvas'),mean,sd,values,meta);
+  const metaBox=byId('ljMeta');
+  metaBox.className='lj-meta';
+  metaBox.innerHTML=`<strong>Test Name:</strong> ${meta.testName} &nbsp; | &nbsp; <strong>Month:</strong> ${monthLabel} &nbsp; | &nbsp; <strong>Mean:</strong> ${fmt(mean)} &nbsp; | &nbsp; <strong>SD:</strong> ${fmt(sd)}`;
+  const dl=byId('downloadLJ');
+  dl.disabled=false;
+  dl.dataset.filename=`LJ-${safeFilePart(meta.testName)}-${safeFilePart(monthLabel)}.png`;
 });
+
+const downloadLJ=byId('downloadLJ');
+if(downloadLJ)downloadLJ.addEventListener('click',()=>{
+  const canvas=byId('ljCanvas');
+  if(!canvas)return;
+  const link=document.createElement('a');
+  link.download=downloadLJ.dataset.filename||'Levey-Jennings-QC-Chart.png';
+  link.href=canvas.toDataURL('image/png');
+  document.body.appendChild(link);link.click();link.remove();
+});
+
 
 function westgardCheck(values, mean, sd){
   const z=values.map(v=>(v-mean)/sd), hits=[];
