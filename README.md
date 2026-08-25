@@ -33,3 +33,10 @@ Paid book demo added: Clinical Correlation of Laboratory Findings, Rs. 500 regul
 - Levey-Jennings: mean ±1/2/3 SD ranges and interactive chart
 - Westgard screening: 1-2s, 1-3s, 2-2s, R-4s, 4-1s and 10x
 - Expanded software feature cards
+
+
+## Latest offer + YouTube update
+- Buy 1 Get 1 Free messaging: buy Quality Management Software and get Inventory Management Software free.
+- Combined suite trial link remains the same Google Drive installer.
+- Software promotional price remains Rs. 2,500 (50% off from Rs. 5,000).
+- Four featured YouTube video cards added with live YouTube thumbnails and direct video links.

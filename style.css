@@ -148,3 +148,17 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 /* LJ chart report/download enhancements */
 .lj-meta{margin-top:8px;padding:9px 11px;border:1px solid #dce7ef;border-radius:9px;background:#f8fbfd;color:#39556b;font-size:12px;text-align:center;line-height:1.5}
 .lj-meta strong{color:#102b42}.secondary-calc-btn{background:#315b78}.secondary-calc-btn:disabled{opacity:.5;cursor:not-allowed;filter:none}.chart-wrap canvas{height:390px}
+
+/* Buy 1 Get 1 + featured YouTube updates */
+.bogo-badge{display:inline-flex;align-items:center;background:#0b6bcb;color:#fff;font-weight:800;letter-spacing:.6px;font-size:12px;padding:5px 10px;border-radius:999px;margin-bottom:7px}
+.software-main-info{display:flex;gap:12px;align-items:flex-start}
+.featured-video-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.video-link-card{display:block;color:inherit;text-decoration:none;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+.video-link-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(14,50,86,.12)}
+.video-thumb-img{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:#e8eef5;margin-bottom:10px}
+.video-thumb-img img{width:100%;height:100%;object-fit:cover;display:block}
+.video-thumb-img span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.72);color:#fff;font-size:22px;padding-left:3px}
+.video-link-card h3{margin:5px 0 4px}
+.video-link-card p{margin:0}
+@media(max-width:980px){.featured-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.featured-video-grid{grid-template-columns:1fr}.software-main-info{display:block}}
