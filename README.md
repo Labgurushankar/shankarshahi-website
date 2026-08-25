@@ -40,3 +40,9 @@ Paid book demo added: Clinical Correlation of Laboratory Findings, Rs. 500 regul
 - Combined suite trial link remains the same Google Drive installer.
 - Software promotional price remains Rs. 2,500 (50% off from Rs. 5,000).
 - Four featured YouTube video cards added with live YouTube thumbnails and direct video links.
+
+
+## Latest update
+- Expanded routine laboratory unit converter including thyroid tests and common chemistry/hematology/hormone conversions.
+- Added free Sample SOP Format PDF: Glucose (GOD-POD Method).
+- Added View/Download SOP links in Resources and Download Center.

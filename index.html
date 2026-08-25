@@ -72,7 +72,7 @@
 <section id="quality" class="alt qc-tools-section">
   <small>LABORATORY QUALITY CONTROL SYSTEM</small>
   <h2>Practical QC Calculators</h2>
-  <p class="section-intro">Interactive tools for Internal QC statistics, Levey-Jennings charting and Westgard rule screening. Enter your own QC data and calculate instantly.</p>
+  <p class="section-intro">A practical QC calculator hub for Internal QC, Levey-Jennings, Westgard rules, daily repeat precision, lot-to-lot verification, method verification, unit conversion, critical-value reference and QC troubleshooting.</p>
 
   <div class="qc-tool-grid">
     <article class="qc-tool-card">
@@ -112,8 +112,142 @@
       <button class="calc-btn" type="button" id="checkWestgard">Check Westgard Rules</button>
       <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
     </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>🔁</span><div><h3>Daily Repeat / Precision</h3><p>Pair comparison, difference, % difference and repeatability</p></div></div>
+      <div class="qc-form-grid">
+        <label>Run 1<input id="drRun1" type="number" step="any" placeholder="e.g. 101.2"></label>
+        <label>Run 2<input id="drRun2" type="number" step="any" placeholder="e.g. 100.4"></label>
+        <label>Allowable % Difference<input id="drAllow" type="number" step="any" placeholder="optional, e.g. 5"></label>
+        <label>Test Name<input id="drTest" type="text" placeholder="e.g. Glucose"></label>
+      </div>
+      <button class="calc-btn" type="button" id="calculateDailyRepeat">Calculate Repeat Check</button>
+      <div id="dailyRepeatOutput" class="calc-output muted-output">Enter two repeat results. Optional allowable % gives PASS/REVIEW.</div>
+    </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>🧪</span><div><h3>Lot-to-Lot Verification</h3><p>Compare old lot vs new lot paired results</p></div></div>
+      <div class="qc-form-grid">
+        <label>Allowable Bias %<input id="lotAllowBias" type="number" step="any" placeholder="e.g. 5"></label>
+        <label>Test Name<input id="lotTest" type="text" placeholder="e.g. ALT"></label>
+      </div>
+      <label class="full-label">Old Lot Results<textarea id="lotOld" rows="3" placeholder="e.g. 98, 101, 100"></textarea></label>
+      <label class="full-label">New Lot Results<textarea id="lotNew" rows="3" placeholder="e.g. 99, 100, 102"></textarea></label>
+      <button class="calc-btn" type="button" id="calculateLot">Verify Lot-to-Lot</button>
+      <div id="lotOutput" class="calc-output muted-output">Enter equal numbers of paired old-lot and new-lot results.</div>
+    </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>🧮</span><div><h3>Method Verification</h3><p>Precision, Bias, TEa and Sigma Metric</p></div></div>
+      <div class="qc-form-grid">
+        <label>Target / Assigned Mean<input id="mvTarget" type="number" step="any" placeholder="e.g. 100"></label>
+        <label>TEa %<input id="mvTEa" type="number" step="any" placeholder="e.g. 10"></label>
+        <label>Allowable CV %<input id="mvAllowCV" type="number" step="any" placeholder="optional, e.g. 3"></label>
+        <label>Method / Test<input id="mvTest" type="text" placeholder="e.g. Glucose"></label>
+      </div>
+      <label class="full-label">Verification Results<textarea id="mvResults" rows="3" placeholder="Enter replicate results"></textarea></label>
+      <button class="calc-btn" type="button" id="calculateMethod">Calculate Method Verification</button>
+      <div id="methodOutput" class="calc-output muted-output">Calculates observed mean, SD, CV%, Bias%, and Sigma = (TEa − |Bias|) / CV.</div>
+    </article>
+
+    <article class="qc-tool-card">
+      <div class="qc-tool-head"><span>🔄</span><div><h3>Laboratory Unit Converter</h3><p>Routine chemistry, hematology, thyroid and common hormone unit conversions</p></div></div>
+      <label class="full-label">Analyte<select id="ucAnalyte">
+        <optgroup label="Glucose / Diabetes">
+          <option value="glucose">Glucose: mg/dL ↔ mmol/L</option>
+          <option value="hba1c">HbA1c: NGSP % ↔ IFCC mmol/mol</option>
+        </optgroup>
+        <optgroup label="Renal Function">
+          <option value="creatinine">Creatinine: mg/dL ↔ µmol/L</option>
+          <option value="urea">Urea: mg/dL ↔ mmol/L</option>
+          <option value="bun">BUN: mg/dL ↔ mmol/L</option>
+          <option value="uricacid">Uric Acid: mg/dL ↔ µmol/L</option>
+        </optgroup>
+        <optgroup label="Lipid Profile">
+          <option value="cholesterol">Total Cholesterol: mg/dL ↔ mmol/L</option>
+          <option value="hdl">HDL-C: mg/dL ↔ mmol/L</option>
+          <option value="ldl">LDL-C: mg/dL ↔ mmol/L</option>
+          <option value="triglyceride">Triglyceride: mg/dL ↔ mmol/L</option>
+        </optgroup>
+        <optgroup label="Liver / Proteins">
+          <option value="bilirubin">Bilirubin: mg/dL ↔ µmol/L</option>
+          <option value="albumin">Albumin: g/dL ↔ g/L</option>
+          <option value="totalprotein">Total Protein: g/dL ↔ g/L</option>
+        </optgroup>
+        <optgroup label="Electrolytes / Minerals">
+          <option value="calcium">Calcium: mg/dL ↔ mmol/L</option>
+          <option value="magnesium">Magnesium: mg/dL ↔ mmol/L</option>
+          <option value="phosphorus">Phosphorus: mg/dL ↔ mmol/L</option>
+          <option value="sodium">Sodium: mEq/L ↔ mmol/L</option>
+          <option value="potassium">Potassium: mEq/L ↔ mmol/L</option>
+          <option value="chloride">Chloride: mEq/L ↔ mmol/L</option>
+        </optgroup>
+        <optgroup label="Hematology">
+          <option value="hemoglobin">Hemoglobin: g/dL ↔ g/L</option>
+          <option value="hematocrit">Hematocrit: % ↔ L/L</option>
+          <option value="wbc">WBC: ×10³/µL ↔ ×10⁹/L</option>
+          <option value="platelet">Platelets: ×10³/µL ↔ ×10⁹/L</option>
+          <option value="rbc">RBC: ×10⁶/µL ↔ ×10¹²/L</option>
+        </optgroup>
+        <optgroup label="Iron / Inflammation">
+          <option value="iron">Serum Iron: µg/dL ↔ µmol/L</option>
+          <option value="crp">CRP: mg/dL ↔ mg/L</option>
+        </optgroup>
+        <optgroup label="Thyroid Function">
+          <option value="tsh">TSH: mIU/L ↔ µIU/mL</option>
+          <option value="ft4">Free T4: ng/dL ↔ pmol/L</option>
+          <option value="tt4">Total T4: µg/dL ↔ nmol/L</option>
+          <option value="ft3">Free T3: pg/mL ↔ pmol/L</option>
+          <option value="tt3">Total T3: ng/dL ↔ nmol/L</option>
+        </optgroup>
+        <optgroup label="Other Common Tests">
+          <option value="lactate">Lactate: mg/dL ↔ mmol/L</option>
+          <option value="ammonia">Ammonia: µg/dL ↔ µmol/L</option>
+          <option value="vitd">25-OH Vitamin D: ng/mL ↔ nmol/L</option>
+          <option value="b12">Vitamin B12: pg/mL ↔ pmol/L</option>
+          <option value="folate">Folate: ng/mL ↔ nmol/L</option>
+          <option value="cortisol">Cortisol: µg/dL ↔ nmol/L</option>
+          <option value="testosterone">Testosterone: ng/dL ↔ nmol/L</option>
+          <option value="estradiol">Estradiol: pg/mL ↔ pmol/L</option>
+        </optgroup>
+      </select></label>
+      <div class="qc-form-grid">
+        <label>Value<input id="ucValue" type="number" step="any" placeholder="Enter value"></label>
+        <label>Direction<select id="ucDirection"><option value="forward">Conventional → SI</option><option value="reverse">SI → Conventional</option></select></label>
+      </div>
+      <button class="calc-btn" type="button" id="convertUnit">Convert Unit</button>
+      <div id="unitOutput" class="calc-output muted-output">Select a routine analyte, enter a value and choose the conversion direction.</div>
+    </article>
+
+    <article class="qc-tool-card wide-tool-card">
+      <div class="qc-tool-head"><span>🚨</span><div><h3>Critical Value Quick Reference</h3><p>Common adult alert examples — customize to your laboratory policy</p></div></div>
+      <div class="critical-toolbar"><input id="criticalSearch" type="search" placeholder="Search test, e.g. potassium"><span>⚠️ Examples only — local approved critical limits always take precedence.</span></div>
+      <div class="critical-table-wrap"><table class="critical-table" id="criticalTable"><thead><tr><th>Test</th><th>Example low alert</th><th>Example high alert</th><th>Unit / note</th></tr></thead><tbody>
+        <tr><td>Glucose</td><td>&lt; 50</td><td>&gt; 400</td><td>mg/dL</td></tr>
+        <tr><td>Potassium</td><td>&lt; 2.5</td><td>&gt; 6.5</td><td>mmol/L</td></tr>
+        <tr><td>Sodium</td><td>&lt; 120</td><td>&gt; 160</td><td>mmol/L</td></tr>
+        <tr><td>Total calcium</td><td>&lt; 6.5</td><td>&gt; 13.0</td><td>mg/dL</td></tr>
+        <tr><td>Hemoglobin</td><td>&lt; 6.5</td><td>&gt; 20</td><td>g/dL; policy-dependent</td></tr>
+        <tr><td>Platelet count</td><td>&lt; 20</td><td>&gt; 1000</td><td>×10⁹/L; context-dependent</td></tr>
+        <tr><td>WBC count</td><td>&lt; 2.0</td><td>&gt; 50</td><td>×10⁹/L; local policy varies</td></tr>
+        <tr><td>INR</td><td>—</td><td>&gt; 5.0</td><td>Therapy/context dependent</td></tr>
+      </tbody></table></div>
+      <p class="tool-note">Critical-result thresholds vary by institution, population, method and clinical context. Use this table only as a quick educational example and replace it with your laboratory's approved policy before operational use.</p>
+    </article>
+
+    <article class="qc-tool-card wide-tool-card">
+      <div class="qc-tool-head"><span>🛠️</span><div><h3>QC Troubleshooting Guide</h3><p>Rule pattern → likely error type → practical first actions</p></div></div>
+      <div class="trouble-grid">
+        <details open><summary>1₂s warning</summary><p><b>Likely:</b> Early warning, possible random or systematic shift.<br><b>First actions:</b> Check next QC result, review reagent/control handling, do not reject solely on 1₂s unless local policy says so.</p></details>
+        <details><summary>1₃s</summary><p><b>Likely:</b> Significant random or systematic error.<br><b>First actions:</b> Reject run, repeat QC after checking pipetting, reagent/control preparation, instrument flags and calibration status.</p></details>
+        <details><summary>2₂s / 4₁s / 10x</summary><p><b>Likely:</b> Systematic error, shift or trend.<br><b>First actions:</b> Review calibration, reagent lot, control lot, maintenance, temperature and recent changes; recalibrate when justified.</p></details>
+        <details><summary>R₄s</summary><p><b>Likely:</b> Random error / imprecision.<br><b>First actions:</b> Check pipetting, aspiration, bubbles, probe condition, mixing, sample volume and mechanical instability.</p></details>
+        <details><summary>Sudden shift after new lot</summary><p><b>Likely:</b> Reagent/calibrator/control lot effect or recalibration issue.<br><b>First actions:</b> Perform lot-to-lot verification, review calibration and target values, compare old vs new lot.</p></details>
+        <details><summary>Gradual trend</summary><p><b>Likely:</b> Calibration drift, reagent deterioration, temperature or component aging.<br><b>First actions:</b> Review maintenance logs, reagent stability, calibration trend, temperature and instrument performance.</p></details>
+      </div>
+    </article>
   </div>
-  <p class="qc-disclaimer">These calculators are educational/practical support tools. Final QC acceptance should follow your laboratory's validated procedure, analyzer instructions and approved QC policy.</p>
+  <p class="qc-disclaimer">These calculators are educational/practical support tools. Final QC acceptance, method verification, lot acceptance and critical-result handling must follow your laboratory's validated procedure, analyzer instructions, approved QC policy and applicable accreditation requirements.</p>
 </section>
 
 <section id="qms">
@@ -206,6 +340,7 @@
     <article class="resource-card"><div class="resource-icon">📚</div><h3>My Books</h3><p>Laboratory, quality control and educational books.</p><a href="#books">View Books →</a></article>
     <article class="resource-card"><div class="resource-icon">📊</div><h3>PowerPoint Slides</h3><p>Laboratory and quality-management presentations.</p><a href="#downloads">View Presentations →</a></article>
     <article class="resource-card"><div class="resource-icon">📄</div><h3>PDF / SOP</h3><p>SOPs, forms, manuals and useful laboratory documents.</p><a href="#downloads">View Documents →</a></article>
+    <article class="resource-card sop-resource-card"><div class="resource-icon">🧾</div><span class="free-badge">FREE SAMPLE</span><h3>Standard SOP Format</h3><p>Sample Glucose (GOD-POD) SOP showing document control, principle, specimen, QC, procedure template, safety, records and revision history.</p><div class="sop-actions"><a href="downloads/sample-sop-glucose-god-pod.pdf" target="_blank" rel="noopener">View SOP →</a><a href="downloads/sample-sop-glucose-god-pod.pdf" download>Download PDF ↓</a></div></article>
   </div>
 </section>
 
@@ -216,9 +351,9 @@
     <div><span>💻 <b>Shankar Quality &amp; Inventory Management System Suite</b><small>Combined Windows desktop software • QMS + Inventory</small></span><button class="download-placeholder" type="button">Download</button></div>
     <div><span>📚 <b>Clinical Correlation of Laboratory Findings</b><small>Paid PDF book - Limited-time 40% discount</small></span><a class="download-link" href="#books">View Book</a></div>
     <div><span>📊 <b>PowerPoint Presentations</b><small>Laboratory and QC slides</small></span><button class="download-placeholder" type="button">Download</button></div>
-    <div><span>📄 <b>SOP / PDF Resources</b><small>Laboratory procedures and documents</small></span><button class="download-placeholder" type="button">Download</button></div>
+    <div><span>📄 <b>Sample SOP Format - Glucose (GOD-POD)</b><small>Free educational SOP template PDF</small></span><span class="download-actions-inline"><a class="download-link" href="downloads/sample-sop-glucose-god-pod.pdf" target="_blank" rel="noopener">View</a><a class="download-link" href="downloads/sample-sop-glucose-god-pod.pdf" download>Download</a></span></div>
   </div>
-  <p class="note">Download links will be connected to the actual files when software, books, PowerPoint and document files are added.</p>
+  <p class="note">The sample SOP is available now. Other download links will be connected as additional software, books, PowerPoint and laboratory documents are added.</p>
 </section>
 
 

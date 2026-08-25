@@ -16,13 +16,14 @@ header.top-ribbon{position:fixed;top:0;left:0;right:0;height:76px;background:rgb
 .nav-links a.active:after{content:"";position:absolute;left:0;right:0;bottom:7px;height:3px;background:#10b6ff;border-radius:4px}
 .menu-button{display:none;background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:6px 10px;font-size:20px}
 
-.reference-hero{position:relative;margin-top:76px;width:100%;padding:0;line-height:0;background:#06182e;overflow:hidden}
+.reference-hero{position:relative;margin:76px 0 0;width:100%;max-width:none;padding:0;line-height:0;background:#06182e;overflow:hidden}
 .reference-hero img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center top}
 .hero-hotspot{position:absolute;z-index:2;display:block;border-radius:10px}
 .hero-hotspot.about{left:2.4%;top:70%;width:17%;height:10%}
 .hero-hotspot.youtube{left:20%;top:70%;width:21%;height:10%}
 
 section{padding:30px 5%;max-width:1160px;margin:auto}
+.reference-hero{max-width:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0}
 section.alt{max-width:none;background:#f5f9fc}
 section small{display:block;color:#1478c9;font-weight:800;letter-spacing:1.8px;font-size:12px;margin-bottom:4px}
 section h1{font-size:31px;line-height:1.2;margin:3px 0 10px;color:#17324d}
@@ -162,3 +163,29 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .video-link-card p{margin:0}
 @media(max-width:980px){.featured-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.featured-video-grid{grid-template-columns:1fr}.software-main-info{display:block}}
+
+/* Advanced QC hub */
+.qc-tool-card select{width:100%;border:1px solid #cbdce8;border-radius:8px;padding:9px 10px;font:inherit;color:#17324d;background:#fbfdff;outline:none}
+.wide-tool-card{grid-column:span 2}
+.critical-toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:6px 0 10px;flex-wrap:wrap}
+.critical-toolbar input{max-width:260px;border:1px solid #cbdce8;border-radius:8px;padding:9px 10px}
+.critical-toolbar span{font-size:11px;color:#8a5a00;background:#fff8df;border:1px solid #f0d792;border-radius:999px;padding:6px 10px}
+.critical-table-wrap{overflow:auto;border:1px solid #dce7ef;border-radius:10px}
+.critical-table{width:100%;border-collapse:collapse;min-width:650px;font-size:12px;background:#fff}
+.critical-table th,.critical-table td{padding:8px 10px;border-bottom:1px solid #e7eef3;text-align:left}
+.critical-table th{background:#eef6fb;color:#17324d;position:sticky;top:0}
+.critical-table tr:last-child td{border-bottom:0}
+.tool-note{font-size:11px!important;color:#708291!important;margin:8px 0 0!important}
+.trouble-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.trouble-grid details{border:1px solid #dbe7ef;border-radius:9px;background:#fbfdff;padding:8px 10px}
+.trouble-grid summary{font-weight:800;color:#15364f;cursor:pointer}
+.trouble-grid p{font-size:12px;color:#506a7d;margin:7px 0 0;line-height:1.5}
+@media(max-width:1000px){.wide-tool-card{grid-column:span 2}}
+@media(max-width:700px){.wide-tool-card{grid-column:span 1}.trouble-grid{grid-template-columns:1fr}.critical-toolbar input{max-width:none;width:100%}}
+
+/* SOP resource and expanded converter */
+.free-badge{display:inline-block;margin:0 0 5px;padding:3px 7px;border-radius:999px;background:#e6f7ee;color:#16754a;font-size:10px;font-weight:900;letter-spacing:.4px}
+.sop-resource-card{border-color:#b9dccb;background:linear-gradient(180deg,#fff 0%,#f7fffb 100%)}
+.sop-actions{display:flex;gap:10px;flex-wrap:wrap}.sop-actions a{font-size:13px}
+.download-actions-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.qc-tool-card optgroup{font-weight:800;color:#17324d}.qc-tool-card option{font-weight:400}

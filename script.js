@@ -156,3 +156,100 @@ if(wgBtn)wgBtn.addEventListener('click',()=>{
   out.className='calc-output';
   out.innerHTML=`<strong>QC Decision:</strong> ${decision}<br><strong>SD positions:</strong> ${z.map((v,i)=>`R${i+1}: ${fmt(v)}`).join(' · ')}${uniq.length?`<ul class="rule-list">${uniq.map(h=>`<li><strong>${h.rule}</strong> — ${h.msg}</li>`).join('')}</ul>`:'<br>No 1₂s, 1₃s, 2₂s, R₄s, 4₁s or 10x pattern detected.'}`;
 });
+
+// ---- Advanced QC / verification calculators ----
+const drBtn=byId('calculateDailyRepeat');
+if(drBtn)drBtn.addEventListener('click',()=>{
+  const a=Number(byId('drRun1').value), b=Number(byId('drRun2').value), allow=Number(byId('drAllow').value), out=byId('dailyRepeatOutput');
+  const test=(byId('drTest').value||'Repeat check').trim();
+  if(!Number.isFinite(a)||!Number.isFinite(b)){out.className='calc-output qc-status-bad';out.textContent='Please enter both repeat results.';return;}
+  const m=(a+b)/2, diff=Math.abs(a-b), pd=m!==0?diff/Math.abs(m)*100:NaN;
+  let decision='No allowable limit entered';
+  if(Number.isFinite(allow)&&allow>=0)decision=pd<=allow?'<span class="qc-status-good">PASS</span>':'<span class="qc-status-bad">REVIEW / FAIL</span>';
+  out.className='calc-output';
+  out.innerHTML=`<strong>${test}</strong><div class="calc-metrics"><span><strong>Pair Mean</strong><br>${fmt(m)}</span><span><strong>Absolute Difference</strong><br>${fmt(diff)}</span><span><strong>% Difference</strong><br>${fmt(pd)}%</span><span><strong>Decision</strong><br>${decision}</span></div>`;
+});
+
+const lotBtn=byId('calculateLot');
+if(lotBtn)lotBtn.addEventListener('click',()=>{
+  const oldv=parseQCValues(byId('lotOld').value), newv=parseQCValues(byId('lotNew').value), allow=Number(byId('lotAllowBias').value), out=byId('lotOutput');
+  const test=(byId('lotTest').value||'Lot-to-lot').trim();
+  if(oldv.length<2||newv.length<2||oldv.length!==newv.length){out.className='calc-output qc-status-bad';out.textContent='Enter at least 2 paired results with the same number of old-lot and new-lot values.';return;}
+  const mo=meanOf(oldv), mn=meanOf(newv), bias=mo!==0?(mn-mo)/mo*100:NaN;
+  const diffs=oldv.map((v,i)=>newv[i]-v), meanDiff=meanOf(diffs), avgAbs=meanOf(diffs.map(Math.abs));
+  let decision='Enter allowable bias % for a pass/review decision.';
+  if(Number.isFinite(allow)&&allow>=0)decision=Math.abs(bias)<=allow?'<span class="qc-status-good">PASS</span>':'<span class="qc-status-bad">REVIEW / FAIL</span>';
+  out.className='calc-output';
+  out.innerHTML=`<strong>${test}</strong><div class="calc-metrics"><span><strong>Old Lot Mean</strong><br>${fmt(mo)}</span><span><strong>New Lot Mean</strong><br>${fmt(mn)}</span><span><strong>Bias%</strong><br>${fmt(bias)}%</span><span><strong>Mean Difference</strong><br>${fmt(meanDiff)}</span><span><strong>Avg |Difference|</strong><br>${fmt(avgAbs)}</span><span><strong>Decision</strong><br>${decision}</span></div>`;
+});
+
+const mvBtn=byId('calculateMethod');
+if(mvBtn)mvBtn.addEventListener('click',()=>{
+  const target=Number(byId('mvTarget').value), tea=Number(byId('mvTEa').value), allowCV=Number(byId('mvAllowCV').value), vals=parseQCValues(byId('mvResults').value), out=byId('methodOutput');
+  const test=(byId('mvTest').value||'Method verification').trim();
+  if(!Number.isFinite(target)||target===0||!Number.isFinite(tea)||tea<=0||vals.length<2){out.className='calc-output qc-status-bad';out.textContent='Enter target mean, TEa% (>0), and at least 2 verification results.';return;}
+  const m=meanOf(vals), sd=sampleSD(vals), cv=m!==0?Math.abs(sd/m*100):NaN, bias=(m-target)/target*100, sigma=cv>0?(tea-Math.abs(bias))/cv:NaN;
+  const precision=(Number.isFinite(allowCV)&&allowCV>=0)?(cv<=allowCV?'<span class="qc-status-good">Precision PASS</span>':'<span class="qc-status-bad">Precision REVIEW</span>'):'No allowable CV entered';
+  let sigText='—'; if(Number.isFinite(sigma)){sigText=`${fmt(sigma)} σ`;}
+  out.className='calc-output';
+  out.innerHTML=`<strong>${test}</strong><div class="calc-metrics"><span><strong>Observed Mean</strong><br>${fmt(m)}</span><span><strong>SD</strong><br>${fmt(sd)}</span><span><strong>CV%</strong><br>${fmt(cv)}%</span><span><strong>Bias%</strong><br>${fmt(bias)}%</span><span><strong>Sigma Metric</strong><br>${sigText}</span><span><strong>Precision</strong><br>${precision}</span></div><small>Sigma formula used: (TEa − |Bias|) / CV. Interpret only with an appropriate, laboratory-approved TEa source.</small>`;
+});
+
+const unitMap={
+  glucose:{kind:'factor',f:1/18.0182,from:'mg/dL',to:'mmol/L',digits:2},
+  hba1c:{kind:'formula',from:'NGSP %',to:'IFCC mmol/mol',forward:v=>(v-2.15)*10.929,reverse:v=>v/10.929+2.15,digits:1},
+  creatinine:{kind:'factor',f:88.4,from:'mg/dL',to:'µmol/L',digits:1},
+  urea:{kind:'factor',f:1/6.006,from:'mg/dL',to:'mmol/L',digits:2},
+  bun:{kind:'factor',f:1/2.801,from:'mg/dL',to:'mmol/L',digits:2},
+  uricacid:{kind:'factor',f:59.48,from:'mg/dL',to:'µmol/L',digits:1},
+  cholesterol:{kind:'factor',f:1/38.67,from:'mg/dL',to:'mmol/L',digits:2},
+  hdl:{kind:'factor',f:1/38.67,from:'mg/dL',to:'mmol/L',digits:2},
+  ldl:{kind:'factor',f:1/38.67,from:'mg/dL',to:'mmol/L',digits:2},
+  triglyceride:{kind:'factor',f:1/88.57,from:'mg/dL',to:'mmol/L',digits:2},
+  bilirubin:{kind:'factor',f:17.104,from:'mg/dL',to:'µmol/L',digits:1},
+  albumin:{kind:'factor',f:10,from:'g/dL',to:'g/L',digits:1},
+  totalprotein:{kind:'factor',f:10,from:'g/dL',to:'g/L',digits:1},
+  calcium:{kind:'factor',f:0.2495,from:'mg/dL',to:'mmol/L',digits:3},
+  magnesium:{kind:'factor',f:0.4114,from:'mg/dL',to:'mmol/L',digits:3},
+  phosphorus:{kind:'factor',f:0.3229,from:'mg/dL',to:'mmol/L',digits:3},
+  sodium:{kind:'factor',f:1,from:'mEq/L',to:'mmol/L',digits:1},
+  potassium:{kind:'factor',f:1,from:'mEq/L',to:'mmol/L',digits:1},
+  chloride:{kind:'factor',f:1,from:'mEq/L',to:'mmol/L',digits:1},
+  hemoglobin:{kind:'factor',f:10,from:'g/dL',to:'g/L',digits:1},
+  hematocrit:{kind:'factor',f:0.01,from:'%',to:'L/L',digits:3},
+  wbc:{kind:'factor',f:1,from:'×10³/µL',to:'×10⁹/L',digits:2},
+  platelet:{kind:'factor',f:1,from:'×10³/µL',to:'×10⁹/L',digits:1},
+  rbc:{kind:'factor',f:1,from:'×10⁶/µL',to:'×10¹²/L',digits:2},
+  iron:{kind:'factor',f:0.1791,from:'µg/dL',to:'µmol/L',digits:2},
+  crp:{kind:'factor',f:10,from:'mg/dL',to:'mg/L',digits:1},
+  tsh:{kind:'factor',f:1,from:'mIU/L',to:'µIU/mL',digits:3},
+  ft4:{kind:'factor',f:12.87,from:'ng/dL',to:'pmol/L',digits:2},
+  tt4:{kind:'factor',f:12.87,from:'µg/dL',to:'nmol/L',digits:1},
+  ft3:{kind:'factor',f:1.536,from:'pg/mL',to:'pmol/L',digits:2},
+  tt3:{kind:'factor',f:0.01536,from:'ng/dL',to:'nmol/L',digits:3},
+  lactate:{kind:'factor',f:0.111,from:'mg/dL',to:'mmol/L',digits:2},
+  ammonia:{kind:'factor',f:0.587,from:'µg/dL',to:'µmol/L',digits:1},
+  vitd:{kind:'factor',f:2.496,from:'ng/mL',to:'nmol/L',digits:1},
+  b12:{kind:'factor',f:0.738,from:'pg/mL',to:'pmol/L',digits:1},
+  folate:{kind:'factor',f:2.266,from:'ng/mL',to:'nmol/L',digits:1},
+  cortisol:{kind:'factor',f:27.59,from:'µg/dL',to:'nmol/L',digits:1},
+  testosterone:{kind:'factor',f:0.0347,from:'ng/dL',to:'nmol/L',digits:2},
+  estradiol:{kind:'factor',f:3.671,from:'pg/mL',to:'pmol/L',digits:1}
+};
+const ucBtn=byId('convertUnit');
+if(ucBtn)ucBtn.addEventListener('click',()=>{
+  const key=byId('ucAnalyte').value, cfg=unitMap[key], val=Number(byId('ucValue').value), dir=byId('ucDirection').value, out=byId('unitOutput');
+  if(!cfg||!Number.isFinite(val)){out.className='calc-output qc-status-bad';out.textContent='Enter a valid value.';return;}
+  let result;
+  if(cfg.kind==='formula') result=dir==='forward'?cfg.forward(val):cfg.reverse(val);
+  else result=dir==='forward'?val*cfg.f:val/cfg.f;
+  const from=dir==='forward'?cfg.from:cfg.to, to=dir==='forward'?cfg.to:cfg.from;
+  out.className='calc-output';
+  out.innerHTML=`<strong>${val} ${from}</strong> = <strong>${result.toFixed(cfg.digits)} ${to}</strong><br><small>Use for unit conversion only. Reference intervals, decision limits and assay-specific reporting conventions must follow your laboratory/method.</small>`;
+});
+
+const criticalSearch=byId('criticalSearch');
+if(criticalSearch)criticalSearch.addEventListener('input',()=>{
+  const q=criticalSearch.value.trim().toLowerCase();
+  document.querySelectorAll('#criticalTable tbody tr').forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none';});
+});
