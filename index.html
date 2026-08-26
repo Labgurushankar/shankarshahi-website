@@ -95,22 +95,13 @@
         <label>Target SD<input id="ljSD" type="number" step="any" placeholder="e.g. 2"></label>
       </div>
       <label class="full-label">QC Results<textarea id="ljResults" rows="3" placeholder="Enter sequential QC results"></textarea></label>
-      <button class="calc-btn" type="button" id="plotLJ">Generate LJ Chart</button>
+      <div class="lj-action-row">
+        <button class="calc-btn" type="button" id="plotLJ">Generate LJ Chart</button>
+        <button class="calc-btn secondary-calc-btn" type="button" id="downloadLJ" disabled>Download PNG</button>
+      </div>
       <div id="ljSummary" class="calc-output muted-output">Mean and SD limits will appear here.</div>
       <div class="chart-wrap"><canvas id="ljCanvas" width="760" height="390" aria-label="Levey-Jennings chart"></canvas></div>
       <div id="ljMeta" class="lj-meta muted-output">Test, month, mean and SD will appear below the chart.</div>
-      <button class="calc-btn secondary-calc-btn" type="button" id="downloadLJ" disabled>Download LJ Chart (PNG)</button>
-    </article>
-
-    <article class="qc-tool-card">
-      <div class="qc-tool-head"><span>⚖️</span><div><h3>Westgard Rule Checker</h3><p>1₂s, 1₃s, 2₂s, R₄s, 4₁s and 10x</p></div></div>
-      <div class="qc-form-grid">
-        <label>Target Mean<input id="wgMean" type="number" step="any" placeholder="e.g. 100"></label>
-        <label>Target SD<input id="wgSD" type="number" step="any" placeholder="e.g. 2"></label>
-      </div>
-      <label class="full-label">Sequential QC Results<textarea id="wgResults" rows="3" placeholder="Enter QC results in run order"></textarea></label>
-      <button class="calc-btn" type="button" id="checkWestgard">Check Westgard Rules</button>
-      <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
     </article>
 
     <article class="qc-tool-card">
@@ -235,15 +226,30 @@
       <p class="tool-note">Critical-result thresholds vary by institution, population, method and clinical context. Use this table only as a quick educational example and replace it with your laboratory's approved policy before operational use.</p>
     </article>
 
-    <article class="qc-tool-card wide-tool-card">
-      <div class="qc-tool-head"><span>🛠️</span><div><h3>QC Troubleshooting Guide</h3><p>Rule pattern → likely error type → practical first actions</p></div></div>
-      <div class="trouble-grid">
-        <details open><summary>1₂s warning</summary><p><b>Likely:</b> Early warning, possible random or systematic shift.<br><b>First actions:</b> Check next QC result, review reagent/control handling, do not reject solely on 1₂s unless local policy says so.</p></details>
-        <details><summary>1₃s</summary><p><b>Likely:</b> Significant random or systematic error.<br><b>First actions:</b> Reject run, repeat QC after checking pipetting, reagent/control preparation, instrument flags and calibration status.</p></details>
-        <details><summary>2₂s / 4₁s / 10x</summary><p><b>Likely:</b> Systematic error, shift or trend.<br><b>First actions:</b> Review calibration, reagent lot, control lot, maintenance, temperature and recent changes; recalibrate when justified.</p></details>
-        <details><summary>R₄s</summary><p><b>Likely:</b> Random error / imprecision.<br><b>First actions:</b> Check pipetting, aspiration, bubbles, probe condition, mixing, sample volume and mechanical instability.</p></details>
-        <details><summary>Sudden shift after new lot</summary><p><b>Likely:</b> Reagent/calibrator/control lot effect or recalibration issue.<br><b>First actions:</b> Perform lot-to-lot verification, review calibration and target values, compare old vs new lot.</p></details>
-        <details><summary>Gradual trend</summary><p><b>Likely:</b> Calibration drift, reagent deterioration, temperature or component aging.<br><b>First actions:</b> Review maintenance logs, reagent stability, calibration trend, temperature and instrument performance.</p></details>
+    <article class="qc-tool-card wide-tool-card westgard-trouble-card">
+      <div class="wg-trouble-grid">
+        <section class="wg-panel">
+          <div class="qc-tool-head"><span>⚖️</span><div><h3>Westgard Rule Checker</h3><p>1₂s, 1₃s, 2₂s, R₄s, 4₁s and 10x</p></div></div>
+          <div class="qc-form-grid">
+            <label>Target Mean<input id="wgMean" type="number" step="any" placeholder="e.g. 100"></label>
+            <label>Target SD<input id="wgSD" type="number" step="any" placeholder="e.g. 2"></label>
+          </div>
+          <label class="full-label">Sequential QC Results<textarea id="wgResults" rows="3" placeholder="Enter QC results in run order"></textarea></label>
+          <button class="calc-btn" type="button" id="checkWestgard">Check Westgard Rules</button>
+          <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
+        </section>
+
+        <section class="trouble-panel">
+          <div class="qc-tool-head"><span>🛠️</span><div><h3>QC Troubleshooting Guide</h3><p>Rule pattern → likely error type → practical first actions</p></div></div>
+          <div class="trouble-grid compact-trouble-grid">
+            <details open><summary>1₂s warning</summary><p><b>Likely:</b> Early warning, possible random or systematic shift.<br><b>First actions:</b> Check next QC result, review reagent/control handling, do not reject solely on 1₂s unless local policy says so.</p></details>
+            <details><summary>1₃s</summary><p><b>Likely:</b> Significant random or systematic error.<br><b>First actions:</b> Reject run, repeat QC after checking pipetting, reagent/control preparation, instrument flags and calibration status.</p></details>
+            <details><summary>2₂s / 4₁s / 10x</summary><p><b>Likely:</b> Systematic error, shift or trend.<br><b>First actions:</b> Review calibration, reagent lot, control lot, maintenance, temperature and recent changes; recalibrate when justified.</p></details>
+            <details><summary>R₄s</summary><p><b>Likely:</b> Random error / imprecision.<br><b>First actions:</b> Check pipetting, aspiration, bubbles, probe condition, mixing, sample volume and mechanical instability.</p></details>
+            <details><summary>Sudden shift after new lot</summary><p><b>Likely:</b> Reagent/calibrator/control lot effect or recalibration issue.<br><b>First actions:</b> Perform lot-to-lot verification, review calibration and target values, compare old vs new lot.</p></details>
+            <details><summary>Gradual trend</summary><p><b>Likely:</b> Calibration drift, reagent deterioration, temperature or component aging.<br><b>First actions:</b> Review maintenance logs, reagent stability, calibration trend, temperature and instrument performance.</p></details>
+          </div>
+        </section>
       </div>
     </article>
   </div>
@@ -317,17 +323,17 @@
       <p class="book-subtitle">A Practical Pocket Guide for Medical Laboratory Professionals and Clinicians</p>
       <div class="tea-offer">
         <div class="tea-icon">☕☕</div>
-        <div><strong>दुई कप चियाको मूल्यमा आफ्नो Clinical Correlation Pocket Guide!</strong><span>Practical clinical correlation at an affordable digital price.</span></div>
+        <div><strong>☕ दुई कप चियाको मूल्यमा Clinical Correlation को Digital Copy!</strong><span>केवल Rs. 100 मा — practical clinical correlation pocket guide.</span></div>
       </div>
       <p>Pattern-based interpretation with practical clinical correlation, key possibilities to think of, useful patterns and what to check next.</p>
       <div class="book-meta"><span>First Edition 2026</span><span>By Mr Shankar Shahi</span><span>Digital PDF Copy</span></div>
       <div class="price-row digital-price-row">
         <span class="digital-price-label">Special Digital Price</span>
-        <span class="offer-price">Rs. 150 only</span>
+        <span class="offer-price">Rs. 100 only</span>
       </div>
       <div class="book-actions">
         <a class="btn light" href="downloads/clinical-correlation-preview.pdf" target="_blank" rel="noopener">Preview Book</a>
-        <button class="btn buy-btn" type="button" id="buyBookBtn">Get Digital Copy - Rs. 150</button>
+        <button class="btn buy-btn" type="button" id="buyBookBtn">Get Digital Copy - Rs. 100</button>
       </div>
       <p class="secure-note">Full PDF is not publicly stored on this website. The private download link will be provided after payment confirmation.</p>
     </div>
@@ -352,7 +358,7 @@
   <h2>Software &amp; Learning Downloads</h2>
   <div class="download-list">
     <div><span>💻 <b>Shankar Quality &amp; Inventory Management System Suite</b><small>Combined Windows desktop software • QMS + Inventory • Trial version</small></span><a class="download-link" target="_blank" rel="noopener" href="https://drive.google.com/file/d/13DNau94dhsfoKjb-DwAwYcElPKhXk1dD/view?usp=drivesdk">Download Trial</a></div>
-    <div><span>📚 <b>Clinical Correlation of Laboratory Findings</b><small>Digital PDF copy • Special price Rs. 150</small></span><a class="download-link" href="#books">View Book</a></div>
+    <div><span>📚 <b>Clinical Correlation of Laboratory Findings</b><small>Digital PDF copy • Special price Rs. 100</small></span><a class="download-link" href="#books">View Book</a></div>
     <div><span>📊 <b>PowerPoint Presentations</b><small>Laboratory and QC slides</small></span><button class="download-placeholder" type="button">Download</button></div>
     <div><span>📄 <b>Sample SOP Format - Glucose (GOD-POD)</b><small>Free educational SOP template PDF</small></span><span class="download-actions-inline"><a class="download-link" href="downloads/sample-sop-glucose-god-pod.pdf" target="_blank" rel="noopener">View</a><a class="download-link" href="downloads/sample-sop-glucose-god-pod.pdf" download>Download</a></span></div>
   </div>
@@ -365,14 +371,14 @@
     <button class="modal-close" id="closeBookModal" type="button" aria-label="Close">×</button>
     <small>BOOK PURCHASE</small>
     <h2 id="purchaseTitle">Clinical Correlation of Laboratory Findings</h2>
-    <div class="modal-price digital-modal-price"><span>Digital Edition</span><strong>Rs. 150 only</strong><em>☕☕ Two-cup-of-tea price</em></div>
+    <div class="modal-price digital-modal-price"><span>Digital Edition</span><strong>Rs. 100 only</strong><em>☕☕ दुई कप चियाको मूल्य</em></div>
     <div class="manual-payment-grid">
       <img src="assets/esewa-qr-shankar-shahi.jpeg" alt="eSewa QR code for Shankar Shahi">
       <div>
         <h3>Pay manually with eSewa</h3>
-        <p><strong>eSewa Name:</strong> Shankar Shahi<br><strong>eSewa Number:</strong> 9841467187<br><strong>Amount:</strong> Rs. 150</p>
+        <p><strong>eSewa Name:</strong> Shankar Shahi<br><strong>eSewa Number:</strong> 9841467187<br><strong>Amount:</strong> Rs. 100</p>
         <div class="payment-steps">
-          <div><b>1</b><span>Scan the QR code and pay exactly Rs. 150.</span></div>
+          <div><b>1</b><span>Scan the QR code and pay exactly Rs. 100.</span></div>
           <div><b>2</b><span>Save the successful payment screenshot or transaction ID.</span></div>
           <div><b>3</b><span>Send the proof on WhatsApp. The private full-book link will be provided after confirmation.</span></div>
         </div>
@@ -381,7 +387,7 @@
     <p class="modal-note">The full paid PDF is not publicly stored in the website files.</p>
     <div class="modal-actions">
       <a class="btn light" href="downloads/clinical-correlation-preview.pdf" target="_blank" rel="noopener">Open Preview</a>
-      <a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/9779841467187?text=Hello%20Mr%20Shankar%20Shahi%2C%20I%20have%20paid%20Rs.%20150%20for%20Clinical%20Correlation%20of%20Laboratory%20Findings.%20I%20am%20sending%20the%20payment%20proof.%20Please%20provide%20the%20download%20link.">Send Payment Proof</a>
+      <a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/9779841467187?text=Hello%20Mr%20Shankar%20Shahi%2C%20I%20have%20paid%20Rs.%20100%20for%20Clinical%20Correlation%20of%20Laboratory%20Findings.%20I%20am%20sending%20the%20payment%20proof.%20Please%20provide%20the%20download%20link.">Send Payment Proof</a>
     </div>
   </div>
 </div>

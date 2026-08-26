@@ -54,3 +54,10 @@ Update notes:
 - Software Download Trial button in Download Center now points to the existing Google Drive trial installer.
 - Contact section expanded with WhatsApp, YouTube, website, and location.
 - Visitor analytics is NOT hard-coded yet because Cloudflare Web Analytics requires the site's unique beacon token.
+
+
+Compact QC update:
+- Generate LJ Chart and Download PNG now share one horizontal action row on desktop.
+- Westgard Rule Checker and QC Troubleshooting Guide are combined in one wide side-by-side section.
+- Digital book special price changed from Rs. 150 to Rs. 100.
+- Promotional line updated to "two cups of tea" concept.

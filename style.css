@@ -213,3 +213,58 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .contact-static{cursor:default}
 @media(max-width:850px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.contact-grid{grid-template-columns:1fr}.tea-offer{align-items:flex-start}.tea-icon{font-size:26px}}
+
+
+/* Compact LJ actions */
+.lj-action-row{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(150px,.65fr);
+  gap:10px;
+  align-items:stretch;
+  margin-top:8px;
+}
+.lj-action-row .calc-btn{
+  width:100%;
+  margin:0;
+}
+.lj-action-row #downloadLJ:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+.chart-wrap{margin-top:10px}
+.lj-meta{margin-top:7px}
+
+/* Westgard + troubleshooting compact side-by-side layout */
+.westgard-trouble-card{padding:16px}
+.wg-trouble-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:18px;
+  align-items:start;
+}
+.wg-panel{
+  padding-right:18px;
+  border-right:1px solid #d9e5ee;
+}
+.trouble-panel{min-width:0}
+.compact-trouble-grid{
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.compact-trouble-grid details{margin:0}
+.compact-trouble-grid summary{font-size:13px}
+.compact-trouble-grid p{font-size:12px;line-height:1.45}
+
+@media(max-width:900px){
+  .wg-trouble-grid{grid-template-columns:1fr}
+  .wg-panel{
+    padding-right:0;
+    padding-bottom:14px;
+    border-right:0;
+    border-bottom:1px solid #d9e5ee;
+  }
+}
+@media(max-width:600px){
+  .lj-action-row{grid-template-columns:1fr}
+  .compact-trouble-grid{grid-template-columns:1fr}
+}
