@@ -61,3 +61,11 @@ Compact QC update:
 - Westgard Rule Checker and QC Troubleshooting Guide are combined in one wide side-by-side section.
 - Digital book special price changed from Rs. 150 to Rs. 100.
 - Promotional line updated to "two cups of tea" concept.
+
+
+Full-width LJ update:
+- Levey-Jennings calculator moved below Daily Repeat / Precision.
+- LJ card now spans the full QC section width.
+- Chart preview expands across the full card instead of staying in a narrow middle column.
+- Generate LJ Chart and Download PNG remain side-by-side on desktop.
+- All other website sections and book price remain unchanged.

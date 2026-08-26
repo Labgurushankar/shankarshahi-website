@@ -268,3 +268,43 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
   .lj-action-row{grid-template-columns:1fr}
   .compact-trouble-grid{grid-template-columns:1fr}
 }
+
+
+/* Full-width Levey-Jennings layout */
+.lj-full-card{
+  grid-column:1 / -1;
+  width:100%;
+}
+.lj-full-card .qc-form-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.lj-full-card .chart-wrap{
+  width:100%;
+  overflow:hidden;
+  margin-top:10px;
+}
+.lj-full-card .chart-wrap canvas{
+  display:block;
+  width:100% !important;
+  max-width:100%;
+  height:auto !important;
+  min-height:360px;
+}
+.lj-full-card .lj-action-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(160px,.45fr);
+  gap:10px;
+  max-width:560px;
+}
+.lj-full-card .lj-action-row .calc-btn{
+  width:100%;
+  margin:0;
+}
+@media(max-width:900px){
+  .lj-full-card .qc-form-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:600px){
+  .lj-full-card .qc-form-grid{grid-template-columns:1fr;}
+  .lj-full-card .lj-action-row{grid-template-columns:1fr;}
+  .lj-full-card .chart-wrap canvas{min-height:280px;}
+}
