@@ -46,3 +46,11 @@ Paid book demo added: Clinical Correlation of Laboratory Findings, Rs. 500 regul
 - Expanded routine laboratory unit converter including thyroid tests and common chemistry/hematology/hormone conversions.
 - Added free Sample SOP Format PDF: Glucose (GOD-POD Method).
 - Added View/Download SOP links in Resources and Download Center.
+
+
+
+Update notes:
+- Digital book price changed to Rs. 150 with the "two cups of tea" promotional message.
+- Software Download Trial button in Download Center now points to the existing Google Drive trial installer.
+- Contact section expanded with WhatsApp, YouTube, website, and location.
+- Visitor analytics is NOT hard-coded yet because Cloudflare Web Analytics requires the site's unique beacon token.

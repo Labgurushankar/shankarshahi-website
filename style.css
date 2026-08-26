@@ -189,3 +189,27 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .sop-actions{display:flex;gap:10px;flex-wrap:wrap}.sop-actions a{font-size:13px}
 .download-actions-inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .qc-tool-card optgroup{font-weight:800;color:#17324d}.qc-tool-card option{font-weight:400}
+
+
+/* Digital book offer */
+.tea-badge{background:linear-gradient(135deg,#0f6eb8,#11a5d9)!important;color:#fff!important}
+.tea-offer{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#fff8e8,#fffdf7);border:1px solid #f0d89d;border-radius:14px;padding:12px 14px;margin:10px 0}
+.tea-icon{font-size:31px;line-height:1;white-space:nowrap}
+.tea-offer strong{display:block;color:#7a4b00;font-size:16px;line-height:1.35}
+.tea-offer span{display:block;color:#6a6358;font-size:12px;margin-top:3px}
+.digital-price-row{align-items:center}
+.digital-price-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#506b7e;background:#eef5fa;padding:5px 9px;border-radius:14px}
+.digital-modal-price em{background:#fff4cf;color:#7a4b00}
+
+/* Contact cards */
+.contact-section{text-align:center}
+.contact-section>p{max-width:760px;margin:0 auto 18px}
+.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:1050px;margin:18px auto 0}
+.contact-card{display:flex;align-items:center;gap:11px;text-align:left;text-decoration:none!important;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:14px;border-radius:13px;transition:.2s ease}
+.contact-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.13)}
+.contact-card b{display:block;color:#fff;font-size:14px}
+.contact-card small{display:block;color:#cbd9e5;font-size:11px;margin-top:2px}
+.contact-icon{font-size:24px}
+.contact-static{cursor:default}
+@media(max-width:850px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.contact-grid{grid-template-columns:1fr}.tea-offer{align-items:flex-start}.tea-icon{font-size:26px}}
