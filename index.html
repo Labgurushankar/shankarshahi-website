@@ -75,20 +75,7 @@
   <p class="section-intro">A practical QC calculator hub for Internal QC, Levey-Jennings, Westgard rules, daily repeat precision, lot-to-lot verification, method verification, unit conversion, critical-value reference and QC troubleshooting.</p>
 
   <div class="qc-tool-grid">
-
-    <article class="qc-tool-card">
-      <div class="qc-tool-head"><span>🔁</span><div><h3>Daily Repeat / Precision</h3><p>Pair comparison, difference, % difference and repeatability</p></div></div>
-      <div class="qc-form-grid">
-        <label>Run 1<input id="drRun1" type="number" step="any" placeholder="e.g. 101.2"></label>
-        <label>Run 2<input id="drRun2" type="number" step="any" placeholder="e.g. 100.4"></label>
-        <label>Allowable % Difference<input id="drAllow" type="number" step="any" placeholder="optional, e.g. 5"></label>
-        <label>Test Name<input id="drTest" type="text" placeholder="e.g. Glucose"></label>
-      </div>
-      <button class="calc-btn" type="button" id="calculateDailyRepeat">Calculate Repeat Check</button>
-      <div id="dailyRepeatOutput" class="calc-output muted-output">Enter two repeat results. Optional allowable % gives PASS/REVIEW.</div>
-    </article>
-
-    <article class="qc-tool-card wide-tool-card lj-full-card">
+    <article class="qc-tool-card qc-half-card">
       <div class="qc-tool-head"><span>📊</span><div><h3>Internal QC Calculator</h3><p>Mean, SD, CV%, Bias% and SDI</p></div></div>
       <div class="qc-form-grid">
         <label>Target Mean<input id="iqcTargetMean" type="number" step="any" placeholder="e.g. 100"></label>
@@ -99,7 +86,7 @@
       <div id="iqcOutput" class="calc-output muted-output">Enter target values and at least 2 QC results.</div>
     </article>
 
-    <article class="qc-tool-card">
+    <article class="qc-tool-card wide-tool-card lj-full-card">
       <div class="qc-tool-head"><span>📈</span><div><h3>Levey-Jennings Calculator</h3><p>Mean ±1SD, ±2SD, ±3SD and QC chart</p></div></div>
       <div class="qc-form-grid">
         <label>Test Name<input id="ljTestName" type="text" placeholder="e.g. Glucose"></label>
@@ -115,6 +102,18 @@
       <div id="ljSummary" class="calc-output muted-output">Mean and SD limits will appear here.</div>
       <div class="chart-wrap"><canvas id="ljCanvas" width="760" height="390" aria-label="Levey-Jennings chart"></canvas></div>
       <div id="ljMeta" class="lj-meta muted-output">Test, month, mean and SD will appear below the chart.</div>
+    </article>
+
+    <article class="qc-tool-card qc-half-card">
+      <div class="qc-tool-head"><span>🔁</span><div><h3>Daily Repeat / Precision</h3><p>Pair comparison, difference, % difference and repeatability</p></div></div>
+      <div class="qc-form-grid">
+        <label>Run 1<input id="drRun1" type="number" step="any" placeholder="e.g. 101.2"></label>
+        <label>Run 2<input id="drRun2" type="number" step="any" placeholder="e.g. 100.4"></label>
+        <label>Allowable % Difference<input id="drAllow" type="number" step="any" placeholder="optional, e.g. 5"></label>
+        <label>Test Name<input id="drTest" type="text" placeholder="e.g. Glucose"></label>
+      </div>
+      <button class="calc-btn" type="button" id="calculateDailyRepeat">Calculate Repeat Check</button>
+      <div id="dailyRepeatOutput" class="calc-output muted-output">Enter two repeat results. Optional allowable % gives PASS/REVIEW.</div>
     </article>
 
     <article class="qc-tool-card">

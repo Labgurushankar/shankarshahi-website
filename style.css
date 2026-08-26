@@ -270,9 +270,26 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 }
 
 
-/* Full-width Levey-Jennings layout */
+/* Corrected QC desktop layout:
+   Internal QC + Daily Repeat share the first row;
+   Levey-Jennings gets the entire next row. */
+@media(min-width:1001px){
+  .qc-tool-grid{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .qc-tool-grid > .qc-tool-card{
+    grid-column:span 2;
+  }
+  .qc-tool-grid > .qc-half-card{
+    grid-column:span 3;
+  }
+  .qc-tool-grid > .lj-full-card,
+  .qc-tool-grid > .wide-tool-card{
+    grid-column:1 / -1;
+  }
+}
+
 .lj-full-card{
-  grid-column:1 / -1;
   width:100%;
 }
 .lj-full-card .qc-form-grid{
@@ -281,18 +298,17 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
 .lj-full-card .chart-wrap{
   width:100%;
   overflow:hidden;
-  margin-top:10px;
 }
 .lj-full-card .chart-wrap canvas{
   display:block;
   width:100% !important;
   max-width:100%;
-  height:auto !important;
-  min-height:360px;
+  min-width:0 !important;
+  height:390px !important;
 }
 .lj-full-card .lj-action-row{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(160px,.45fr);
+  grid-template-columns:minmax(0,1fr) minmax(160px,.42fr);
   gap:10px;
   max-width:560px;
 }
@@ -300,11 +316,32 @@ footer{background:#091d2c;color:#b8c9d6;text-align:center;padding:14px;font-size
   width:100%;
   margin:0;
 }
-@media(max-width:900px){
-  .lj-full-card .qc-form-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+
+@media(max-width:1000px){
+  .qc-half-card,
+  .lj-full-card,
+  .wide-tool-card{
+    grid-column:auto;
+  }
+  .lj-full-card{
+    grid-column:1 / -1;
+  }
+  .lj-full-card .qc-form-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
-@media(max-width:600px){
-  .lj-full-card .qc-form-grid{grid-template-columns:1fr;}
-  .lj-full-card .lj-action-row{grid-template-columns:1fr;}
-  .lj-full-card .chart-wrap canvas{min-height:280px;}
+@media(max-width:700px){
+  .lj-full-card{
+    grid-column:auto;
+  }
+  .lj-full-card .qc-form-grid,
+  .lj-full-card .lj-action-row{
+    grid-template-columns:1fr;
+  }
+  .lj-full-card .chart-wrap{
+    overflow-x:auto;
+  }
+  .lj-full-card .chart-wrap canvas{
+    min-width:620px !important;
+  }
 }

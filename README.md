@@ -63,9 +63,9 @@ Compact QC update:
 - Promotional line updated to "two cups of tea" concept.
 
 
-Full-width LJ update:
-- Levey-Jennings calculator moved below Daily Repeat / Precision.
-- LJ card now spans the full QC section width.
-- Chart preview expands across the full card instead of staying in a narrow middle column.
-- Generate LJ Chart and Download PNG remain side-by-side on desktop.
-- All other website sections and book price remain unchanged.
+Corrected layout fix:
+- Internal QC is no longer full-width.
+- Daily Repeat / Precision and Internal QC share the top row 50/50 on desktop.
+- Levey-Jennings is the full-width card directly below them.
+- LJ chart expands across the full available QC section width.
+- Existing Rs.100 book pricing and other website features are unchanged.
