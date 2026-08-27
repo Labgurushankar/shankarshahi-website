@@ -71,10 +71,9 @@ Corrected layout fix:
 - Existing Rs.100 book pricing and other website features are unchanged.
 
 
-Software update:
-- Replaced old software download target with Shankar_Combine_Soft_Suit_V1_Setup.exe.
-- Installer included inside downloads/ folder.
-- Installer size: 95.97 MB.
-- Software offer now displays LIMITED TIME OFFER / FREE DOWNLOAD.
-- Software purchase/download buttons now download the new installer.
-- Other website content was preserved.
+Final software link update:
+- Verified Google Drive file: Shankar_Combine_Soft_Suit_V1_Setup.exe
+- Website software buttons now open the verified Google Drive file.
+- Software offer changed to LIMITED TIME OFFER / FREE DOWNLOAD.
+- EXE is not included in this ZIP, so the website package stays lightweight.
+- Other website sections are preserved.
