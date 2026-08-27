@@ -69,3 +69,12 @@ Corrected layout fix:
 - Levey-Jennings is the full-width card directly below them.
 - LJ chart expands across the full available QC section width.
 - Existing Rs.100 book pricing and other website features are unchanged.
+
+
+Software update:
+- Replaced old software download target with Shankar_Combine_Soft_Suit_V1_Setup.exe.
+- Installer included inside downloads/ folder.
+- Installer size: 95.97 MB.
+- Software offer now displays LIMITED TIME OFFER / FREE DOWNLOAD.
+- Software purchase/download buttons now download the new installer.
+- Other website content was preserved.
