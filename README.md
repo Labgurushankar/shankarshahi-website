@@ -77,3 +77,8 @@ Final software link update:
 - Software offer changed to LIMITED TIME OFFER / FREE DOWNLOAD.
 - EXE is not included in this ZIP, so the website package stays lightweight.
 - Other website sections are preserved.
+
+
+Software link-only update:
+- Replaced the previous Google Drive software URL with the new verified `latest updated software.exe` URL.
+- No other website content, design, pricing, QC tools, book section, or contact details were changed.
