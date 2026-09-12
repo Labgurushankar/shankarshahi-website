@@ -253,3 +253,7 @@ if(criticalSearch)criticalSearch.addEventListener('input',()=>{
   const q=criticalSearch.value.trim().toLowerCase();
   document.querySelectorAll('#criticalTable tbody tr').forEach(tr=>{tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none';});
 });
+
+// Open the new book payment instructions from an in-page or preview link.
+function openQmsPayment(){if(location.hash==='#qms-book-payment'){const p=document.getElementById('qms-book-payment');if(p)p.open=true;}}
+window.addEventListener('hashchange',openQmsPayment);openQmsPayment();

@@ -1,0 +1,7 @@
+Current website package — 12 September 2026
+Clinical Correlation: preview pages 1–57 of 114; digital PDF Rs. 100.
+Practical Quality Management: preview pages 1–41 of 82; digital PDF Rs. 200.
+Full paid books are not bundled. QMS page images 42–82 have been removed.
+LIS screenshots and supplied Google Drive installer link included. Trial offer remains 90 days; installer licensing was not independently tested.
+Upload contents to the existing GitHub Pages publishing directory. If the earlier full-preview package was already uploaded, delete assets/qms-preview/page-042.jpg through page-082.jpg from that repository too: uploading this ZIP does not delete old files. Previously public copies/history are not erased by a new upload.
+No live deployment has been made.
