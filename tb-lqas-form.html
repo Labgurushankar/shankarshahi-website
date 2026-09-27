@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TB LQAS Form | ShankarShahi.com.np</title>
+<style>
+:root{
+  --line:#333;
+  --red:#d32f2f;
+  --blue:#dbe8ff;
+  --gray:#f3f3f3;
+  --green:#1b7f4f;
+}
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#f4f6f9;color:#111}
+.sitebar{
+  max-width:1450px;margin:10px auto 0;padding:10px 14px;background:#0f4c81;color:#fff;
+  border-radius:8px 8px 0 0;display:flex;justify-content:space-between;gap:12px;align-items:center
+}
+.sitehint{font-size:12px;opacity:.9}
+.wrap{max-width:1450px;margin:0 auto 14px;padding:12px}
+.toolbar{
+  background:#fff;border:1px solid #d5dae2;border-radius:8px;padding:10px 12px;margin-bottom:10px;
+  display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap
+}
+.toolbar .left,.toolbar .right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{
+  border:0;border-radius:6px;padding:9px 13px;font-weight:700;cursor:pointer
+}
+.primary{background:#2f6fed;color:#fff}.green{background:#1c8b57;color:#fff}
+.light{background:#eef2f6}.danger{background:#d84545;color:#fff}
+.sheet{
+  background:#fff;border:1.8px solid var(--line);padding:10px;box-shadow:0 2px 8px rgba(0,0,0,.08)
+}
+.header{
+  display:grid;grid-template-columns:1fr 3fr 1fr;align-items:start;gap:8px;margin-bottom:5px
+}
+.code{font-weight:700;font-size:12px;padding-top:2px}
+.org{text-align:center;line-height:1.15}
+.org .program{font-size:14px;font-weight:700}
+.org .np{font-size:11px}
+.org .title{font-size:16px;font-weight:800;margin-top:3px}
+.org .sub{font-size:10px}
+.rightcode{text-align:right;font-weight:700;font-size:12px;padding-top:2px}
+.info-grid{
+  display:grid;grid-template-columns:1fr 1fr;column-gap:14px;row-gap:3px;margin-top:4px
+}
+.field{
+  display:grid;grid-template-columns:auto 1fr;align-items:end;gap:5px;font-size:11px;font-weight:700
+}
+.field.full{grid-column:1/-1}
+.field input{
+  width:100%;border:0;border-bottom:1px dotted #111;padding:2px 3px;font-size:11px;outline:none;background:transparent
+}
+.field .mini{font-size:9px;font-weight:500}
+.inline3{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;grid-column:1/-1
+}
+.section-title{
+  text-align:center;font-size:11px;font-weight:800;margin:6px 0 3px;text-transform:uppercase
+}
+.mc-table,.slides{
+  width:100%;border-collapse:collapse;table-layout:fixed
+}
+.mc-table th,.mc-table td,.slides th,.slides td{
+  border:1px solid var(--line);padding:3px 4px;font-size:9.5px;text-align:center;vertical-align:middle
+}
+.mc-table th{background:#eee;font-size:9.5px}
+.mc-table input,.slides input,.slides select{
+  width:100%;border:0;outline:none;background:transparent;text-align:center;font-size:9.5px;padding:1px
+}
+.mc-table .calc{background:#dce9ff;font-weight:800;color:var(--red)}
+.mc-table .calc input{font-weight:800;color:var(--red)}
+.mc-table .label{text-align:left;font-weight:700}
+.slides th{background:#f0f0f0;font-weight:800}
+.slides .sn{width:6%}.slides .slide{width:17%}.slides .res{width:10%}
+.signature-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:5px;font-size:9.5px
+}
+.signature-row .sig{
+  display:grid;grid-template-columns:auto 1fr;gap:4px;align-items:end;font-weight:700
+}
+.signature-row input{
+  width:100%;border:0;border-bottom:1px dotted #111;background:transparent;font-size:9.5px;outline:none
+}
+.smallnote{font-size:8.5px;margin-top:4px;color:#444}
+@media screen and (max-width:900px){
+  .info-grid{grid-template-columns:1fr}
+  .inline3{grid-template-columns:1fr}
+}
+@page{
+  size:A4 landscape;
+  margin:7mm;
+}
+@media print{
+  html,body{background:#fff !important;width:100%;height:auto}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sitebar,.toolbar{display:none!important}
+  .wrap{max-width:none!important;width:100%!important;margin:0!important;padding:0!important}
+  .sheet{
+    width:100%!important;
+    border:1px solid #222!important;
+    box-shadow:none!important;
+    padding:4px!important;
+    page-break-inside:avoid!important;
+    break-inside:avoid!important
+  }
+  .header{
+    display:grid!important;
+    grid-template-columns:1fr 3fr 1fr!important;
+    align-items:start!important;
+    gap:6px!important;
+    margin-bottom:2px!important
+  }
+  .org .program{font-size:11px!important}
+  .org .title{font-size:13px!important}
+  .org .np,.org .sub{font-size:7.5px!important}
+  .code,.rightcode{font-size:9px!important}
+
+  /* Critical fix: keep the top identification area in TWO columns while printing. */
+  .info-grid{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    column-gap:10px!important;
+    row-gap:1px!important;
+    margin-top:2px!important
+  }
+  .field{
+    display:grid!important;
+    grid-template-columns:auto 1fr!important;
+    align-items:end!important;
+    gap:3px!important;
+    font-size:8.2px!important;
+    font-weight:700!important;
+    min-width:0!important
+  }
+  .field.full{grid-column:1/-1!important}
+  .field input{
+    width:100%!important;
+    min-width:0!important;
+    border:0!important;
+    border-bottom:1px dotted #111!important;
+    padding:0 2px!important;
+    font-size:8.2px!important;
+    line-height:1.05!important;
+    background:transparent!important
+  }
+  .field .mini{font-size:6.8px!important}
+
+  .section-title{font-size:8.5px!important;margin:2px 0 1px!important}
+  .mc-table,.slides{width:100%!important;table-layout:fixed!important}
+  .mc-table th,.mc-table td,.slides th,.slides td{
+    font-size:7.5px!important;
+    padding:1px 2px!important;
+    line-height:1.05!important
+  }
+  .mc-table input,.slides input,.slides select{
+    font-size:7.5px!important;
+    padding:0!important;
+    height:14px!important
+  }
+  .slides th{font-size:7.5px!important}
+  .signature-row{font-size:7.5px!important;gap:8px!important;margin-top:2px!important}
+  .signature-row input{font-size:7.5px!important;padding:0!important}
+  .smallnote{display:none!important}
+
+  /* Prevent responsive CSS from stacking sections in print preview. */
+  .main,.main tbody,.main tr,.main td{display:revert!important;width:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="sitebar">
+  <div><strong>ShankarShahi.com.np</strong> &nbsp;|&nbsp; TB LQAS Form</div>
+  <div class="sitehint">Web-based LQAS smear result & slide selection form</div>
+</div>
+<div class="wrap">
+  <div class="toolbar">
+    <div class="left">
+      <strong>TB LQAS Form</strong>
+      <span style="font-size:12px;color:#555">ShankarShahi.com.np • Fill → Calculate → Print on one A4 landscape page</span>
+    </div>
+    <div class="right">
+      <button class="primary" onclick="saveData()">Save</button>
+      <button class="green" onclick="loadData()">Load</button>
+      <button class="light" onclick="window.print()">Print / PDF</button>
+      <button class="danger" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="header">
+      <div class="code">LQAS-1</div>
+      <div class="org">
+        <div class="program">National Tuberculosis Programme</div>
+        <div class="np">राष्ट्रिय क्षयरोग कार्यक्रम</div>
+        <div class="title">Smear Result Sheet for Lot Quality Assurance System</div>
+        <div class="sub">खकार थप परीक्षणको गुणस्तर जाँच नतिजा फारम</div>
+      </div>
+      <div class="rightcode">PHL BAGAMATI/QC</div>
+    </div>
+
+    <div class="info-grid">
+      <div class="field"><span>Microscopy Center <span class="mini">सूक्ष्मदर्शकीय केन्द्र</span>:</span><input id="microscopyCenter"></div>
+      <div class="field"><span>District <span class="mini">जिल्ला</span>:</span><input id="district"></div>
+
+      <div class="field"><span>Local Level <span class="mini">स्थानीय तह</span>:</span><input id="localLevel"></div>
+      <div class="field"><span>Quarter / Year:</span><input id="quarterYear" placeholder="e.g. 1st quarter of 2083/84"></div>
+
+      <div class="field"><span>Month From <span class="mini">महिना देखि</span>:</span><input id="monthFrom"></div>
+      <div class="field"><span>Month To <span class="mini">सम्म</span>:</span><input id="monthTo"></div>
+
+      <div class="field"><span>Date of Record <span class="mini">रेकर्ड मिति</span>:</span><input id="recordDate" type="date"></div>
+      <div class="field"><span>Lab Incharge <span class="mini">प्रयोगशाला प्रमुख</span>:</span><input id="labIncharge"></div>
+
+      <div class="field"><span>Recorded by <span class="mini">रेकर्ड गर्ने</span>:</span><input id="recordedBy"></div>
+      <div class="field"><span>Signature <span class="mini">सहीछाप</span>:</span><input id="recordSignature"></div>
+
+      <div class="field"><span>Contact No.:</span><input id="contactNo"></div>
+      <div class="field"><span>E-mail:</span><input id="email" type="email"></div>
+
+      <div class="field"><span>Name of LQAS Supervisor:</span><input id="supervisor"></div>
+      <div class="field"><span>Signature:</span><input id="supervisorSignature"></div>
+    </div>
+
+    <div class="section-title">MC Report & Process of Slide Selection</div>
+    <table class="mc-table">
+      <tr>
+        <th colspan="2">MC Report of Previous Year</th>
+        <th colspan="2">Process of Slide Selection</th>
+        <th colspan="2">MC Report of Current Fiscal Year</th>
+      </tr>
+      <tr>
+        <td class="label">Total Slides Examined</td>
+        <td><input id="prevTotal" type="number" value="280" oninput="syncFromTotal()"></td>
+        <td class="label">Annual Sample Size</td>
+        <td class="calc"><input id="annualSample" readonly></td>
+        <td class="label">S. No. of First Slide Selected</td>
+        <td><input id="firstSlideSelected" type="number" value="1"></td>
+      </tr>
+      <tr>
+        <td class="label">Total Negative Slides</td>
+        <td><input id="prevNegative" type="number" value="268" oninput="syncFromNegative()"></td>
+        <td class="label">Quarterly Sample Size</td>
+        <td class="calc"><input id="quarterlySample" type="number" value="35" oninput="manualQuarterEdited()"></td>
+        <td class="label">Total Negative Slides Sent for EQA</td>
+        <td><input id="sentNegative" type="number" value="0" oninput="calculateAll()"></td>
+      </tr>
+      <tr>
+        <td class="label">Total Positive Slides</td>
+        <td><input id="prevPositive" type="number" value="12" oninput="syncFromPositive()"></td>
+        <td class="label">Total Slides Examined during Last Quarter</td>
+        <td><input id="lastQuarterSlides" type="number" value="0" oninput="calculateAll()"></td>
+        <td class="label">Total Positive Slides Sent for EQA</td>
+        <td><input id="sentPositive" type="number" value="0" oninput="calculateAll()"></td>
+      </tr>
+      <tr>
+        <td class="label">Slide Positivity Rate (SPR)</td>
+        <td class="calc"><input id="positivityRate" readonly></td>
+        <td class="label">Slide Interval</td>
+        <td class="calc"><input id="slideInterval" readonly></td>
+        <td class="label">Total Slides Sent for EQA</td>
+        <td class="calc"><input id="sentTotal" readonly></td>
+      </tr>
+      <tr>
+        <td colspan="6" style="text-align:left;padding:2px 4px">
+          <label style="font-size:8.5px"><input id="quarterAuto" type="checkbox" checked onchange="quarterModeChanged()"> Quarterly sample size auto = Annual Sample Size ÷ 3</label>
+          <span style="margin-left:18px;font-size:8.5px;font-weight:700">Auto: Total = Negative + Positive</span>
+        </td>
+      </tr>
+    </table>
+
+    <div class="section-title">Selected Slides and Result</div>
+    <table class="slides" id="slidesTable">
+      <thead>
+        <tr>
+          <th class="sn">S.N.</th><th class="slide">Slide No.</th><th class="res">Result</th>
+          <th class="sn">S.N.</th><th class="slide">Slide No.</th><th class="res">Result</th>
+          <th class="sn">S.N.</th><th class="slide">Slide No.</th><th class="res">Result</th>
+        </tr>
+      </thead>
+      <tbody id="slidesBody"></tbody>
+    </table>
+
+    <div class="signature-row">
+      <div class="sig"><span>Prepared by:</span><input id="preparedBy"></div>
+      <div class="sig"><span>Checked by:</span><input id="checkedBy"></div>
+      <div class="sig"><span>Approved by:</span><input id="approvedBy"></div>
+    </div>
+
+    <div class="smallnote">
+      Previous-year slide counts are linked automatically: Total = Negative + Positive. Enter Total + Negative to calculate Positive, or Total + Positive to calculate Negative. Annual Sample Size uses the supplied reference table (nearest annual negatives row and nearest SPR column).
+      Quarterly sample is automatic by default but can be typed manually by unticking the checkbox.
+      Slide Interval = Last Quarter Slides ÷ Quarterly Sample Size.
+    </div>
+  </div>
+</div>
+
+<script>
+const NEG_ROWS=[100,200,300,400,500,700,1000,2000,5000,10000,20000,50000];
+const SPR_COLS=[2.5,5.0,7.5,10.0,13.0,15.0,18.0];
+const SAMPLE={
+100:[78,63,54,47,40,36,32],
+200:[123,91,71,59,48,42,37],
+300:[154,105,80,64,52,45,38],
+400:[175,115,85,68,53,47,39],
+500:[192,121,89,69,54,47,40],
+700:[215,129,93,72,55,48,41],
+1000:[236,136,96,73,56,49,41],
+2000:[267,145,102,77,59,51,41],
+5000:[289,152,104,78,59,51,43],
+10000:[297,154,105,78,60,51,43],
+20000:[302,155,106,79,60,52,43],
+50000:[305,156,106,79,60,52,44]
+};
+function nearest(arr,val){return arr.reduce((a,b)=>Math.abs(b-val)<Math.abs(a-val)?b:a)}
+function num(id){const v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v}
+function annualLookup(neg,spr){
+  const row=nearest(NEG_ROWS,Math.max(neg,NEG_ROWS[0]));
+  const col=nearest(SPR_COLS,spr);
+  return SAMPLE[row][SPR_COLS.indexOf(col)];
+}
+
+let lastChangedPrevious = 'negative';
+
+function safeSetNumber(id, value){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const clean = Math.max(0, Number.isFinite(value) ? value : 0);
+  el.value = clean;
+}
+
+function syncFromNegative(){
+  lastChangedPrevious = 'negative';
+  const total = num('prevTotal');
+  const neg = num('prevNegative');
+  safeSetNumber('prevPositive', total - neg);
+  calculateAll();
+}
+
+function syncFromPositive(){
+  lastChangedPrevious = 'positive';
+  const total = num('prevTotal');
+  const pos = num('prevPositive');
+  safeSetNumber('prevNegative', total - pos);
+  calculateAll();
+}
+
+function syncFromTotal(){
+  const total = num('prevTotal');
+  if(lastChangedPrevious === 'positive'){
+    const pos = num('prevPositive');
+    safeSetNumber('prevNegative', total - pos);
+  }else{
+    const neg = num('prevNegative');
+    safeSetNumber('prevPositive', total - neg);
+  }
+  calculateAll();
+}
+
+function calculateAll(){
+  const total=num('prevTotal'), neg=num('prevNegative'), pos=num('prevPositive');
+  const spr=total>0?(pos/total*100):0;
+  document.getElementById('positivityRate').value=spr.toFixed(2)+'%';
+  const annual=annualLookup(neg,spr);
+  document.getElementById('annualSample').value=annual;
+  if(document.getElementById('quarterAuto').checked){
+    document.getElementById('quarterlySample').value=(annual/3).toFixed(annual%3===0?0:2);
+  }
+  const q=num('quarterlySample'), last=num('lastQuarterSlides');
+  const interval=q>0?last/q:0;
+  document.getElementById('slideInterval').value=interval>0?Math.max(1,Math.round(interval)):'0';
+  document.getElementById('sentTotal').value=num('sentNegative')+num('sentPositive');
+}
+function quarterModeChanged(){
+  const q=document.getElementById('quarterlySample');
+  q.readOnly=document.getElementById('quarterAuto').checked;
+  calculateAll();
+}
+function manualQuarterEdited(){ if(!document.getElementById('quarterAuto').checked) calculateAll(); }
+
+function buildSlides(){
+  const body=document.getElementById('slidesBody');
+  let html='';
+  for(let r=1;r<=10;r++){
+    const nums=[r,r+10,r+20];
+    html+='<tr>';
+    nums.forEach(n=>{
+      html+=`<td>${n}</td>
+      <td><input id="slide_${n}" type="text"></td>
+      <td><select id="result_${n}">
+        <option value=""></option>
+        <option>Negative</option>
+        <option>Scanty</option>
+        <option>1+</option>
+        <option>2+</option>
+        <option>3+</option>
+        <option>Positive</option>
+      </select></td>`;
+    });
+    html+='</tr>';
+  }
+  body.innerHTML=html;
+}
+buildSlides();
+
+function allIds(){
+  const base=['microscopyCenter','district','localLevel','quarterYear','monthFrom','monthTo','recordDate','labIncharge',
+  'recordedBy','recordSignature','contactNo','email','supervisor','supervisorSignature','prevTotal','prevNegative',
+  'prevPositive','annualSample','quarterlySample','lastQuarterSlides','positivityRate','slideInterval','firstSlideSelected',
+  'sentNegative','sentPositive','sentTotal','preparedBy','checkedBy','approvedBy'];
+  for(let i=1;i<=30;i++){base.push('slide_'+i,'result_'+i)}
+  return base;
+}
+function saveData(){
+  const d={quarterAuto:document.getElementById('quarterAuto').checked};
+  allIds().forEach(id=>{const e=document.getElementById(id);if(e)d[id]=e.value});
+  localStorage.setItem('lqas_complete_v3',JSON.stringify(d));
+  alert('Form saved in this browser.');
+}
+function loadData(){
+  const raw=localStorage.getItem('lqas_complete_v3');
+  if(!raw){alert('No saved form found.');return}
+  const d=JSON.parse(raw);
+  if(typeof d.quarterAuto==='boolean')document.getElementById('quarterAuto').checked=d.quarterAuto;
+  Object.entries(d).forEach(([id,v])=>{const e=document.getElementById(id);if(e && id!=='quarterAuto')e.value=v});
+  lastChangedPrevious='negative'; syncFromNegative(); quarterModeChanged(); calculateAll();
+  alert('Saved form loaded.');
+}
+function resetAll(){
+  if(!confirm('Reset the complete form?'))return;
+  document.querySelectorAll('input').forEach(e=>{
+    if(e.type==='checkbox')return;
+    if(e.type==='number')e.value=0;else e.value='';
+  });
+  document.querySelectorAll('select').forEach(e=>e.value='');
+  document.getElementById('prevTotal').value=280;
+  document.getElementById('prevNegative').value=268;
+  document.getElementById('prevPositive').value=12;
+  document.getElementById('firstSlideSelected').value=1;
+  document.getElementById('quarterAuto').checked=true;
+  quarterModeChanged(); calculateAll();
+}
+quarterModeChanged();
+calculateAll();
+</script>
+</body>
+</html>
