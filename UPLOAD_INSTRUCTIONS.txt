@@ -1,34 +1,16 @@
-DIRECT GITHUB UPLOAD — shankarshahi.com.np
+SHANKARSHAHI.COM.NP — TB LQAS UPDATE v2
 
-This package contains the two files needed for the update:
+Changes:
+- Removed PHL BAGAMATI/QC from the top-right.
+- Result dropdown remains available.
+- Selecting Scanty opens an extra field for details such as 5 bacilli/100 VF.
+- Save/Load keeps the scanty detail.
 
-1) index.html
-   - Current website homepage
-   - Added menu item: TB LQAS
-   - Position: immediately after About Me
-
-2) tb-lqas-form.html
-   - Complete TB LQAS web form
-   - Clicking TB LQAS opens this form
-
-GITHUB STEPS
-1. Extract the ZIP.
-2. Open:
-   https://github.com/Labgurushankar/shankarshahi-website
-3. Click Add file > Upload files.
-4. Upload BOTH files:
-   index.html
-   tb-lqas-form.html
+GitHub update:
+1. Extract this ZIP.
+2. Open https://github.com/Labgurushankar/shankarshahi-website
+3. Add file > Upload files
+4. Upload index.html and tb-lqas-form.html
 5. Commit changes.
 
-The existing index.html will be replaced by this updated index.html.
-Other website files do not need to be changed.
-
-MENU AFTER UPDATE
-Home | About Me | TB LQAS | QC Calculators | QMS System | Lab LIS | YouTube | Books | Resources | Contact
-
-FORM URL
-https://shankarshahi.com.np/tb-lqas-form.html
-
-IMPORTANT
-Upload the extracted files, not the ZIP itself.
+The TB LQAS menu stays after About Me.

@@ -198,7 +198,7 @@ button{
         <div class="title">Smear Result Sheet for Lot Quality Assurance System</div>
         <div class="sub">खकार थप परीक्षणको गुणस्तर जाँच नतिजा फारम</div>
       </div>
-      <div class="rightcode">PHL BAGAMATI/QC</div>
+      <div class="rightcode"></div>
     </div>
 
     <div class="info-grid">
@@ -389,28 +389,42 @@ function buildSlides(){
     nums.forEach(n=>{
       html+=`<td>${n}</td>
       <td><input id="slide_${n}" type="text"></td>
-      <td><select id="result_${n}">
-        <option value=""></option>
-        <option>Negative</option>
-        <option>Scanty</option>
-        <option>1+</option>
-        <option>2+</option>
-        <option>3+</option>
-        <option>Positive</option>
-      </select></td>`;
+      <td>
+        <select id="result_${n}" onchange="toggleScantyDetail(${n})">
+          <option value=""></option>
+          <option>Negative</option>
+          <option>Scanty</option>
+          <option>1+</option>
+          <option>2+</option>
+          <option>3+</option>
+          <option>Positive</option>
+        </select>
+        <input id="scanty_${n}" type="text" placeholder="e.g. 5 bacilli/100 VF" style="display:none;margin-top:2px;border-top:1px dotted #666;font-size:8px" />
+      </td>`;
     });
     html+='</tr>';
   }
   body.innerHTML=html;
 }
 buildSlides();
+function toggleScantyDetail(n){
+  const sel=document.getElementById('result_'+n);
+  const detail=document.getElementById('scanty_'+n);
+  if(!sel || !detail) return;
+  if(sel.value==='Scanty'){
+    detail.style.display='block';
+  }else{
+    detail.style.display='none';
+    detail.value='';
+  }
+}
 
 function allIds(){
   const base=['microscopyCenter','district','localLevel','quarterYear','monthFrom','monthTo','recordDate','labIncharge',
   'recordedBy','recordSignature','contactNo','email','supervisor','supervisorSignature','prevTotal','prevNegative',
   'prevPositive','annualSample','quarterlySample','lastQuarterSlides','positivityRate','slideInterval','firstSlideSelected',
   'sentNegative','sentPositive','sentTotal','preparedBy','checkedBy','approvedBy'];
-  for(let i=1;i<=30;i++){base.push('slide_'+i,'result_'+i)}
+  for(let i=1;i<=30;i++){base.push('slide_'+i,'result_'+i,'scanty_'+i)}
   return base;
 }
 function saveData(){
@@ -425,7 +439,8 @@ function loadData(){
   const d=JSON.parse(raw);
   if(typeof d.quarterAuto==='boolean')document.getElementById('quarterAuto').checked=d.quarterAuto;
   Object.entries(d).forEach(([id,v])=>{const e=document.getElementById(id);if(e && id!=='quarterAuto')e.value=v});
-  lastChangedPrevious='negative'; syncFromNegative(); quarterModeChanged(); calculateAll();
+  lastChangedPrevious='negative'; syncFromNegative(); for(let i=1;i<=30;i++) toggleScantyDetail(i);
+  quarterModeChanged(); calculateAll();
   alert('Saved form loaded.');
 }
 function resetAll(){
@@ -435,6 +450,7 @@ function resetAll(){
     if(e.type==='number')e.value=0;else e.value='';
   });
   document.querySelectorAll('select').forEach(e=>e.value='');
+  for(let i=1;i<=30;i++) toggleScantyDetail(i);
   document.getElementById('prevTotal').value=280;
   document.getElementById('prevNegative').value=268;
   document.getElementById('prevPositive').value=12;
