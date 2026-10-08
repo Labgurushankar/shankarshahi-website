@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QC / QA / TQM Presentation | Shankar Shahi</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--navy:#0e3a63;--blue:#1e6fb8;--bg:#eef3f8;--card:#fff;--text:#17212b;--muted:#64748b}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+body{user-select:none;-webkit-user-select:none}
+.top{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:10px 16px;box-shadow:0 3px 12px rgba(0,0,0,.15)}
+.top-inner{max-width:1450px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title strong{display:block;font-size:16px}.title span{font-size:12px;opacity:.9}
+.controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:8px;padding:8px 11px;font-weight:700;cursor:pointer;background:#fff;color:#163d60}
+button:disabled{opacity:.45;cursor:not-allowed}
+.counter{font-size:13px;font-weight:700;min-width:88px;text-align:center}
+.viewer-shell{max-width:1450px;margin:14px auto;padding:0 14px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:14px}
+.thumbs{background:#fff;border-radius:12px;padding:8px;height:calc(100vh - 100px);overflow:auto;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.thumb{position:relative;margin:6px 0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:#e9eef5}
+.thumb.active{border-color:#1e6fb8}.thumb img{display:block;width:100%;pointer-events:none}.thumb span{position:absolute;left:5px;bottom:4px;background:rgba(0,0,0,.65);color:white;font-size:10px;padding:2px 5px;border-radius:4px}
+.stage{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.slide-frame{position:relative;width:100%;background:#111;border-radius:12px;overflow:hidden;box-shadow:0 5px 22px rgba(0,0,0,.18);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.slide-frame img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;pointer-events:none;-webkit-user-drag:none}
+.guard{position:absolute;inset:0;z-index:3;background:transparent}
+.watermark{position:absolute;right:13px;bottom:10px;z-index:4;color:rgba(255,255,255,.55);background:rgba(0,0,0,.18);padding:4px 7px;border-radius:5px;font-size:10px;pointer-events:none}
+.hint{font-size:12px;color:var(--muted);padding:9px;text-align:center}
+.mobile-thumbs{display:none}
+@media(max-width:850px){.viewer-shell{display:block;padding:0 8px}.thumbs{display:none}.mobile-thumbs{display:flex;gap:5px;overflow:auto;padding:8px 0}.mobile-thumbs button{min-width:42px;padding:7px}.slide-frame{border-radius:8px}.top{padding:8px}.title strong{font-size:14px}}
+@media print{body{display:none!important}}
+</style>
+</head>
+<body oncontextmenu="return false">
+<header class="top">
+  <div class="top-inner">
+    <div class="title"><strong>An Overview of Quality Control / Quality Assurance / Total Quality Management</strong><span>Mr. Shankar Shahi • Online view-only presentation</span></div>
+    <div class="controls">
+      <button id="prevBtn" type="button">◀ Previous</button>
+      <span class="counter" id="counter">1 / 64</span>
+      <button id="nextBtn" type="button">Next ▶</button>
+      <button id="fullBtn" type="button">⛶ Full Screen</button>
+    </div>
+  </div>
+</header>
+
+<div class="viewer-shell">
+  <aside class="thumbs" id="thumbs" aria-label="Slide thumbnails"></aside>
+  <main class="stage">
+    <div class="mobile-thumbs" id="mobileThumbs"></div>
+    <div class="slide-frame" id="slideFrame">
+      <img id="slideImage" src="presentations/qc-qa-tqm/slide-001.jpg" alt="Presentation slide 1" draggable="false">
+      <div class="guard" aria-hidden="true"></div>
+      <div class="watermark">© Shankar Shahi • View Only</div>
+    </div>
+    <div class="hint">Use Previous/Next, arrow keys, or thumbnails. Download controls are intentionally not provided.</div>
+  </main>
+</div>
+
+<script>
+(()=>{
+  const TOTAL=64;
+  let current=1;
+  const img=document.getElementById('slideImage');
+  const counter=document.getElementById('counter');
+  const prev=document.getElementById('prevBtn');
+  const next=document.getElementById('nextBtn');
+  const thumbs=document.getElementById('thumbs');
+  const mobile=document.getElementById('mobileThumbs');
+  const pad=n=>String(n).padStart(3,'0');
+  const path=n=>`presentations/qc-qa-tqm/slide-${pad(n)}.jpg`;
+
+  function go(n){
+    current=Math.min(TOTAL,Math.max(1,n));
+    img.src=path(current);
+    img.alt=`Presentation slide ${current}`;
+    counter.textContent=`${current} / ${TOTAL}`;
+    prev.disabled=current===1; next.disabled=current===TOTAL;
+    document.querySelectorAll('.thumb').forEach((el,i)=>el.classList.toggle('active',i+1===current));
+    const active=document.querySelector('.thumb.active');
+    if(active) active.scrollIntoView({block:'nearest'});
+  }
+
+  for(let i=1;i<=TOTAL;i++){
+    const d=document.createElement('div');
+    d.className='thumb'+(i===1?' active':'');
+    d.innerHTML=`<img src="${path(i)}" alt="Slide ${i}" loading="lazy" draggable="false"><span>${i}</span>`;
+    d.addEventListener('click',()=>go(i));
+    thumbs.appendChild(d);
+
+    const b=document.createElement('button');
+    b.type='button'; b.textContent=i; b.addEventListener('click',()=>go(i));
+    mobile.appendChild(b);
+  }
+
+  prev.addEventListener('click',()=>go(current-1));
+  next.addEventListener('click',()=>go(current+1));
+  document.getElementById('fullBtn').addEventListener('click',()=>{
+    const el=document.getElementById('slideFrame');
+    if(document.fullscreenElement) document.exitFullscreen(); else if(el.requestFullscreen) el.requestFullscreen();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown') go(current+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp') go(current-1);
+    if((e.ctrlKey||e.metaKey) && ['s','p','u'].includes(e.key.toLowerCase())) e.preventDefault();
+  });
+  document.addEventListener('dragstart',e=>e.preventDefault());
+  go(1);
+})();
+</script>
+</body>
+</html>

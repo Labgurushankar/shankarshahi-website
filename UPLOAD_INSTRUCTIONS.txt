@@ -1,16 +1,36 @@
-SHANKARSHAHI.COM.NP — TB LQAS UPDATE v2
+SHANKARSHAHI.COM.NP — POWERPOINT VIEW-ONLY WEBSITE UPDATE
 
-Changes:
-- Removed PHL BAGAMATI/QC from the top-right.
-- Result dropdown remains available.
-- Selecting Scanty opens an extra field for details such as 5 bacilli/100 VF.
-- Save/Load keeps the scanty detail.
+WHAT THIS UPDATE ADDS
+- New top-menu item: Presentations
+- New Online Presentations section
+- QC / QA / TQM presentation card
+- "View Presentation" opens a 64-slide browser viewer
+- No direct PPTX download link is provided
+- Previous / Next, thumbnails and Full Screen are available
+- Print shortcut and right-click are restricted in the viewer
+- Existing TB LQAS menu remains unchanged
 
-GitHub update:
-1. Extract this ZIP.
-2. Open https://github.com/Labgurushankar/shankarshahi-website
-3. Add file > Upload files
-4. Upload index.html and tb-lqas-form.html
+FILES/FOLDERS TO UPLOAD
+- index.html
+- qc-qa-tqm-presentation.html
+- presentations/qc-qa-tqm/   (contains 64 slide JPG files)
+
+GITHUB UPLOAD
+1. Extract this ZIP on your computer.
+2. Open:
+   https://github.com/Labgurushankar/shankarshahi-website
+3. Click Add file > Upload files.
+4. Drag the extracted:
+   - index.html
+   - qc-qa-tqm-presentation.html
+   - presentations folder
 5. Commit changes.
 
-The TB LQAS menu stays after About Me.
+IMPORTANT
+- Keep the folder structure exactly as included.
+- The presentation viewer depends on:
+  presentations/qc-qa-tqm/slide-001.jpg ... slide-064.jpg
+- Do NOT upload the original .pptx file to the public website if you want to avoid an obvious download link.
+
+EXPECTED PAGE
+https://shankarshahi.com.np/qc-qa-tqm-presentation.html
