@@ -1,36 +1,46 @@
-SHANKARSHAHI.COM.NP — POWERPOINT VIEW-ONLY WEBSITE UPDATE
+SHANKARSHAHI.COM.NP — MULTI-POWERPOINT WEBSITE UPDATE
 
-WHAT THIS UPDATE ADDS
-- New top-menu item: Presentations
-- New Online Presentations section
-- QC / QA / TQM presentation card
-- "View Presentation" opens a 64-slide browser viewer
-- No direct PPTX download link is provided
-- Previous / Next, thumbnails and Full Screen are available
-- Print shortcut and right-click are restricted in the viewer
-- Existing TB LQAS menu remains unchanged
+This package keeps your existing website, TB LQAS page and first QC/QA/TQM presentation,
+and adds FOUR more online view-only presentations.
 
-FILES/FOLDERS TO UPLOAD
-- index.html
-- qc-qa-tqm-presentation.html
-- presentations/qc-qa-tqm/   (contains 64 slide JPG files)
+PRESENTATION LIBRARY NOW INCLUDES
+1. QC / QA / TQM — 64 slides
+2. Standard, Calibrator & Control — 22 slides
+3. Patient Preparation & Order of Draw — 27 slides
+4. QC Sera Preparation & Monitoring — 49 slides
+5. Standard Operating Procedure (SOP) — 34 slides
+
+HOW IT WORKS
+- Website menu has “Presentations”.
+- Clicking it opens the Presentation Library section.
+- Each card has “View Presentation”.
+- Slides open in a browser viewer with Previous, Next, thumbnails and Full Screen.
+- Original PPTX files are NOT included in the public website package.
+- Direct PowerPoint download buttons are NOT provided.
+- Basic right-click, print and Ctrl+S restrictions are included.
+- No web page can make copying/screenshots technically impossible.
 
 GITHUB UPLOAD
-1. Extract this ZIP on your computer.
-2. Open:
-   https://github.com/Labgurushankar/shankarshahi-website
+Repository:
+https://github.com/Labgurushankar/shankarshahi-website
+
+1. Download and extract this ZIP.
+2. Open your GitHub repository.
 3. Click Add file > Upload files.
-4. Drag the extracted:
-   - index.html
-   - qc-qa-tqm-presentation.html
-   - presentations folder
-5. Commit changes.
+4. Upload EVERYTHING from the extracted folder, preserving folders.
+5. When GitHub asks, replace index.html and existing presentation files.
+6. Commit changes.
 
-IMPORTANT
-- Keep the folder structure exactly as included.
-- The presentation viewer depends on:
-  presentations/qc-qa-tqm/slide-001.jpg ... slide-064.jpg
-- Do NOT upload the original .pptx file to the public website if you want to avoid an obvious download link.
+IMPORTANT FOLDER STRUCTURE
+presentations/
+  qc-qa-tqm/
+  standard-calibrator-control/
+  patient-preparation/
+  qc-sera-monitoring/
+  sop/
 
-EXPECTED PAGE
-https://shankarshahi.com.np/qc-qa-tqm-presentation.html
+Do not rename these folders unless the viewer HTML links are also changed.
+
+FUTURE POWERPOINTS
+You can keep sending PPTX files in ChatGPT. Each new deck can be converted into the same
+view-only format and added as another card in this Presentation Library.
