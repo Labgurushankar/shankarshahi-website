@@ -1,46 +1,26 @@
-SHANKARSHAHI.COM.NP — MULTI-POWERPOINT WEBSITE UPDATE
+SHANKARSHAHI.COM.NP — FINAL SINGLE DOWNLOAD UPDATE
 
-This package keeps your existing website, TB LQAS page and first QC/QA/TQM presentation,
-and adds FOUR more online view-only presentations.
+This update changes ONLY index.html.
 
-PRESENTATION LIBRARY NOW INCLUDES
-1. QC / QA / TQM — 64 slides
-2. Standard, Calibrator & Control — 22 slides
-3. Patient Preparation & Order of Draw — 27 slides
-4. QC Sera Preparation & Monitoring — 49 slides
-5. Standard Operating Procedure (SOP) — 34 slides
+CHANGES
+- Shankar Quality & Inventory Management System Suite now has ONE download button.
+- That button opens the verified Google Drive file:
+  Shankar_Combine_Soft_Suit_V1_Setup.exe
+- Duplicate QMS download entry from the Download Center is removed.
+- Extra QMS download button from the software popup/modal is removed.
+- TB LQAS menu and Presentation Library remain unchanged.
+- No EXE needs to be uploaded to GitHub.
 
-HOW IT WORKS
-- Website menu has “Presentations”.
-- Clicking it opens the Presentation Library section.
-- Each card has “View Presentation”.
-- Slides open in a browser viewer with Previous, Next, thumbnails and Full Screen.
-- Original PPTX files are NOT included in the public website package.
-- Direct PowerPoint download buttons are NOT provided.
-- Basic right-click, print and Ctrl+S restrictions are included.
-- No web page can make copying/screenshots technically impossible.
+VERIFIED GOOGLE DRIVE LINK
+https://drive.google.com/file/d/1Vz2tIhMbhSh_EAi8V5S-iqh6DRYjzKAD/view?usp=drivesdk
 
-GITHUB UPLOAD
-Repository:
-https://github.com/Labgurushankar/shankarshahi-website
-
-1. Download and extract this ZIP.
-2. Open your GitHub repository.
+HOW TO UPDATE GITHUB
+1. Extract this ZIP.
+2. Open:
+   https://github.com/Labgurushankar/shankarshahi-website
 3. Click Add file > Upload files.
-4. Upload EVERYTHING from the extracted folder, preserving folders.
-5. When GitHub asks, replace index.html and existing presentation files.
+4. Upload ONLY index.html from this ZIP.
+5. Replace the existing index.html.
 6. Commit changes.
 
-IMPORTANT FOLDER STRUCTURE
-presentations/
-  qc-qa-tqm/
-  standard-calibrator-control/
-  patient-preparation/
-  qc-sera-monitoring/
-  sop/
-
-Do not rename these folders unless the viewer HTML links are also changed.
-
-FUTURE POWERPOINTS
-You can keep sending PPTX files in ChatGPT. Each new deck can be converted into the same
-view-only format and added as another card in this Presentation Library.
+Do not delete your existing assets, presentation folders, tb-lqas-form.html, style.css or script.js.
