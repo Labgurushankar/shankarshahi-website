@@ -1,0 +1,38 @@
+SHANKARSHAHI.COM.NP — SHANKAR COMBINE SUITE WEBSITE UPDATE
+
+WHAT THIS UPDATE DOES
+- Keeps your existing website, TB LQAS and Presentation Library.
+- Links the Shankar Quality & Inventory Management System Suite directly to:
+  downloads/shankar-combine-suit-latest-for-use.exe
+- The old Google Drive download link for the combined suite is replaced.
+- Button text is updated to:
+  Download Latest Shankar Combine Suite
+
+IMPORTANT FILE
+downloads/shankar-combine-suit-latest-for-use.exe
+
+FILE SIZE
+96.1 MB
+
+GITHUB UPLOAD
+Repository:
+https://github.com/Labgurushankar/shankarshahi-website
+
+1. Extract this ZIP.
+2. Open your GitHub repository.
+3. Click Add file > Upload files.
+4. Upload EVERYTHING from the extracted folder, preserving the folders.
+5. Replace index.html when GitHub asks.
+6. Make sure the EXE stays inside the downloads folder.
+7. Commit changes.
+
+AFTER UPDATE
+On the Shankar Quality & Inventory Management System Suite section,
+clicking “Download Latest Shankar Combine Suite” will download the EXE directly.
+
+EXPECTED DIRECT FILE URL
+https://shankarshahi.com.np/downloads/shankar-combine-suit-latest-for-use.exe
+
+NOTE
+The EXE is close to GitHub's large-file limit. If GitHub rejects the file during upload,
+use a GitHub Release asset or Google Drive instead; the website link can then be pointed there.
