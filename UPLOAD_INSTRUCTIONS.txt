@@ -1,26 +1,32 @@
-SHANKARSHAHI.COM.NP — FINAL SINGLE DOWNLOAD UPDATE
+SHANKARSHAHI.COM.NP — CLINICAL CALCULATORS UPDATE
 
-This update changes ONLY index.html.
+ADDED TO WEBSITE
+1. LDL / VLDL Calculator
+2. PT / INR Calculator
+3. Urine Protein / Creatinine Ratio (uPCR)
+4. Urine Albumin / Creatinine Ratio (uACR)
+5. eGFR Calculator — 2021 CKD-EPI creatinine equation for adults
 
-CHANGES
-- Shankar Quality & Inventory Management System Suite now has ONE download button.
-- That button opens the verified Google Drive file:
-  Shankar_Combine_Soft_Suit_V1_Setup.exe
-- Duplicate QMS download entry from the Download Center is removed.
-- Extra QMS download button from the software popup/modal is removed.
-- TB LQAS menu and Presentation Library remain unchanged.
-- No EXE needs to be uploaded to GitHub.
+WEBSITE INTEGRATION
+- A new “Clinical Laboratory Calculators” panel is added near the top of the existing QC Calculators section.
+- Each calculator opens as its own responsive page.
+- Existing TB LQAS, Presentations and Software links are preserved in index.html.
 
-VERIFIED GOOGLE DRIVE LINK
-https://drive.google.com/file/d/1Vz2tIhMbhSh_EAi8V5S-iqh6DRYjzKAD/view?usp=drivesdk
-
-HOW TO UPDATE GITHUB
+UPLOAD TO GITHUB
 1. Extract this ZIP.
-2. Open:
-   https://github.com/Labgurushankar/shankarshahi-website
-3. Click Add file > Upload files.
-4. Upload ONLY index.html from this ZIP.
-5. Replace the existing index.html.
-6. Commit changes.
+2. Open your website repository.
+3. Upload/replace index.html.
+4. Upload the entire calculators folder, preserving the folder name and all files.
+5. Commit changes.
 
-Do not delete your existing assets, presentation folders, tb-lqas-form.html, style.css or script.js.
+EXPECTED URLS
+/calculators/ldl-vldl.html
+/calculators/pt-inr.html
+/calculators/upcr.html
+/calculators/uacr.html
+/calculators/egfr.html
+
+NOTE ABOUT YOUR EXISTING LDL FILE
+The local Windows path you gave (file:///C:/...) cannot be read directly from ChatGPT.
+So this package includes a newly built LDL/VLDL calculator with the same requested function.
+If you want the exact appearance of your existing LDL calculator preserved, upload its ZIP/folder here later and it can be substituted.

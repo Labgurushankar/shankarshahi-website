@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PT / INR Calculator | ShankarShahi.com.np</title><style>
+:root{--navy:#11395f;--blue:#176fae;--bg:#f2f6fa;--card:#fff;--text:#172331;--muted:#667085;--line:#d8e1ea;--ok:#146c43;--warn:#9a6700}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:20px 16px}.topin{max-width:920px;margin:auto}
+.top h1{margin:0 0 4px;font-size:26px}.top p{margin:0;opacity:.92}
+.wrap{max-width:920px;margin:22px auto;padding:0 14px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 18px rgba(20,40,60,.07);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-weight:700;font-size:14px}input,select{width:100%;margin-top:6px;padding:11px;border:1px solid #b9c6d3;border-radius:9px;background:#fff;font-size:15px}
+button,.btn{display:inline-block;border:0;border-radius:9px;padding:11px 15px;background:#176fae;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;margin-top:14px}.btn.secondary{background:#5b6775}.actions{display:flex;gap:9px;flex-wrap:wrap}
+.result{margin-top:16px;border-left:5px solid #176fae;background:#f6fbff;padding:15px;border-radius:8px}.big{font-size:30px;font-weight:800;color:#123d63}.muted{color:var(--muted);font-size:13px;line-height:1.55}.note{background:#fff8e6;border:1px solid #ead6a0;padding:12px;border-radius:10px;font-size:13px;line-height:1.55}
+.formula{font-family:Consolas,monospace;background:#eef4f8;padding:9px;border-radius:8px;margin-top:10px;font-size:13px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nav a{color:#174f7c;text-decoration:none;font-weight:700;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:8px;border:1px solid var(--line);text-align:left;font-size:13px}
+@media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}.top h1{font-size:22px}.big{font-size:25px}}
+@media print{.top,.nav,.actions,.note{display:none}.wrap{margin:0;max-width:none}.card{box-shadow:none;border:0}}
+</style></head>
+<body><header class="top"><div class="topin"><h1>PT / INR Calculator</h1><p>International Normalized Ratio calculator</p></div></header>
+<div class="wrap">
+<div class="nav"><a href="../index.html#clinical-calculators">← All Calculators</a><a href="../index.html">Website Home</a></div>
+
+<div class="card">
+ <div class="grid3">
+  <label>Patient PT (seconds)<input id="pt" type="number" step="any" min="0" placeholder="e.g. 18.0"></label>
+  <label>Mean Normal PT / MNPT (seconds)<input id="mnpt" type="number" step="any" min="0" placeholder="e.g. 12.0"></label>
+  <label>ISI<input id="isi" type="number" step="any" min="0" placeholder="e.g. 1.05"></label>
+ </div>
+ <div class="actions"><button onclick="calc()">Calculate INR</button><button class="btn secondary" onclick="clearAll()">Clear</button></div>
+ <div id="out" class="result">Enter patient PT, MNPT and reagent/instrument ISI.</div>
+</div>
+<div class="card"><b>Formula</b><div class="formula">INR = (Patient PT ÷ MNPT)<sup>ISI</sup></div>
+<p class="muted">Use the ISI assigned/validated for the thromboplastin and instrument system. MNPT is the laboratory mean normal prothrombin time determined for that method.</p></div>
+<div class="note">Calculation aid only. Therapeutic targets and critical limits depend on indication, treatment and local policy.</div>
+
+</div><script>
+function n(id){return parseFloat(document.getElementById(id).value)}
+function calc(){const pt=n('pt'),m=n('mnpt'),isi=n('isi'),o=document.getElementById('out');
+ if(!isFinite(pt)||!isFinite(m)||!isFinite(isi)||pt<=0||m<=0||isi<=0){o.textContent='Please enter valid values greater than zero.';return}
+ const ratio=pt/m, inr=Math.pow(ratio,isi);
+ o.innerHTML=`<div>International Normalized Ratio</div><div class="big">${inr.toFixed(2)}</div><p>PT ratio: <b>${ratio.toFixed(3)}</b></p>`;
+}
+function clearAll(){['pt','mnpt','isi'].forEach(i=>document.getElementById(i).value='');document.getElementById('out').textContent='Enter patient PT, MNPT and reagent/instrument ISI.'}
+</script></body></html>

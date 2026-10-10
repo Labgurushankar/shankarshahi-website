@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urine Protein / Creatinine Ratio (uPCR) | ShankarShahi.com.np</title><style>
+:root{--navy:#11395f;--blue:#176fae;--bg:#f2f6fa;--card:#fff;--text:#172331;--muted:#667085;--line:#d8e1ea;--ok:#146c43;--warn:#9a6700}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:20px 16px}.topin{max-width:920px;margin:auto}
+.top h1{margin:0 0 4px;font-size:26px}.top p{margin:0;opacity:.92}
+.wrap{max-width:920px;margin:22px auto;padding:0 14px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 18px rgba(20,40,60,.07);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-weight:700;font-size:14px}input,select{width:100%;margin-top:6px;padding:11px;border:1px solid #b9c6d3;border-radius:9px;background:#fff;font-size:15px}
+button,.btn{display:inline-block;border:0;border-radius:9px;padding:11px 15px;background:#176fae;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;margin-top:14px}.btn.secondary{background:#5b6775}.actions{display:flex;gap:9px;flex-wrap:wrap}
+.result{margin-top:16px;border-left:5px solid #176fae;background:#f6fbff;padding:15px;border-radius:8px}.big{font-size:30px;font-weight:800;color:#123d63}.muted{color:var(--muted);font-size:13px;line-height:1.55}.note{background:#fff8e6;border:1px solid #ead6a0;padding:12px;border-radius:10px;font-size:13px;line-height:1.55}
+.formula{font-family:Consolas,monospace;background:#eef4f8;padding:9px;border-radius:8px;margin-top:10px;font-size:13px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nav a{color:#174f7c;text-decoration:none;font-weight:700;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:8px;border:1px solid var(--line);text-align:left;font-size:13px}
+@media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}.top h1{font-size:22px}.big{font-size:25px}}
+@media print{.top,.nav,.actions,.note{display:none}.wrap{margin:0;max-width:none}.card{box-shadow:none;border:0}}
+</style></head>
+<body><header class="top"><div class="topin"><h1>Urine Protein / Creatinine Ratio (uPCR)</h1><p>Spot urine protein-to-creatinine ratio</p></div></header>
+<div class="wrap">
+<div class="nav"><a href="../index.html#clinical-calculators">← All Calculators</a><a href="../index.html">Website Home</a></div>
+
+<div class="card">
+ <div class="grid">
+  <label>Urine Protein<input id="protein" type="number" step="any" min="0" placeholder="e.g. 18"><select id="pu"><option value="mgdl">mg/dL</option><option value="mgl">mg/L</option></select></label>
+  <label>Urine Creatinine<input id="creat" type="number" step="any" min="0" placeholder="e.g. 120"><select id="cu"><option value="mgdl">mg/dL</option><option value="gl">g/L</option></select></label>
+ </div>
+ <div class="actions"><button onclick="calc()">Calculate uPCR</button><button class="btn secondary" onclick="clearAll()">Clear</button></div>
+ <div id="out" class="result">Enter urine protein and urine creatinine from the same spot specimen.</div>
+</div>
+<div class="card"><b>Result convention</b><div class="formula">uPCR (mg/g) = Urine protein (mg/L) ÷ Urine creatinine (g/L)</div>
+<p class="muted">When both values are entered in mg/dL, uPCR mg/g = (protein ÷ creatinine) × 1000.</p></div>
+<div class="note">A spot uPCR approximates daily protein excretion but must be interpreted with clinical context and local laboratory policy.</div>
+
+</div><script>
+function calc(){let p=parseFloat(protein.value),c=parseFloat(creat.value);const o=out;
+ if(!isFinite(p)||!isFinite(c)||p<0||c<=0){o.textContent='Please enter valid values; creatinine must be greater than zero.';return}
+ let p_mgl=pu.value==='mgdl'?p*10:p;
+ let c_gl=cu.value==='mgdl'?c*0.01:c;
+ let r=p_mgl/c_gl;
+ let text=r<150?'Below 150 mg/g':r<500?'150–499 mg/g':'≥500 mg/g';
+ o.innerHTML=`<div>Urine Protein / Creatinine Ratio</div><div class="big">${r.toFixed(1)} mg/g</div><p>${(r/1000).toFixed(3)} g/g • ${text}</p>`;
+}
+function clearAll(){protein.value='';creat.value='';out.textContent='Enter urine protein and urine creatinine from the same spot specimen.'}
+</script></body></html>

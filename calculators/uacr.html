@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urine Albumin / Creatinine Ratio (uACR) | ShankarShahi.com.np</title><style>
+:root{--navy:#11395f;--blue:#176fae;--bg:#f2f6fa;--card:#fff;--text:#172331;--muted:#667085;--line:#d8e1ea;--ok:#146c43;--warn:#9a6700}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:20px 16px}.topin{max-width:920px;margin:auto}
+.top h1{margin:0 0 4px;font-size:26px}.top p{margin:0;opacity:.92}
+.wrap{max-width:920px;margin:22px auto;padding:0 14px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 18px rgba(20,40,60,.07);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-weight:700;font-size:14px}input,select{width:100%;margin-top:6px;padding:11px;border:1px solid #b9c6d3;border-radius:9px;background:#fff;font-size:15px}
+button,.btn{display:inline-block;border:0;border-radius:9px;padding:11px 15px;background:#176fae;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;margin-top:14px}.btn.secondary{background:#5b6775}.actions{display:flex;gap:9px;flex-wrap:wrap}
+.result{margin-top:16px;border-left:5px solid #176fae;background:#f6fbff;padding:15px;border-radius:8px}.big{font-size:30px;font-weight:800;color:#123d63}.muted{color:var(--muted);font-size:13px;line-height:1.55}.note{background:#fff8e6;border:1px solid #ead6a0;padding:12px;border-radius:10px;font-size:13px;line-height:1.55}
+.formula{font-family:Consolas,monospace;background:#eef4f8;padding:9px;border-radius:8px;margin-top:10px;font-size:13px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nav a{color:#174f7c;text-decoration:none;font-weight:700;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:8px;border:1px solid var(--line);text-align:left;font-size:13px}
+@media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}.top h1{font-size:22px}.big{font-size:25px}}
+@media print{.top,.nav,.actions,.note{display:none}.wrap{margin:0;max-width:none}.card{box-shadow:none;border:0}}
+</style></head>
+<body><header class="top"><div class="topin"><h1>Urine Albumin / Creatinine Ratio (uACR)</h1><p>Spot urine albumin-to-creatinine ratio</p></div></header>
+<div class="wrap">
+<div class="nav"><a href="../index.html#clinical-calculators">← All Calculators</a><a href="../index.html">Website Home</a></div>
+
+<div class="card">
+ <div class="grid">
+  <label>Urine Albumin<input id="albumin" type="number" step="any" min="0" placeholder="e.g. 18.6"><select id="au"><option value="mgl">mg/L</option><option value="mgdl">mg/dL</option></select></label>
+  <label>Urine Creatinine<input id="creat" type="number" step="any" min="0" placeholder="e.g. 120"><select id="cu"><option value="mgdl">mg/dL</option><option value="gl">g/L</option></select></label>
+ </div>
+ <div class="actions"><button onclick="calc()">Calculate uACR</button><button class="btn secondary" onclick="clearAll()">Clear</button></div>
+ <div id="out" class="result">Enter urine albumin and creatinine from the same specimen.</div>
+</div>
+<div class="card"><b>Albuminuria categories</b>
+<table><tr><th>Category</th><th>uACR</th><th>Description</th></tr><tr><td>A1</td><td>&lt;30 mg/g</td><td>Normal to mildly increased</td></tr><tr><td>A2</td><td>30–300 mg/g</td><td>Moderately increased</td></tr><tr><td>A3</td><td>&gt;300 mg/g</td><td>Severely increased</td></tr></table>
+<div class="formula">uACR (mg/g) = Urine albumin (mg/L) ÷ Urine creatinine (g/L)</div></div>
+<div class="note">Persistent albuminuria generally requires repeat testing/clinical correlation; a single result alone does not establish chronic kidney disease.</div>
+
+</div><script>
+function calc(){let a=parseFloat(albumin.value),c=parseFloat(creat.value);const o=out;
+ if(!isFinite(a)||!isFinite(c)||a<0||c<=0){o.textContent='Please enter valid values; creatinine must be greater than zero.';return}
+ let a_mgl=au.value==='mgdl'?a*10:a;
+ let c_gl=cu.value==='mgdl'?c*0.01:c;
+ let r=a_mgl/c_gl, cat=r<30?'A1 — normal to mildly increased':r<=300?'A2 — moderately increased':'A3 — severely increased';
+ o.innerHTML=`<div>Urine Albumin / Creatinine Ratio</div><div class="big">${r.toFixed(1)} mg/g</div><p><b>${cat}</b></p>`;
+}
+function clearAll(){albumin.value='';creat.value='';out.textContent='Enter urine albumin and creatinine from the same specimen.'}
+</script></body></html>
