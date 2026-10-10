@@ -26,6 +26,17 @@
   ]
 }
 </script>
+
+<style>
+  .qc-detail-hidden{display:none!important}
+  .qc-detail-active{display:block!important}
+  .qc-detail-back{
+    display:inline-block;margin:0 0 14px;padding:8px 12px;border-radius:8px;
+    background:#eef5fb;color:#0b63b6;font-weight:700;text-decoration:none;
+    border:1px solid #c9dceb;
+  }
+</style>
+
 </head>
 <body>
 <header class="top-ribbon">
@@ -106,7 +117,8 @@
   </div>
 
   <div class="qc-tool-grid">
-    <article id="iqc-tool" class="qc-tool-card qc-half-card" style="scroll-margin-top:90px">
+    <article id="iqc-tool" class="qc-detail-hidden qc-tool-card qc-half-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>📊</span><div><h3>Internal QC Calculator</h3><p>Mean, SD, CV%, Bias% and SDI</p></div></div>
       <div class="qc-form-grid">
         <label>Target Mean<input id="iqcTargetMean" type="number" step="any" placeholder="e.g. 100"></label>
@@ -117,7 +129,8 @@
       <div id="iqcOutput" class="calc-output muted-output">Enter target values and at least 2 QC results.</div>
     </article>
 
-    <article id="lj-tool" class="qc-tool-card wide-tool-card lj-full-card" style="scroll-margin-top:90px">
+    <article id="lj-tool" class="qc-detail-hidden qc-tool-card wide-tool-card lj-full-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>📈</span><div><h3>Levey-Jennings Calculator</h3><p>Mean ±1SD, ±2SD, ±3SD and QC chart</p></div></div>
       <div class="qc-form-grid">
         <label>Test Name<input id="ljTestName" type="text" placeholder="e.g. Glucose"></label>
@@ -135,7 +148,8 @@
       <div id="ljMeta" class="lj-meta muted-output">Test, month, mean and SD will appear below the chart.</div>
     </article>
 
-    <article id="daily-repeat-tool" class="qc-tool-card qc-half-card" style="scroll-margin-top:90px">
+    <article id="daily-repeat-tool" class="qc-detail-hidden qc-tool-card qc-half-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>🔁</span><div><h3>Daily Repeat / Precision</h3><p>Pair comparison, difference, % difference and repeatability</p></div></div>
       <div class="qc-form-grid">
         <label>Run 1<input id="drRun1" type="number" step="any" placeholder="e.g. 101.2"></label>
@@ -147,7 +161,8 @@
       <div id="dailyRepeatOutput" class="calc-output muted-output">Enter two repeat results. Optional allowable % gives PASS/REVIEW.</div>
     </article>
 
-    <article id="lot-tool" class="qc-tool-card" style="scroll-margin-top:90px">
+    <article id="lot-tool" class="qc-detail-hidden qc-tool-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>🧪</span><div><h3>Lot-to-Lot Verification</h3><p>Compare old lot vs new lot paired results</p></div></div>
       <div class="qc-form-grid">
         <label>Allowable Bias %<input id="lotAllowBias" type="number" step="any" placeholder="e.g. 5"></label>
@@ -159,7 +174,8 @@
       <div id="lotOutput" class="calc-output muted-output">Enter equal numbers of paired old-lot and new-lot results.</div>
     </article>
 
-    <article id="method-tool" class="qc-tool-card" style="scroll-margin-top:90px">
+    <article id="method-tool" class="qc-detail-hidden qc-tool-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>🧮</span><div><h3>Method Verification</h3><p>Precision, Bias, TEa and Sigma Metric</p></div></div>
       <div class="qc-form-grid">
         <label>Target / Assigned Mean<input id="mvTarget" type="number" step="any" placeholder="e.g. 100"></label>
@@ -172,7 +188,8 @@
       <div id="methodOutput" class="calc-output muted-output">Calculates observed mean, SD, CV%, Bias%, and Sigma = (TEa − |Bias|) / CV.</div>
     </article>
 
-    <article id="unit-tool" class="qc-tool-card" style="scroll-margin-top:90px">
+    <article id="unit-tool" class="qc-detail-hidden qc-tool-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>🔄</span><div><h3>Laboratory Unit Converter</h3><p>Routine chemistry, hematology, thyroid and common hormone unit conversions</p></div></div>
       <label class="full-label">Analyte<select id="ucAnalyte">
         <optgroup label="Glucose / Diabetes">
@@ -241,7 +258,8 @@
       <div id="unitOutput" class="calc-output muted-output">Select a routine analyte, enter a value and choose the conversion direction.</div>
     </article>
 
-    <article id="critical-tool" class="qc-tool-card wide-tool-card" style="scroll-margin-top:90px">
+    <article id="critical-tool" class="qc-detail-hidden qc-tool-card wide-tool-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="qc-tool-head"><span>🚨</span><div><h3>Critical Value Quick Reference</h3><p>Common adult alert examples — customize to your laboratory policy</p></div></div>
       <div class="critical-toolbar"><input id="criticalSearch" type="search" placeholder="Search test, e.g. potassium"><span>⚠️ Examples only — local approved critical limits always take precedence.</span></div>
       <div class="critical-table-wrap"><table class="critical-table" id="criticalTable"><thead><tr><th>Test</th><th>Example low alert</th><th>Example high alert</th><th>Unit / note</th></tr></thead><tbody>
@@ -257,7 +275,8 @@
       <p class="tool-note">Critical-result thresholds vary by institution, population, method and clinical context. Use this table only as a quick educational example and replace it with your laboratory's approved policy before operational use.</p>
     </article>
 
-    <article id="westgard-tool" class="qc-tool-card wide-tool-card westgard-trouble-card" style="scroll-margin-top:90px">
+    <article id="westgard-tool" class="qc-detail-hidden qc-tool-card wide-tool-card westgard-trouble-card" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
       <div class="wg-trouble-grid">
         <section class="wg-panel">
           <div class="qc-tool-head"><span>⚖️</span><div><h3>Westgard Rule Checker</h3><p>1₂s, 1₃s, 2₂s, R₄s, 4₁s and 10x</p></div></div>
@@ -270,7 +289,8 @@
           <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
         </section>
 
-        <section id="troubleshooting-tool" class="trouble-panel" style="scroll-margin-top:90px">
+        <section id="troubleshooting-tool" class="qc-detail-hidden trouble-panel" style="scroll-margin-top:90px">
+      <a class="qc-detail-back" href="#qc-library">← Back to QC Calculator Library</a>
           <div class="qc-tool-head"><span>🛠️</span><div><h3>QC Troubleshooting Guide</h3><p>Rule pattern → likely error type → practical first actions</p></div></div>
           <div class="trouble-grid compact-trouble-grid">
             <details open><summary>1₂s warning</summary><p><b>Likely:</b> Early warning, possible random or systematic shift.<br><b>First actions:</b> Check next QC result, review reagent/control handling, do not reject solely on 1₂s unless local policy says so.</p></details>
@@ -561,5 +581,52 @@
 
 <footer>© 2026 Shankar Shahi · Laboratory &amp; Quality Management</footer>
 <script src="script.js"></script>
+
+<script>
+(function(){
+  const detailIds = [
+    'iqc-tool','lj-tool','daily-repeat-tool','lot-tool','method-tool',
+    'unit-tool','critical-tool','westgard-tool','troubleshooting-tool'
+  ];
+
+  function hideAllQCDetails(){
+    detailIds.forEach(function(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.classList.add('qc-detail-hidden');
+      el.classList.remove('qc-detail-active');
+    });
+  }
+
+  document.querySelectorAll('#qc-library a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href').substring(1);
+      if(!detailIds.includes(targetId)) return;
+      e.preventDefault();
+
+      hideAllQCDetails();
+
+      const target = document.getElementById(targetId);
+      if(target){
+        target.classList.remove('qc-detail-hidden');
+        target.classList.add('qc-detail-active');
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+
+  document.querySelectorAll('.qc-detail-back').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      hideAllQCDetails();
+      const lib = document.getElementById('qc-library');
+      if(lib) lib.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  hideAllQCDetails();
+})();
+</script>
+
 </body>
 </html>
