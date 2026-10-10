@@ -89,8 +89,24 @@
   </div>
 
 
+  
+  <div class="qc-tool-card wide-tool-card" id="qc-library" style="margin-bottom:22px">
+    <div class="qc-tool-head"><span>🧩</span><div><h3>Practical QC Calculator Library</h3><p>Compact quick-access cards for your detailed QC tools</p></div></div>
+    <div class="resource-grid">
+      <article class="resource-card"><div class="resource-icon">📊</div><h3>Internal QC</h3><p>Mean, SD, CV%, Bias and SDI.</p><a href="#iqc-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">📈</div><h3>Levey-Jennings</h3><p>QC chart with mean and SD limits.</p><a href="#lj-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🔁</div><h3>Daily Repeat</h3><p>Precision and repeat comparison.</p><a href="#daily-repeat-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🧪</div><h3>Lot-to-Lot</h3><p>Old lot vs new lot verification.</p><a href="#lot-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🧮</div><h3>Method Verification</h3><p>Precision, bias, TEa and sigma.</p><a href="#method-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🔄</div><h3>Unit Converter</h3><p>Routine laboratory unit conversion.</p><a href="#unit-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🚨</div><h3>Critical Values</h3><p>Quick reference for alert limits.</p><a href="#critical-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">⚖️</div><h3>Westgard Rules</h3><p>Rule checker and QC decision support.</p><a href="#westgard-tool">Open QC Tool →</a></article>
+      <article class="resource-card"><div class="resource-icon">🛠️</div><h3>Troubleshooting</h3><p>Likely errors and first actions.</p><a href="#troubleshooting-tool">Open QC Tool →</a></article>
+    </div>
+  </div>
+
   <div class="qc-tool-grid">
-    <article class="qc-tool-card qc-half-card">
+    <article id="iqc-tool" class="qc-tool-card qc-half-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>📊</span><div><h3>Internal QC Calculator</h3><p>Mean, SD, CV%, Bias% and SDI</p></div></div>
       <div class="qc-form-grid">
         <label>Target Mean<input id="iqcTargetMean" type="number" step="any" placeholder="e.g. 100"></label>
@@ -101,7 +117,7 @@
       <div id="iqcOutput" class="calc-output muted-output">Enter target values and at least 2 QC results.</div>
     </article>
 
-    <article class="qc-tool-card wide-tool-card lj-full-card">
+    <article id="lj-tool" class="qc-tool-card wide-tool-card lj-full-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>📈</span><div><h3>Levey-Jennings Calculator</h3><p>Mean ±1SD, ±2SD, ±3SD and QC chart</p></div></div>
       <div class="qc-form-grid">
         <label>Test Name<input id="ljTestName" type="text" placeholder="e.g. Glucose"></label>
@@ -119,7 +135,7 @@
       <div id="ljMeta" class="lj-meta muted-output">Test, month, mean and SD will appear below the chart.</div>
     </article>
 
-    <article class="qc-tool-card qc-half-card">
+    <article id="daily-repeat-tool" class="qc-tool-card qc-half-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>🔁</span><div><h3>Daily Repeat / Precision</h3><p>Pair comparison, difference, % difference and repeatability</p></div></div>
       <div class="qc-form-grid">
         <label>Run 1<input id="drRun1" type="number" step="any" placeholder="e.g. 101.2"></label>
@@ -131,7 +147,7 @@
       <div id="dailyRepeatOutput" class="calc-output muted-output">Enter two repeat results. Optional allowable % gives PASS/REVIEW.</div>
     </article>
 
-    <article class="qc-tool-card">
+    <article id="lot-tool" class="qc-tool-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>🧪</span><div><h3>Lot-to-Lot Verification</h3><p>Compare old lot vs new lot paired results</p></div></div>
       <div class="qc-form-grid">
         <label>Allowable Bias %<input id="lotAllowBias" type="number" step="any" placeholder="e.g. 5"></label>
@@ -143,7 +159,7 @@
       <div id="lotOutput" class="calc-output muted-output">Enter equal numbers of paired old-lot and new-lot results.</div>
     </article>
 
-    <article class="qc-tool-card">
+    <article id="method-tool" class="qc-tool-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>🧮</span><div><h3>Method Verification</h3><p>Precision, Bias, TEa and Sigma Metric</p></div></div>
       <div class="qc-form-grid">
         <label>Target / Assigned Mean<input id="mvTarget" type="number" step="any" placeholder="e.g. 100"></label>
@@ -156,7 +172,7 @@
       <div id="methodOutput" class="calc-output muted-output">Calculates observed mean, SD, CV%, Bias%, and Sigma = (TEa − |Bias|) / CV.</div>
     </article>
 
-    <article class="qc-tool-card">
+    <article id="unit-tool" class="qc-tool-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>🔄</span><div><h3>Laboratory Unit Converter</h3><p>Routine chemistry, hematology, thyroid and common hormone unit conversions</p></div></div>
       <label class="full-label">Analyte<select id="ucAnalyte">
         <optgroup label="Glucose / Diabetes">
@@ -225,7 +241,7 @@
       <div id="unitOutput" class="calc-output muted-output">Select a routine analyte, enter a value and choose the conversion direction.</div>
     </article>
 
-    <article class="qc-tool-card wide-tool-card">
+    <article id="critical-tool" class="qc-tool-card wide-tool-card" style="scroll-margin-top:90px">
       <div class="qc-tool-head"><span>🚨</span><div><h3>Critical Value Quick Reference</h3><p>Common adult alert examples — customize to your laboratory policy</p></div></div>
       <div class="critical-toolbar"><input id="criticalSearch" type="search" placeholder="Search test, e.g. potassium"><span>⚠️ Examples only — local approved critical limits always take precedence.</span></div>
       <div class="critical-table-wrap"><table class="critical-table" id="criticalTable"><thead><tr><th>Test</th><th>Example low alert</th><th>Example high alert</th><th>Unit / note</th></tr></thead><tbody>
@@ -241,7 +257,7 @@
       <p class="tool-note">Critical-result thresholds vary by institution, population, method and clinical context. Use this table only as a quick educational example and replace it with your laboratory's approved policy before operational use.</p>
     </article>
 
-    <article class="qc-tool-card wide-tool-card westgard-trouble-card">
+    <article id="westgard-tool" class="qc-tool-card wide-tool-card westgard-trouble-card" style="scroll-margin-top:90px">
       <div class="wg-trouble-grid">
         <section class="wg-panel">
           <div class="qc-tool-head"><span>⚖️</span><div><h3>Westgard Rule Checker</h3><p>1₂s, 1₃s, 2₂s, R₄s, 4₁s and 10x</p></div></div>
@@ -254,7 +270,7 @@
           <div id="wgOutput" class="calc-output muted-output">Triggered rules and QC decision will appear here.</div>
         </section>
 
-        <section class="trouble-panel">
+        <section id="troubleshooting-tool" class="trouble-panel" style="scroll-margin-top:90px">
           <div class="qc-tool-head"><span>🛠️</span><div><h3>QC Troubleshooting Guide</h3><p>Rule pattern → likely error type → practical first actions</p></div></div>
           <div class="trouble-grid compact-trouble-grid">
             <details open><summary>1₂s warning</summary><p><b>Likely:</b> Early warning, possible random or systematic shift.<br><b>First actions:</b> Check next QC result, review reagent/control handling, do not reject solely on 1₂s unless local policy says so.</p></details>

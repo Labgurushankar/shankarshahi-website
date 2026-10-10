@@ -1,22 +1,20 @@
-SHANKARSHAHI.COM.NP — TB LQAS ALL-SLIDES RULE UPDATE
+SHANKARSHAHI.COM.NP — PRACTICAL QC CARD DESIGN UPDATE
 
-CHANGE MADE
-When BOTH conditions are true:
-1. Total Negative Slides < 100
-2. Slide Positivity Rate (SPR) < 2.5%
+WHAT CHANGED
+- Practical QC Calculators now also have a compact card-style library,
+  similar to the Clinical Laboratory Calculators design.
+- Small cards are added for:
+  Internal QC, Levey-Jennings, Daily Repeat, Lot-to-Lot, Method Verification,
+  Unit Converter, Critical Values, Westgard Rules and Troubleshooting.
+- Clicking each card jumps to the detailed calculator/tool below.
+- Existing detailed calculators remain unchanged.
+- Clinical Laboratory Calculators, TB LQAS, Presentations and Software links remain intact.
 
-The form automatically shows:
-- Annual Sample Size = All Slides
-- Quarterly Sample Size = All Slides
-- Slide Interval = 1
-
-For all other values, the existing lookup-table calculation remains unchanged.
-
-GITHUB UPDATE
+HOW TO UPDATE
 1. Extract this ZIP.
-2. Open your website repository.
-3. Upload only tb-lqas-form.html
-4. Replace the existing tb-lqas-form.html
-5. Commit changes
+2. Open your GitHub website repository.
+3. Upload only index.html from this ZIP.
+4. Replace the existing index.html.
+5. Commit changes.
 
-No index.html change is needed.
+No other file changes are needed.
