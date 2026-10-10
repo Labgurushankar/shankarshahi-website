@@ -291,7 +291,7 @@ button{
 
     <div class="smallnote">
       Previous-year slide counts are linked automatically: Total = Negative + Positive. Enter Total + Negative to calculate Positive, or Total + Positive to calculate Negative. Annual Sample Size uses the supplied reference table (nearest annual negatives row and nearest SPR column).
-      Quarterly sample is automatic by default but can be typed manually by unticking the checkbox. If Total Negative Slides are below 100 AND SPR is below 2.5%, both Annual Sample Size and Quarterly Sample Size show “All Slides”.
+      Quarterly sample is automatic by default but can be typed manually by unticking the checkbox. If Total Negative Slides are below 100 OR SPR is below 2.5%, both Annual Sample Size and Quarterly Sample Size show “All Slides”.
       In that special case Slide Interval = 1; otherwise Slide Interval = Last Quarter Slides ÷ Quarterly Sample Size.
     </div>
   </div>
@@ -364,7 +364,7 @@ function calculateAll(){
   const spr=total>0?(pos/total*100):0;
   document.getElementById('positivityRate').value=spr.toFixed(2)+'%';
 
-  const allSlidesRule = (neg < 100 && spr < 2.5);
+  const allSlidesRule = (neg < 100 || spr < 2.5);
   const annualEl=document.getElementById('annualSample');
   const quarterEl=document.getElementById('quarterlySample');
 
