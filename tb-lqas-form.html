@@ -243,7 +243,7 @@ button{
         <td class="label">Total Negative Slides</td>
         <td><input id="prevNegative" type="number" value="268" oninput="syncFromNegative()"></td>
         <td class="label">Quarterly Sample Size</td>
-        <td class="calc"><input id="quarterlySample" type="number" value="35" oninput="manualQuarterEdited()"></td>
+        <td class="calc"><input id="quarterlySample" type="text" inputmode="decimal" value="35" oninput="manualQuarterEdited()"></td>
         <td class="label">Total Negative Slides Sent for EQA</td>
         <td><input id="sentNegative" type="number" value="0" oninput="calculateAll()"></td>
       </tr>
@@ -291,8 +291,8 @@ button{
 
     <div class="smallnote">
       Previous-year slide counts are linked automatically: Total = Negative + Positive. Enter Total + Negative to calculate Positive, or Total + Positive to calculate Negative. Annual Sample Size uses the supplied reference table (nearest annual negatives row and nearest SPR column).
-      Quarterly sample is automatic by default but can be typed manually by unticking the checkbox.
-      Slide Interval = Last Quarter Slides ÷ Quarterly Sample Size.
+      Quarterly sample is automatic by default but can be typed manually by unticking the checkbox. If Total Negative Slides are below 100 AND SPR is below 2.5%, both Annual Sample Size and Quarterly Sample Size show “All Slides”.
+      In that special case Slide Interval = 1; otherwise Slide Interval = Last Quarter Slides ÷ Quarterly Sample Size.
     </div>
   </div>
 </div>
@@ -363,19 +363,31 @@ function calculateAll(){
   const total=num('prevTotal'), neg=num('prevNegative'), pos=num('prevPositive');
   const spr=total>0?(pos/total*100):0;
   document.getElementById('positivityRate').value=spr.toFixed(2)+'%';
-  const annual=annualLookup(neg,spr);
-  document.getElementById('annualSample').value=annual;
-  if(document.getElementById('quarterAuto').checked){
-    document.getElementById('quarterlySample').value=(annual/3).toFixed(annual%3===0?0:2);
+
+  const allSlidesRule = (neg < 100 && spr < 2.5);
+  const annualEl=document.getElementById('annualSample');
+  const quarterEl=document.getElementById('quarterlySample');
+
+  if(allSlidesRule){
+    annualEl.value='All Slides';
+    quarterEl.value='All Slides';
+    quarterEl.readOnly=true;
+    document.getElementById('slideInterval').value='1';
+  }else{
+    const annual=annualLookup(neg,spr);
+    annualEl.value=annual;
+    quarterEl.readOnly=document.getElementById('quarterAuto').checked;
+    if(document.getElementById('quarterAuto').checked){
+      quarterEl.value=(annual/3).toFixed(annual%3===0?0:2);
+    }
+    const q=num('quarterlySample'), last=num('lastQuarterSlides');
+    const interval=q>0?last/q:0;
+    document.getElementById('slideInterval').value=interval>0?Math.max(1,Math.round(interval)):'0';
   }
-  const q=num('quarterlySample'), last=num('lastQuarterSlides');
-  const interval=q>0?last/q:0;
-  document.getElementById('slideInterval').value=interval>0?Math.max(1,Math.round(interval)):'0';
+
   document.getElementById('sentTotal').value=num('sentNegative')+num('sentPositive');
 }
 function quarterModeChanged(){
-  const q=document.getElementById('quarterlySample');
-  q.readOnly=document.getElementById('quarterAuto').checked;
   calculateAll();
 }
 function manualQuarterEdited(){ if(!document.getElementById('quarterAuto').checked) calculateAll(); }

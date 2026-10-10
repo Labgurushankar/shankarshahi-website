@@ -1,32 +1,22 @@
-SHANKARSHAHI.COM.NP — CLINICAL CALCULATORS UPDATE
+SHANKARSHAHI.COM.NP — TB LQAS ALL-SLIDES RULE UPDATE
 
-ADDED TO WEBSITE
-1. LDL / VLDL Calculator
-2. PT / INR Calculator
-3. Urine Protein / Creatinine Ratio (uPCR)
-4. Urine Albumin / Creatinine Ratio (uACR)
-5. eGFR Calculator — 2021 CKD-EPI creatinine equation for adults
+CHANGE MADE
+When BOTH conditions are true:
+1. Total Negative Slides < 100
+2. Slide Positivity Rate (SPR) < 2.5%
 
-WEBSITE INTEGRATION
-- A new “Clinical Laboratory Calculators” panel is added near the top of the existing QC Calculators section.
-- Each calculator opens as its own responsive page.
-- Existing TB LQAS, Presentations and Software links are preserved in index.html.
+The form automatically shows:
+- Annual Sample Size = All Slides
+- Quarterly Sample Size = All Slides
+- Slide Interval = 1
 
-UPLOAD TO GITHUB
+For all other values, the existing lookup-table calculation remains unchanged.
+
+GITHUB UPDATE
 1. Extract this ZIP.
 2. Open your website repository.
-3. Upload/replace index.html.
-4. Upload the entire calculators folder, preserving the folder name and all files.
-5. Commit changes.
+3. Upload only tb-lqas-form.html
+4. Replace the existing tb-lqas-form.html
+5. Commit changes
 
-EXPECTED URLS
-/calculators/ldl-vldl.html
-/calculators/pt-inr.html
-/calculators/upcr.html
-/calculators/uacr.html
-/calculators/egfr.html
-
-NOTE ABOUT YOUR EXISTING LDL FILE
-The local Windows path you gave (file:///C:/...) cannot be read directly from ChatGPT.
-So this package includes a newly built LDL/VLDL calculator with the same requested function.
-If you want the exact appearance of your existing LDL calculator preserved, upload its ZIP/folder here later and it can be substituted.
+No index.html change is needed.
