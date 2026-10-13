@@ -1,25 +1,17 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB OD AUTO-FILL UPDATE
+SHANKARSHAHI.COM.NP — REMOVE DUPLICATE VIRTUAL LAB SECTION
 
 CHANGE
-When a cuvette is read in the Digital Colorimeter:
-- Blank OD automatically goes to Blank OD field
-- Standard OD automatically goes to Standard OD field
-- Control OD automatically goes to Control OD field
-- Test OD automatically goes to Test OD field
-
-Blank OD is also filled automatically when "Zero with Blank" is pressed.
-
-UPDATED FILES
-- virtual-lab-glucose.html
-- virtual-lab-urea.html
-- virtual-lab-uricacid.html
-- virtual-lab-hb.html
+- Removed the separate home-page “INTERACTIVE LEARNING / Virtual Laboratory” section.
+- Kept the top navigation “🔬 Virtual Lab” button.
+- Kept the floating “🔬 Visit Virtual Lab” button.
+- Both buttons continue to open virtual-lab.html directly.
+- No other website section was changed.
 
 GITHUB UPDATE
 1. Extract this ZIP.
-2. Upload these four HTML files directly to the repository root.
-3. Replace the existing files.
+2. Upload only index.html to the repository root.
+3. Replace the existing index.html.
 4. Commit changes.
-5. Ctrl+F5 after deployment.
+5. Refresh the website with Ctrl+F5.
 
-No change to virtual-lab.html is required.
+No Virtual Lab practical files need to be changed.
