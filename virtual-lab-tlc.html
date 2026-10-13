@@ -42,7 +42,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 @media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
 @media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
 </style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • Neubauer Chamber • V5-style practical</p></header>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • Neubauer Chamber • Version 5 interactive practical</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
 <main><div class="layout"><div>
 <section class="card"><h2>1. Prepare WBC Dilution</h2><p class="small">Teaching example uses 1:20 dilution. Follow your SOP for actual testing.</p><div class="toolbar"><button id="dilute">Prepare 1:20 Dilution</button><button id="mix">Mix Dilution</button><button class="secondary" onclick="location.reload()">↻ Restart</button></div>
@@ -54,7 +54,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 <div class="sq"><b>Large Square 1</b><div id="v1" style="font-size:20px;margin:8px">?</div><button onclick="countSq(1)">Count</button></div><div class="sq"><b>Large Square 2</b><div id="v2" style="font-size:20px;margin:8px">?</div><button onclick="countSq(2)">Count</button></div><div class="sq"><b>Large Square 3</b><div id="v3" style="font-size:20px;margin:8px">?</div><button onclick="countSq(3)">Count</button></div><div class="sq"><b>Large Square 4</b><div id="v4" style="font-size:20px;margin:8px">?</div><button onclick="countSq(4)">Count</button></div>
 </div><p class="small">Use the same boundary rule consistently to avoid double counting.</p></section>
 <section class="card"><h2>3. Record Counts & Calculate TLC</h2><div class="readings"><div class="readbox"><b>Square 1</b><input id="n1" type="number"></div><div class="readbox"><b>Square 2</b><input id="n2" type="number"></div><div class="readbox"><b>Square 3</b><input id="n3" type="number"></div><div class="readbox"><b>Square 4</b><input id="n4" type="number"></div></div><div class="toolbar"><label>Dilution <input id="dil" type="number" value="20"></label><button id="calc">Calculate TLC</button></div><p class="small">For 4 large squares, chamber volume = 0.4 µL. TLC = cells counted × dilution ÷ 0.4.</p><div id="finalResult" class="result">Complete counting first.</div></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • TLC V5-style simulation • Educational use only.</footer></main>
+<footer class="footer">Shankar Virtual Medical Laboratory • TLC Version 5 interactive simulation • Educational use only.</footer></main>
 <script>
 let done=Array(7).fill(false), errors=0;
 const $=id=>document.getElementById(id);

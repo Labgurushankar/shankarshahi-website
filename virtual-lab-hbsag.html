@@ -42,7 +42,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 @media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
 @media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
 </style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology Simulator • HBsAg Rapid Test • V5-style practical</p></header>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology Simulator • HBsAg Rapid Test • Version 5 interactive practical</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
 <main><div class="layout"><div>
 <section class="card"><h2>1. Prepare Rapid Test Device</h2><p class="small">Check expiry, pouch integrity, specimen type and kit instructions before use.</p><div class="toolbar"><button id="check">Check Kit</button><button id="sample">Add Sample</button><button id="buffer">Add Buffer</button><button id="timer">Start Timer</button><button class="secondary" onclick="location.reload()">↻ Restart</button></div>
@@ -52,7 +52,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 <p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
 <section class="card"><h2>2. Read Cassette</h2><div class="toolbar"><button id="read">Read at Valid Time</button></div><div id="obs" class="result">Awaiting valid read time.</div></section>
 <section class="card"><h2>3. Interpret Screening Result</h2><label>Cassette pattern <select id="sel"><option>C line only</option><option>C + T lines</option><option>No C line</option></select></label><div class="toolbar"><button id="interpret">Interpret</button></div><div id="finalResult" class="result">Complete the cassette procedure first.</div><p class="note">Reactive screening results must follow the approved laboratory/national testing or confirmation algorithm. A single screening cassette is not, by itself, a final diagnosis.</p></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • HBsAg Rapid Test V5-style simulation • Educational use only.</footer></main>
+<footer class="footer">Shankar Virtual Medical Laboratory • HBsAg Rapid Test Version 5 interactive simulation • Educational use only.</footer></main>
 <script>
 let done=Array(6).fill(false), errors=0;
 const $=id=>document.getElementById(id);

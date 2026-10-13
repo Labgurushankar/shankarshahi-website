@@ -42,7 +42,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 @media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
 @media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
 </style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • Blood Grouping • V5-style practical</p></header>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • Blood Grouping • Version 5 interactive practical</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
 <main><div class="layout"><div>
 <section class="card"><h2>1. Prepare Reaction Tile</h2><p class="small">Add patient red-cell suspension to Anti-A, Anti-B and Anti-D areas. This training specimen is A Rh-positive.</p>
@@ -54,7 +54,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 <p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
 <section class="card"><h2>2. Observe Agglutination</h2><p class="small">Rock the tile gently and read within the validated time. For this practice case: Anti-A and Anti-D agglutinate; Anti-B remains smooth.</p><div class="toolbar"><button id="rock">Rock Tile</button><button id="read">Read Reactions</button></div><div id="obs" class="result">Awaiting reaction.</div></section>
 <section class="card"><h2>3. Record & Interpret</h2><div class="readings"><div class="readbox"><b>Anti-A</b><select id="ia"><option>Positive</option><option>Negative</option></select></div><div class="readbox"><b>Anti-B</b><select id="ib"><option>Negative</option><option>Positive</option></select></div><div class="readbox"><b>Anti-D</b><select id="id"><option>Positive</option><option>Negative</option></select></div></div><div class="toolbar"><button id="interpret">Interpret Blood Group</button></div><div id="finalResult" class="result">Complete reactions and interpretation.</div></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • Blood Grouping V5-style simulation • Educational use only.</footer></main>
+<footer class="footer">Shankar Virtual Medical Laboratory • Blood Grouping Version 5 interactive simulation • Educational use only.</footer></main>
 <script>
 let done=Array(6).fill(false), errors=0;
 const $=id=>document.getElementById(id);

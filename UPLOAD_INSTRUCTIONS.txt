@@ -1,31 +1,32 @@
-SHANKARSHAHI.COM.NP — V5-STYLE VIRTUAL LAB FOR ALL TESTS
+SHANKARSHAHI.COM.NP — VIRTUAL LAB V5 MATCHED UPDATE
 
-This package was rebuilt to match the uploaded Blood Glucose V5 simulator style:
-- same Shankar Virtual Medical Laboratory look
-- bench / instruments
-- progress & assessment
-- errors and score
-- interactive sequence
-- notebook / result calculation or interpretation
-- print-friendly report sections
+LIVE CHECK FINDING
+- Blood Glucose on the live GitHub site already contained the uploaded V5 simulator.
+- Urea and several other tests were still simplified versions, so they did NOT fully match the Blood Glucose V5 interaction. This package corrects that.
 
-IMPORTANT: ALL TEST FILES ARE ROOT-LEVEL
-This avoids the previous /virtual-lab/module.html 404 problem.
+IMPORTANT CHANGES
+- Blood Glucose: exact uploaded V5 simulator retained.
+- Urea: now cloned from the same V5 simulator architecture:
+  draggable pipette, bottles, Blank/Standard/Control/Test tubes, tube add/delete,
+  dry bath, colorimeter, OD notebook, QC and calculation.
+- Uric Acid: same full V5 architecture.
+- Hemoglobin: same full V5 architecture adapted for Hb.
+- SGOT/AST, Blood Group, TLC, Gram stain, AFB, CRP, ASO, RF, HIV, HBsAg and HCV:
+  Version-5 visual shell with procedure-specific interactive bench/instrument simulations.
+- All test links remain ROOT LEVEL to avoid the earlier 404 issue.
 
-UPLOAD
+GITHUB UPLOAD
 1. Extract this ZIP.
-2. Open your GitHub repository root.
-3. Upload ALL .html files directly to the repository root.
-4. Replace virtual-lab.html.
-5. Commit changes.
-6. Wait for GitHub Pages deployment and press Ctrl+F5.
+2. Upload ALL .html files directly to the repository ROOT.
+3. Replace the existing virtual-lab.html and virtual-lab-*.html files.
+4. Commit changes.
+5. Wait for GitHub Pages to deploy.
+6. Use Ctrl+F5.
 
-Main library:
-https://shankarshahi.com.np/virtual-lab.html
-
-Example:
+TEST THESE FIRST
 https://shankarshahi.com.np/virtual-lab-glucose.html
 https://shankarshahi.com.np/virtual-lab-urea.html
-https://shankarshahi.com.np/virtual-lab-bloodgroup.html
+https://shankarshahi.com.np/virtual-lab-uricacid.html
+https://shankarshahi.com.np/virtual-lab-hb.html
 
-Do not put these files inside another folder in this version.
+Exact kit-specific reagent volumes, timing and performance limits may differ; teaching settings in the simulator should be replaced with the actual kit/SOP values if you want method-specific final versions.

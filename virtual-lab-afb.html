@@ -42,7 +42,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 @media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
 @media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
 </style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Microbiology Simulator • AFB Stain • V5-style practical</p></header>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Microbiology Simulator • AFB Stain • Version 5 interactive practical</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
 <main><div class="layout"><div>
 <section class="card"><h2>1. Prepare & Stain Smear</h2><p class="small">Follow the stain sequence. Clicking a later reagent before the correct step records an error.</p><div id="slide" class="slidebox">Clean prepared slide</div><div class="toolbar"><button id="prep">Prepare Smear</button><button id="fix">Fix Smear</button><button onclick="applyStep(0)">1. Carbol Fuchsin</button><button onclick="applyStep(1)">2. Heat / Contact Step</button><button onclick="applyStep(2)">3. Acid Decolorizer</button><button onclick="applyStep(3)">4. Methylene Blue</button><button class="secondary" onclick="location.reload()">↻ Restart</button></div></section></div><aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Smear prepared</div><div class="step" id="chk1">○ Smear fixed</div><div class="step" id="chk2">○ Primary stain applied</div><div class="step" id="chk3">○ Mordant/heat step completed</div><div class="step" id="chk4">○ Decolorization completed</div><div class="step" id="chk5">○ Counterstain applied</div><div class="step" id="chk6">○ Microscopy performed</div><div class="step" id="chk7">○ Interpretation recorded</div></div>
@@ -51,7 +51,7 @@ select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:10
 <p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
 <section class="card"><h2>2. Microscope Examination</h2><div class="instruments"><div class="instrument"><div class="machine"><h3>🔬 MICROSCOPE</h3><div class="screen">100× Oil Objective</div><div class="toolbar"><button id="oil">Add Immersion Oil</button><button id="focus">Focus & Examine</button></div></div></div><div id="micro" class="microscope">Complete staining before microscopy.</div></div></section>
 <section class="card"><h2>3. Record Interpretation</h2><p class="small">Record AFB seen/not seen or grade according to the approved TB program/laboratory SOP.</p><div class="toolbar"><input id="interp" style="width:430px" placeholder="Type microscopy interpretation"><button id="save">Save Interpretation</button></div><div id="finalResult" class="result">Awaiting microscopy.</div></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • AFB Stain – Ziehl-Neelsen V5-style simulation • Educational use only.</footer></main>
+<footer class="footer">Shankar Virtual Medical Laboratory • AFB Stain – Ziehl-Neelsen Version 5 interactive simulation • Educational use only.</footer></main>
 <script>
 let done=Array(8).fill(false), errors=0;
 const $=id=>document.getElementById(id);
