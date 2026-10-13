@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Red Cell Indices Calculator | ShankarShahi.com.np</title>
+<style>
+:root{--navy:#11395f;--blue:#176fae;--bg:#f2f6fa;--card:#fff;--text:#172331;--muted:#667085;--line:#d8e1ea}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:20px 16px}.topin{max-width:920px;margin:auto}
+.top h1{margin:0 0 4px;font-size:26px}.top p{margin:0;opacity:.92}.wrap{max-width:920px;margin:22px auto;padding:0 14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 18px rgba(20,40,60,.07);margin-bottom:16px}
+.grid3,.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-weight:700;font-size:14px}input{width:100%;margin-top:6px;padding:11px;border:1px solid #b9c6d3;border-radius:9px;font-size:15px}
+button,.btn{display:inline-block;border:0;border-radius:9px;padding:11px 15px;background:#176fae;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;margin-top:14px}.btn.secondary{background:#5b6775}
+.actions{display:flex;gap:9px;flex-wrap:wrap}.box{background:#f6fbff;border-left:5px solid #176fae;padding:14px;border-radius:9px}.value{font-size:28px;font-weight:800;color:#123d63}
+.muted{color:var(--muted);font-size:13px;line-height:1.55}.formula{font-family:Consolas,monospace;background:#eef4f8;padding:10px;border-radius:8px;line-height:1.8}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.nav a{color:#174f7c;text-decoration:none;font-weight:700;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--line);text-align:left;font-size:13px}
+@media(max-width:700px){.grid3,.results{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin"><h1>Red Cell Indices Calculator</h1><p>MCV, MCH and MCHC from Hb, PCV and RBC count</p></div></header>
+<div class="wrap">
+<div class="nav"><a href="../index.html#clinical-calculators">← All Calculators</a><a href="../index.html">Website Home</a></div>
+<div class="card">
+<div class="grid3">
+<label>Hemoglobin, Hb (g/dL)<input id="hb" type="number" step="any" min="0" placeholder="e.g. 14.0"></label>
+<label>PCV / Hematocrit (%)<input id="pcv" type="number" step="any" min="0" placeholder="e.g. 42"></label>
+<label>RBC Count (million/µL)<input id="rbc" type="number" step="any" min="0" placeholder="e.g. 4.8"></label>
+</div>
+<div class="actions"><button onclick="calc()">Calculate Indices</button><button class="btn secondary" onclick="clearAll()">Clear</button></div>
+<p id="msg" class="muted">Enter Hb, PCV and RBC count.</p>
+<div class="results">
+<div class="box"><b>MCV</b><div class="value" id="mcv">—</div><span class="muted">fL</span></div>
+<div class="box"><b>MCH</b><div class="value" id="mch">—</div><span class="muted">pg</span></div>
+<div class="box"><b>MCHC</b><div class="value" id="mchc">—</div><span class="muted">g/dL</span></div>
+</div>
+</div>
+<div class="card"><b>Formulas</b><div class="formula">MCV (fL) = PCV (%) × 10 ÷ RBC (million/µL)<br>MCH (pg) = Hb (g/dL) × 10 ÷ RBC (million/µL)<br>MCHC (g/dL) = Hb (g/dL) × 100 ÷ PCV (%)</div></div>
+<div class="card"><b>Common adult reference guide</b><table><tr><th>Index</th><th>Typical range</th></tr><tr><td>MCV</td><td>80–100 fL</td></tr><tr><td>MCH</td><td>27–33 pg</td></tr><tr><td>MCHC</td><td>32–36 g/dL</td></tr></table><p class="muted">Use your laboratory's validated reference interval for reporting.</p></div>
+</div>
+<script>
+function v(id){return parseFloat(document.getElementById(id).value)}
+function calc(){const h=v('hb'),p=v('pcv'),r=v('rbc');if(!isFinite(h)||!isFinite(p)||!isFinite(r)||h<=0||p<=0||r<=0){msg.textContent='Please enter valid values greater than zero.';return}
+mcv.textContent=((p*10)/r).toFixed(1);mch.textContent=((h*10)/r).toFixed(1);mchc.textContent=((h*100)/p).toFixed(1);msg.textContent='Calculated successfully.'}
+function clearAll(){hb.value='';pcv.value='';rbc.value='';mcv.textContent='—';mch.textContent='—';mchc.textContent='—';msg.textContent='Enter Hb, PCV and RBC count.'}
+</script>
+</body></html>
