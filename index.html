@@ -37,6 +37,63 @@
   }
 </style>
 
+
+<style>
+  .virtual-lab-nav{
+    color:#06182e!important;
+    background:#20c7ff;
+    height:38px!important;
+    padding:0 12px;
+    border-radius:999px;
+    font-weight:800!important;
+    box-shadow:0 0 0 1px rgba(255,255,255,.18),0 4px 12px rgba(0,0,0,.2);
+  }
+  .virtual-lab-nav:hover{background:#70ddff;color:#06182e!important}
+
+  .virtual-lab-float{
+    position:fixed;
+    right:18px;
+    top:88px;
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 15px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#0b7fd3,#11b8ef);
+    color:#fff;
+    text-decoration:none;
+    font-weight:800;
+    font-size:14px;
+    box-shadow:0 6px 18px rgba(0,70,120,.28);
+    border:1px solid rgba(255,255,255,.45);
+  }
+  .virtual-lab-float:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,70,120,.34)}
+
+  @media(max-width:1280px) and (min-width:751px){
+    .main-nav{gap:10px}
+    .brand{min-width:250px}
+    .brand-text small{display:none}
+    .nav-links{gap:9px}
+    .nav-links a{font-size:11px}
+    .virtual-lab-nav{padding:0 10px}
+  }
+
+  @media(max-width:750px){
+    .virtual-lab-float{
+      top:78px;
+      right:10px;
+      font-size:13px;
+      padding:8px 12px;
+    }
+    .virtual-lab-nav{
+      height:42px!important;
+      border-radius:8px;
+      padding:0 10px;
+    }
+  }
+</style>
+
 </head>
 <body>
 <header class="top-ribbon">
@@ -50,7 +107,7 @@
       <a class="active" href="#home">Home</a>
       <a href="#about">About Me</a>
       <a href="/tb-lqas-form.html">TB LQAS</a>
-      <a href="virtual-lab.html">Visit Virtual Lab</a>
+      <a class="virtual-lab-nav" href="virtual-lab.html">🔬 Virtual Lab</a>
       <a href="#quality">QC Calculators</a>
       <a href="#qms">QMS System</a><a href="#lis">Lab LIS</a>
       <a href="#youtube">YouTube</a>
@@ -61,6 +118,8 @@
     </div>
   </nav>
 </header>
+<a class="virtual-lab-float" href="virtual-lab.html">🔬 Visit Virtual Lab</a>
+
 
 <section id="home" class="reference-hero">
   <img src="assets/shankar-shahi-home-hero.png" alt="Shankar Shahi - Senior Medical Laboratory Technologist and Quality Control Expert">

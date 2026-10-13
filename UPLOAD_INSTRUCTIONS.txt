@@ -1,21 +1,20 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB UPDATE
+SHANKARSHAHI.COM.NP — VIRTUAL LAB BUTTON VISIBILITY FIX
 
-ADDED
-- Top navigation button: Visit Virtual Lab
-- Virtual Laboratory card on the home page
-- New page: virtual-lab.html
+The Virtual Lab page already exists on the website.
+This update makes the button clearly visible.
 
-GITHUB UPLOAD
+CHANGES
+- Top navigation Virtual Lab link is highlighted as a blue pill button.
+- A floating “🔬 Visit Virtual Lab” button is always visible near the top-right.
+- Desktop/tablet navigation spacing is adjusted so the Virtual Lab link does not disappear.
+- Mobile layout keeps the floating button and menu link.
+
+GITHUB UPDATE
 1. Extract this ZIP.
-2. Open your GitHub repository:
-   https://github.com/Labgurushankar/shankarshahi-website
-3. Upload BOTH files to the repository root:
-   - index.html
-   - virtual-lab.html
-4. Replace the existing index.html.
+2. Open your website repository.
+3. Upload only index.html to the repository root.
+4. Replace the current index.html.
 5. Commit changes.
+6. Refresh the website with Ctrl+F5.
 
-EXPECTED URL
-https://shankarshahi.com.np/virtual-lab.html
-
-The Virtual Lab page is ready for adding interactive modules later.
+The existing virtual-lab.html page does NOT need to be uploaded again.
