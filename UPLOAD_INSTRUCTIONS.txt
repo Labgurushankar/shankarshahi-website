@@ -1,40 +1,36 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB MODULES UPDATE
+SHANKARSHAHI.COM.NP — VIRTUAL LAB 404 FINAL FIX
 
-ADDED INTERACTIVE MODULES
+CAUSE CONFIRMED
+Your live GitHub repository has virtual-lab.html,
+but there is NO folder named virtual-lab and therefore no:
+virtual-lab/module.html
 
-Clinical Biochemistry
-- Blood Glucose
-- Urea
-- Uric Acid
-- SGOT / AST
+That is why clicking Blood Glucose and other tests gives 404.
 
-Hematology
-- ABO & Rh Blood Grouping
-- Hemoglobin
-- Total Leucocyte Count
+THIS FIX REMOVES THE FOLDER DEPENDENCY
+All test cards now open one root-level file:
 
-Microbiology
-- Gram Stain
-- AFB Stain
+virtual-lab-module.html?test=glucose
+virtual-lab-module.html?test=urea
+virtual-lab-module.html?test=uricacid
+virtual-lab-module.html?test=sgot
+...and the other tests use the same root module file with a different test parameter.
 
-Immunology / Serology
-- CRP
-- ASO
-- RF
-- HIV Rapid Test
-- HBsAg Rapid Test
-- HCV Rapid Test
+GITHUB UPLOAD — VERY IMPORTANT
+1. Extract this ZIP.
+2. Open:
+   https://github.com/Labgurushankar/shankarshahi-website
+3. Upload BOTH files DIRECTLY to repository ROOT:
+   - virtual-lab.html
+   - virtual-lab-module.html
+4. Replace existing virtual-lab.html.
+5. Commit changes.
+6. Wait briefly for GitHub Pages to publish.
+7. Hard refresh with Ctrl+F5.
 
-FILES TO UPLOAD TO GITHUB ROOT
-- virtual-lab.html  (replace existing file)
-- virtual-lab/module.html  (upload inside a folder named virtual-lab)
+DO NOT create or upload a virtual-lab folder for this version.
 
-IMPORTANT
-Final structure must be:
-virtual-lab.html
-virtual-lab/
-  module.html
+TEST URL AFTER UPLOAD
+https://shankarshahi.com.np/virtual-lab-module.html?test=glucose
 
-No index.html change is needed if your Visit Virtual Lab button already opens virtual-lab.html.
-
-All modules are educational simulations. Exact test volumes, times, wavelengths, cut-offs and result algorithms should follow the actual reagent/kit insert and laboratory SOP.
+If that URL opens, all the other Virtual Lab cards will work too.
