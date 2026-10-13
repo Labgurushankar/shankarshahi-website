@@ -1,32 +1,25 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB V5 MATCHED UPDATE
+SHANKARSHAHI.COM.NP — VIRTUAL LAB OD AUTO-FILL UPDATE
 
-LIVE CHECK FINDING
-- Blood Glucose on the live GitHub site already contained the uploaded V5 simulator.
-- Urea and several other tests were still simplified versions, so they did NOT fully match the Blood Glucose V5 interaction. This package corrects that.
+CHANGE
+When a cuvette is read in the Digital Colorimeter:
+- Blank OD automatically goes to Blank OD field
+- Standard OD automatically goes to Standard OD field
+- Control OD automatically goes to Control OD field
+- Test OD automatically goes to Test OD field
 
-IMPORTANT CHANGES
-- Blood Glucose: exact uploaded V5 simulator retained.
-- Urea: now cloned from the same V5 simulator architecture:
-  draggable pipette, bottles, Blank/Standard/Control/Test tubes, tube add/delete,
-  dry bath, colorimeter, OD notebook, QC and calculation.
-- Uric Acid: same full V5 architecture.
-- Hemoglobin: same full V5 architecture adapted for Hb.
-- SGOT/AST, Blood Group, TLC, Gram stain, AFB, CRP, ASO, RF, HIV, HBsAg and HCV:
-  Version-5 visual shell with procedure-specific interactive bench/instrument simulations.
-- All test links remain ROOT LEVEL to avoid the earlier 404 issue.
+Blank OD is also filled automatically when "Zero with Blank" is pressed.
 
-GITHUB UPLOAD
+UPDATED FILES
+- virtual-lab-glucose.html
+- virtual-lab-urea.html
+- virtual-lab-uricacid.html
+- virtual-lab-hb.html
+
+GITHUB UPDATE
 1. Extract this ZIP.
-2. Upload ALL .html files directly to the repository ROOT.
-3. Replace the existing virtual-lab.html and virtual-lab-*.html files.
+2. Upload these four HTML files directly to the repository root.
+3. Replace the existing files.
 4. Commit changes.
-5. Wait for GitHub Pages to deploy.
-6. Use Ctrl+F5.
+5. Ctrl+F5 after deployment.
 
-TEST THESE FIRST
-https://shankarshahi.com.np/virtual-lab-glucose.html
-https://shankarshahi.com.np/virtual-lab-urea.html
-https://shankarshahi.com.np/virtual-lab-uricacid.html
-https://shankarshahi.com.np/virtual-lab-hb.html
-
-Exact kit-specific reagent volumes, timing and performance limits may differ; teaching settings in the simulator should be replaced with the actual kit/SOP values if you want method-specific final versions.
+No change to virtual-lab.html is required.
