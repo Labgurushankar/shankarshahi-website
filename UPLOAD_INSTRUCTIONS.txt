@@ -1,17 +1,24 @@
-SHANKARSHAHI.COM.NP — REMOVE DUPLICATE VIRTUAL LAB SECTION
+SHANKARSHAHI.COM.NP — CLEAN QC HEADER + NAV UPDATE
 
-CHANGE
-- Removed the separate home-page “INTERACTIVE LEARNING / Virtual Laboratory” section.
-- Kept the top navigation “🔬 Virtual Lab” button.
-- Kept the floating “🔬 Visit Virtual Lab” button.
-- Both buttons continue to open virtual-lab.html directly.
-- No other website section was changed.
+CHANGES
+1. Removed the redundant top heading inside the QC section:
+   - LABORATORY QUALITY CONTROL SYSTEM
+   - Practical QC Calculators
+   - the long QC introduction sentence
+
+   The actual Clinical Laboratory Calculators and Practical QC Calculator Library cards remain unchanged.
+
+2. Removed YouTube from the TOP navigation bar only.
+   - This frees space so Contact can remain visible.
+   - YouTube content/link lower on the website is NOT removed.
+
+3. Virtual Lab top button and floating Visit Virtual Lab button remain unchanged.
 
 GITHUB UPDATE
 1. Extract this ZIP.
 2. Upload only index.html to the repository root.
 3. Replace the existing index.html.
 4. Commit changes.
-5. Refresh the website with Ctrl+F5.
+5. Refresh with Ctrl+F5.
 
-No Virtual Lab practical files need to be changed.
+No other website files need to be changed.
