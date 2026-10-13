@@ -1,41 +1,31 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB 404 COMPATIBILITY FIX
+SHANKARSHAHI.COM.NP — V5-STYLE VIRTUAL LAB FOR ALL TESTS
 
-WHY YOU STILL SAW 404
-Your screenshot opens this OLD path:
-https://shankarshahi.com.np/virtual-lab/module.html?test=glucose
+This package was rebuilt to match the uploaded Blood Glucose V5 simulator style:
+- same Shankar Virtual Medical Laboratory look
+- bench / instruments
+- progress & assessment
+- errors and score
+- interactive sequence
+- notebook / result calculation or interpretation
+- print-friendly report sections
 
-The latest page should use:
-https://shankarshahi.com.np/virtual-lab-module.html?test=glucose
+IMPORTANT: ALL TEST FILES ARE ROOT-LEVEL
+This avoids the previous /virtual-lab/module.html 404 problem.
 
-This package supports BOTH paths, so even an old cached page will work.
+UPLOAD
+1. Extract this ZIP.
+2. Open your GitHub repository root.
+3. Upload ALL .html files directly to the repository root.
+4. Replace virtual-lab.html.
+5. Commit changes.
+6. Wait for GitHub Pages deployment and press Ctrl+F5.
 
-UPLOAD ALL OF THESE
-1. virtual-lab.html                  -> repository ROOT
-2. virtual-lab-module.html           -> repository ROOT
-3. virtual-lab/module.html           -> inside folder named virtual-lab
+Main library:
+https://shankarshahi.com.np/virtual-lab.html
 
-IMPORTANT FINAL STRUCTURE
+Example:
+https://shankarshahi.com.np/virtual-lab-glucose.html
+https://shankarshahi.com.np/virtual-lab-urea.html
+https://shankarshahi.com.np/virtual-lab-bloodgroup.html
 
-repository root/
-├── virtual-lab.html
-├── virtual-lab-module.html
-└── virtual-lab/
-    └── module.html
-
-GITHUB WEB UPLOAD
-- Extract this ZIP first.
-- Drag virtual-lab.html and virtual-lab-module.html to the repository root.
-- Also drag the whole virtual-lab folder to the repository root, preserving module.html inside it.
-- Commit changes.
-- Wait briefly for GitHub Pages deployment.
-- Press Ctrl+F5.
-
-TEST BOTH URLS
-https://shankarshahi.com.np/virtual-lab-module.html?test=glucose
-https://shankarshahi.com.np/virtual-lab/module.html?test=glucose
-
-Both should open after this update.
-
-IMPORTANT ABOUT YOUR LOCAL V5 FILE
-The path file:///C:/Users/shahi/Downloads/Shankar_Virtual_Medical_Laboratory_Glucose_V5.html exists only on your computer, so ChatGPT cannot read its exact design from that path.
-If you want the website Blood Glucose practical to look EXACTLY like that V5 file, upload the actual .html file here and it can be integrated into the Virtual Lab.
+Do not put these files inside another folder in this version.

@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shankar Virtual Medical Laboratory | Urea (Urease Colorimetric)</title><style>
+:root{--ink:#183450;--blue:#176b94;--teal:#087b73;--bg:#edf4f9;--line:#cfdfeb;--red:#9f3333;--green:#136e43}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.5 system-ui,Arial,sans-serif}
+header{background:linear-gradient(110deg,#0b3359,#0b847e);color:white;padding:17px max(16px,calc((100vw - 1220px)/2))}
+h1{margin:0;font-size:24px}header p{margin:4px 0 0;color:#d9f9fb}
+main{max-width:1250px;margin:18px auto;padding:0 14px}
+.topnav{max-width:1250px;margin:10px auto 0;padding:0 14px}.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
+h2{font-size:18px;margin:0 0 8px}h3{font-size:15px;margin:8px 0}p{margin:7px 0}.small{font-size:12px;color:#597388}
+.hint{background:#e6f7f4;border-left:4px solid var(--teal);padding:9px 11px;border-radius:7px}
+button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
+button:disabled{background:#a1b6bb;cursor:not-allowed}.secondary{color:#16496c;background:#e1f0f8}.danger{background:#aa4545}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:10px 0}
+select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}input[type=number]{width:115px}
+.scroll{overflow:auto}
+.bench{position:relative;min-width:830px;height:340px;background:linear-gradient(#eff8ff 0 75%,#c6d9e7 75% 80%,#96a9b8 80%);border:1px solid #c5d9e6;border-radius:12px;touch-action:none;user-select:none}
+.source,.tube,.pipette,.slideObj,.tile,.cassetteObj{position:absolute;text-align:center;touch-action:none}
+.source{top:139px;width:112px}.cap{margin:auto;width:56px;height:18px;background:#136e9a;border-radius:7px 7px 2px 2px}
+.bottle{margin:auto;width:68px;height:95px;border:3px solid #749fb0;border-radius:8px 8px 15px 15px;background:linear-gradient(90deg,#c2e6eb,#fff 40%,#b9e1e9);display:flex;align-items:end;overflow:hidden}.liquid{height:45%;width:100%;background:#53b9cf99}
+.lablabel{background:#fffefa;border:1px solid #cde0e8;border-radius:5px;font-size:11px;font-weight:750;padding:3px;margin:3px auto;max-width:110px}
+.tube{top:122px;width:90px;height:170px}.tube .rim{width:39px;height:13px;border:3px solid #739ab4;border-radius:50%;background:#f6feff;margin:auto}
+.tube .glass{width:29px;height:106px;border:2px solid #739ab4;border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:#ffffffbb;position:relative;margin:-1px auto 0}
+.tube .fill{position:absolute;bottom:0;left:0;width:100%;height:0;background:#da94b6b3;transition:height .15s}.tube.ready .fill{height:78%;}.tube.incubated .fill{background:#edb45b99}
+.pipette{top:9px;left:585px;width:65px;height:190px;z-index:10;filter:drop-shadow(1px 3px 3px #173d5555)}
+.pipette .plunger{position:absolute;left:26px;top:0;width:13px;height:23px;border-radius:5px;background:#284762}.pipette .body{position:absolute;left:17px;top:19px;width:31px;height:111px;background:linear-gradient(90deg,#cadbe9,#fff,#aac2d3);border:2px solid #7190a7;border-radius:8px}
+.pipette .lcd{position:absolute;top:44px;left:20px;width:26px;font:700 10px monospace;background:#d6f9e2;border:1px solid #72918b}.pipette .tip{position:absolute;top:127px;left:27px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:51px solid #83c1e7}.pipette .ptxt{position:absolute;top:182px;left:-41px;width:148px;background:#fffffff0;border-radius:5px;font-size:10px}
+.status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.bad{background:#ffeded;color:var(--red)}.status.good{background:#e3f8e9;color:var(--green)}
+.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}
+.instruments{display:grid;grid-template-columns:1fr 1fr;gap:14px}.instrument{background:#edf4f9;border:1px solid #cbdae5;padding:13px;border-radius:12px}
+.machine{border-radius:12px;background:linear-gradient(120deg,#b2c6d4,#f6f9fc 38%,#91adc1);border:3px solid #7295ae;padding:13px;max-width:390px;margin:auto}.screen{font:700 18px/1.5 ui-monospace,Consolas,monospace;background:#0f3442;color:#b9f3b6;border:6px solid #345e70;border-radius:8px;text-align:center;padding:8px;min-height:59px}
+.readings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.readbox{border:1px solid #cddce7;padding:10px;border-radius:9px}.readbox b{display:block}.readbox input{width:100%;min-width:0}
+.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.note{font-size:12px;color:#526d84}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}
+.wells{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}.well{width:150px;text-align:center}.circle{width:100px;height:100px;margin:auto;border-radius:50%;border:3px solid #7a9aad;background:#fff;display:grid;place-items:center;font-weight:800}.circle.agglut{background-image:radial-gradient(circle,#9c2735 0 4px,transparent 5px);background-size:15px 15px}
+.slidebox{height:155px;border-radius:12px;background:#f0f4f7;border:2px solid #91a9b8;display:grid;place-items:center;font-weight:800;font-size:18px;transition:.2s}.microscope{background:#07111b;color:#fff;border-radius:12px;padding:15px;text-align:center;min-height:130px}
+.countgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:420px;margin:10px auto}.sq{border:1px solid #70899a;background:#fff;min-height:74px;padding:4px;text-align:center}
+.cassette{width:290px;height:100px;background:#f8f8f8;border:2px solid #aaa;border-radius:14px;margin:12px auto;position:relative}.window{position:absolute;left:85px;top:25px;width:120px;height:36px;background:#fff;border:1px solid #aaa}.cline,.tline{position:absolute;top:4px;width:4px;height:27px;background:#df4949}.cline{left:88px}.tline{left:30px}.samplewell{position:absolute;left:26px;top:30px;width:29px;height:29px;border:2px solid #aaa;border-radius:50%;display:grid;place-items:center;font-size:10px}
+.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}
+@media(max-width:950px){.layout,.instruments{grid-template-columns:1fr}.readings{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
+@media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
+</style></head><body>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Biochemistry Simulator • Urea • V5-style practical</p></header>
+<div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
+<main><div class="layout"><div>
+<section class="card"><h2>1. Prepare Blank, Standard, Control & Test</h2><p class="small">Use the virtual pipetting buttons in sequence. Change tip between different liquid sources.</p>
+<div class="toolbar"><label>Pipette volume <select id="volume"><option value="1000">1000 µL</option><option value="10">10 µL</option><option value="20">20 µL</option></select></label><button class="secondary" id="changeTip">Change tip</button><strong id="tipStatus">Clean tip</strong></div>
+<p class="hint" id="hint">Start by adding working reagent to all four tubes.</p>
+<div class="scroll"><div class="bench">
+<div class="source" style="left:18px"><div class="cap"></div><div class="bottle"><div class="liquid"></div></div><div class="lablabel">Urea Working Reagent</div></div>
+<div class="source" style="left:135px"><div class="cap"></div><div class="bottle"><div class="liquid"></div></div><div class="lablabel">Urea Standard</div></div>
+<div class="source" style="left:252px"><div class="cap"></div><div class="bottle"><div class="liquid"></div></div><div class="lablabel">QC Control</div></div>
+<div class="source" style="left:369px"><div class="cap"></div><div class="bottle"><div class="liquid"></div></div><div class="lablabel">Patient Serum</div></div>
+<div class="tube" id="tube_blank" style="left:490px"><div class="rim"></div><div class="glass"><div class="fill"></div></div><div class="lablabel">BLANK</div></div><div class="tube" id="tube_standard" style="left:572px"><div class="rim"></div><div class="glass"><div class="fill"></div></div><div class="lablabel">STANDARD</div></div><div class="tube" id="tube_control" style="left:654px"><div class="rim"></div><div class="glass"><div class="fill"></div></div><div class="lablabel">CONTROL</div></div><div class="tube" id="tube_test" style="left:736px"><div class="rim"></div><div class="glass"><div class="fill"></div></div><div class="lablabel">TEST</div></div>
+<div class="pipette"><div class="plunger"></div><div class="body"></div><div class="lcd" id="lcd">1000</div><div class="tip"></div><div class="ptxt">Virtual micropipette</div></div></div></div>
+<div class="toolbar"><button id="reagentBtn">1. Add Working Reagent to All</button><button id="stdBtn">2. Add Standard</button><button id="ctrlBtn">3. Add Control</button><button id="testBtn">4. Add Patient Sample</button><button class="secondary" id="reset">↻ Restart</button></div>
+</section></div><aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Working reagent added to all tubes</div><div class="step" id="chk1">○ Standard added correctly</div><div class="step" id="chk2">○ Control added correctly</div><div class="step" id="chk3">○ Patient sample added correctly</div><div class="step" id="chk4">○ All tubes incubated</div><div class="step" id="chk5">○ Blank zeroed</div><div class="step" id="chk6">○ All OD values read</div><div class="step" id="chk7">○ OD notebook verified</div><div class="step" id="chk8">○ QC evaluated and result calculated</div></div>
+<div class="metric"><span>Completed</span><b id="progress">0 / 9</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div>
+<h3>Instructor feedback</h3><div class="status" id="status">Start the practical.</div>
+<p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
+
+<section class="card"><h2>2. Incubate & Read in Colorimeter</h2><div class="instruments">
+<div class="instrument"><div class="machine"><h3>♨ DIGITAL DRY BATH</h3><div class="screen" id="bathScreen">TEMP: -- °C | READY</div></div><div class="toolbar"><label>Temperature <select id="temp"><option>25</option><option selected>37</option><option>45</option></select></label><label>Time <select id="time"><option>5</option><option selected>10</option><option>15</option></select></label><button id="incubate">Start incubation</button></div><p class="note" id="bathMsg">Prepare all tubes first.</p></div>
+<div class="instrument"><div class="machine"><h3>🔬 DIGITAL COLORIMETER</h3><div class="screen" id="colorScreen">578 nm | No cuvette</div><label>Cuvette <select id="cuvette"><option value="blank">Blank</option><option value="standard">Standard</option><option value="control">Control</option><option value="test">Test</option></select></label><div class="toolbar"><button id="insert">Insert</button><button id="zero">Zero with Blank</button><button id="read">Read OD</button></div></div><p class="note" id="colorMsg">Incubate first.</p></div></div></section>
+
+<section class="card"><h2>3. Record Optical Density (OD)</h2><div class="readings">
+<div class="readbox"><b>Blank OD</b><input type="number" id="note_blank" step="0.001" placeholder="Record OD"></div><div class="readbox"><b>Standard OD</b><input type="number" id="note_standard" step="0.001" placeholder="Record OD"></div><div class="readbox"><b>Control OD</b><input type="number" id="note_control" step="0.001" placeholder="Record OD"></div><div class="readbox"><b>Test OD</b><input type="number" id="note_test" step="0.001" placeholder="Record OD"></div>
+</div><div class="toolbar"><button id="verify">Verify recorded OD</button><span id="notesMsg" class="small">Awaiting readings.</span></div></section>
+
+<section class="card"><h2>4. Calculate Result & Evaluate Quality Control</h2><p class="small">Formula: (Sample OD − Blank OD) ÷ (Standard OD − Blank OD) × Standard concentration</p>
+<div class="toolbar"><label>Standard concentration (mg/dL) <input id="stdConc" type="number" value="50"></label><button id="calc">🧮 Calculate Result</button></div>
+<p class="small">Teaching QC range: 34–46 mg/dL.</p><div id="finalResult" class="result">Complete preparation → incubation → colorimeter → OD notebook → calculation.</div><div class="toolbar"><button class="secondary" onclick="window.print()">Print experiment report</button></div></section>
+<footer class="footer">Shankar Virtual Medical Laboratory • V5-style educational simulation • Follow kit insert and laboratory SOP for actual testing.</footer></main>
+<script>
+let done=Array(9).fill(false), errors=0;
+const $=id=>document.getElementById(id);
+function feedback(t,kind=''){$('status').textContent=t;$('status').className='status '+kind}
+function err(t){errors++;feedback('⚠ '+t,'bad');refresh()}
+function mark(i,t){done[i]=true;feedback(t||'Step completed.','good');refresh()}
+function refresh(){done.forEach((v,i)=>{let e=$('chk'+i);e.className='step '+(v?'ok':'');e.textContent=(v?'✓ ':'○ ')+e.textContent.replace(/^.[ ]?/,'')});$('progress').textContent=done.filter(Boolean).length+' / 9';$('errors').textContent=errors;$('score').textContent=Math.max(0,100-errors*8)}
+
+const trueOD={"blank": 0.0, "standard": 0.4, "control": 0.336, "test": 0.512}, tubes={blank:false,standard:false,control:false,test:false};let tipClean=true,incubated=false,zeroed=false,inserted=null,reads={};
+function showTubes(){Object.keys(tubes).forEach(t=>$('tube_'+t).classList.toggle('ready',tubes[t]))}
+$('volume').onchange=()=>$('lcd').textContent=$('volume').value;$('changeTip').onclick=()=>{tipClean=true;$('tipStatus').textContent='Clean tip';feedback('New clean tip fitted.','good')};
+$('reagentBtn').onclick=()=>{Object.keys(tubes).forEach(t=>tubes[t]=true);showTubes();mark(0,'Working reagent added to all four tubes.');$('hint').textContent='Now add Standard, Control and Patient sample using clean tips.'};
+$('stdBtn').onclick=()=>{if(!tubes.standard)return err('Add working reagent first.');if(!tipClean)return err('Change tip before new source.');mark(1,'Standard added correctly.');tipClean=false;$('tipStatus').textContent='Used tip'};
+$('ctrlBtn').onclick=()=>{if(!tubes.control)return err('Add working reagent first.');if(!tipClean)return err('Change tip before Control.');mark(2,'Control added correctly.');tipClean=false;$('tipStatus').textContent='Used tip'};
+$('testBtn').onclick=()=>{if(!tubes.test)return err('Add working reagent first.');if(!tipClean)return err('Change tip before patient sample.');mark(3,'Patient sample added correctly.');tipClean=false;$('tipStatus').textContent='Used tip'};
+$('incubate').onclick=()=>{if(!done.slice(0,4).every(Boolean))return err('Complete tube preparation first.');if($('temp').value!=='37'||$('time').value!=='10')return err('Use teaching setting 37 °C for 10 min for this simulation.');incubated=true;Object.keys(tubes).forEach(t=>$('tube_'+t).classList.add('incubated'));$('bathScreen').textContent='37 °C | INCUBATED';$('bathMsg').textContent='✓ Incubation complete.';mark(4,'Incubation completed.')};
+$('insert').onclick=()=>{if(!incubated)return err('Incubate first.');inserted=$('cuvette').value;$('colorScreen').textContent='578 nm | '+inserted.toUpperCase()+' IN';feedback(inserted+' cuvette inserted.','good')};
+$('zero').onclick=()=>{if(inserted!=='blank'||!incubated)return err('Insert incubated Blank first.');zeroed=true;reads.blank=trueOD.blank;$('colorScreen').textContent='A = 0.000 | ZERO';mark(5,'Colorimeter zeroed with Blank.')};
+$('read').onclick=()=>{if(!zeroed||!inserted)return err('Zero with Blank first.');if(inserted==='blank')return;reads[inserted]=trueOD[inserted];$('colorScreen').textContent='A = '+trueOD[inserted].toFixed(3);$('colorMsg').textContent=inserted+' OD = '+trueOD[inserted].toFixed(3);if(['standard','control','test'].every(x=>x in reads))mark(6,'All OD readings completed.')};
+$('verify').onclick=()=>{for(const t of ['blank','standard','control','test']){let v=Number($('note_'+t).value);if(!Number.isFinite(v)||Math.abs(v-trueOD[t])>0.0011)return err('Check '+t+' OD transcription.')}$('notesMsg').textContent='✓ All OD records verified.';mark(7,'OD notebook verified.')};
+$('calc').onclick=()=>{if(!done[7])return err('Verify OD notebook first.');let b=+note_blank.value,s=+note_standard.value,c=+note_control.value,t=+note_test.value,conc=+stdConc.value,den=s-b;if(den<=0)return err('Standard OD must exceed Blank.');let qc=(c-b)/den*conc,pt=(t-b)/den*conc,pass=qc>=34&&qc<=46;$('finalResult').innerHTML='QC Control: <b>'+qc.toFixed(1)+' mg/dL</b> — '+(pass?'PASS':'FAIL')+'<br>Patient Result: <b>'+(pass?pt.toFixed(1)+' mg/dL':'HELD — QC FAIL')+'</b><br>Score: '+Math.max(0,100-errors*8)+'/100';mark(8,pass?'QC accepted; simulated patient result may be released.':'QC failed; patient result held.')};
+$('reset').onclick=()=>location.reload();refresh();
+</script></body></html>
