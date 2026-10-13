@@ -1,18 +1,18 @@
-SHANKARSHAHI.COM.NP — QC CARD CLICK-TO-OPEN UPDATE
+SHANKARSHAHI.COM.NP — PT/INR DEFAULT VALUE UPDATE
 
-WHAT CHANGED
-- Practical QC Calculator Library cards remain visible.
-- Detailed QC calculators are hidden by default.
-- Clicking a QC card opens only that selected detailed tool.
-- Other QC detail tools stay hidden.
-- Each opened tool has “Back to QC Calculator Library”.
-- Existing calculator functions are unchanged.
-- Clinical Laboratory Calculators and other website sections remain unchanged.
+CHANGE
+- PT Control / Mean Normal PT default = 13 seconds
+- ISI default = 1.1
+- Both fields remain editable.
+- User can type different PT Control and ISI values before calculation.
+- Reset button restores PT Control = 13 sec and ISI = 1.1.
 
 GITHUB UPDATE
 1. Extract this ZIP.
-2. Upload only index.html to your website repository.
-3. Replace the existing index.html.
-4. Commit changes.
+2. Open your website repository.
+3. Go to calculators folder.
+4. Replace only:
+   calculators/pt-inr.html
+5. Commit changes.
 
-No other files need to be changed.
+No index.html change is required.
