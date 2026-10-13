@@ -1,0 +1,16 @@
+SHANKAR SHAHI — RESTORE OLD HOMEPAGE ONLY
+========================================
+This is the original homepage index.html saved in the user's file library (dated 18 Sep 2026).
+NO Virtual Laboratory files, menu, or links are included.
+
+GitHub restore steps:
+1. BACK UP your existing GitHub website repository first (Code > Download ZIP).
+2. Extract this archive locally.
+3. In your EXISTING website GitHub repository, replace ONLY the ROOT index.html with the index.html from this archive. Commit.
+4. Keep all existing style.css, script.js, assets/, and other original site files unchanged.
+5. If virtual-lab/ was added during the recent updates, delete ONLY virtual-lab/ folder from the repository and commit that deletion. Do not delete any other folder.
+6. Wait for deployment, refresh the page (Ctrl+F5).
+
+IMPORTANT: This archive contains only the original homepage index.html, not the complete website assets. The rest of the original website must remain available in the repository. If the original CSS, JS or assets were deleted, recover them using GitHub commit history before trying this restore.
+Original homepage source is an available older backup (18 Sep 2026); edits made since that date may need recovery from GitHub commit history.
+Do NOT replace the whole repository with this ZIP or delete other files.
