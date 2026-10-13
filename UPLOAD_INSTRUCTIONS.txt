@@ -1,13 +1,17 @@
-RED CELL INDICES CALCULATOR UPDATE
+RED CELL INDICES 404 FIX
 
-Added to Clinical Laboratory Calculators:
-- Red Cell Indices Calculator
-- Inputs: Hb, PCV/Hematocrit, RBC count
-- Outputs: MCV, MCH, MCHC
+The website link expects this exact path:
+calculators/red-cell-indices.html
 
-GitHub:
-1. Replace index.html with the included index.html
-2. Upload calculators/red-cell-indices.html
-3. Commit changes
+GitHub steps:
+1. Open your website repository.
+2. Open or create the folder named: calculators
+3. Upload red-cell-indices.html inside that calculators folder.
+4. Final path must be exactly:
+   calculators/red-cell-indices.html
+5. Commit changes.
+6. Refresh the website using Ctrl+F5.
 
-Existing QC click-to-open cards and other website sections are preserved.
+Important:
+- Keep the filename all lowercase exactly: red-cell-indices.html
+- Do not upload it to the repository root.
