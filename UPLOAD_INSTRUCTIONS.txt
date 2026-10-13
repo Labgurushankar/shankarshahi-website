@@ -1,18 +1,13 @@
-SHANKARSHAHI.COM.NP — PT/INR DEFAULT VALUE UPDATE
+RED CELL INDICES CALCULATOR UPDATE
 
-CHANGE
-- PT Control / Mean Normal PT default = 13 seconds
-- ISI default = 1.1
-- Both fields remain editable.
-- User can type different PT Control and ISI values before calculation.
-- Reset button restores PT Control = 13 sec and ISI = 1.1.
+Added to Clinical Laboratory Calculators:
+- Red Cell Indices Calculator
+- Inputs: Hb, PCV/Hematocrit, RBC count
+- Outputs: MCV, MCH, MCHC
 
-GITHUB UPDATE
-1. Extract this ZIP.
-2. Open your website repository.
-3. Go to calculators folder.
-4. Replace only:
-   calculators/pt-inr.html
-5. Commit changes.
+GitHub:
+1. Replace index.html with the included index.html
+2. Upload calculators/red-cell-indices.html
+3. Commit changes
 
-No index.html change is required.
+Existing QC click-to-open cards and other website sections are preserved.
