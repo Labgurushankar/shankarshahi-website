@@ -1,17 +1,30 @@
-RED CELL INDICES 404 FIX
+SHANKARSHAHI.COM.NP — RED CELL INDICES FINAL 404 FIX
 
-The website link expects this exact path:
+WHY 404 HAPPENED
+The website was trying to open:
 calculators/red-cell-indices.html
+but that file was not present in the live GitHub calculators folder.
 
-GitHub steps:
-1. Open your website repository.
-2. Open or create the folder named: calculators
-3. Upload red-cell-indices.html inside that calculators folder.
-4. Final path must be exactly:
-   calculators/red-cell-indices.html
-5. Commit changes.
-6. Refresh the website using Ctrl+F5.
+THIS PACKAGE REMOVES THE FOLDER PROBLEM
+The Red Cell calculator is now linked directly from the website root:
 
-Important:
-- Keep the filename all lowercase exactly: red-cell-indices.html
-- Do not upload it to the repository root.
+https://shankarshahi.com.np/red-cell-indices.html
+
+UPLOAD TO GITHUB
+1. Extract this ZIP.
+2. Open:
+   https://github.com/Labgurushankar/shankarshahi-website
+3. Click Add file > Upload files.
+4. Upload BOTH files directly to the REPOSITORY ROOT:
+   - index.html
+   - red-cell-indices.html
+5. Replace the existing index.html.
+6. Commit changes.
+7. Wait briefly for GitHub Pages to publish, then press Ctrl+F5.
+
+IMPORTANT
+Do NOT put red-cell-indices.html inside the calculators folder for this version.
+Both index.html and red-cell-indices.html must be visible together in the repository root.
+
+After upload, test:
+https://shankarshahi.com.np/red-cell-indices.html
