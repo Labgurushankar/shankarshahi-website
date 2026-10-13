@@ -1,20 +1,40 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB BUTTON VISIBILITY FIX
+SHANKARSHAHI.COM.NP — VIRTUAL LAB MODULES UPDATE
 
-The Virtual Lab page already exists on the website.
-This update makes the button clearly visible.
+ADDED INTERACTIVE MODULES
 
-CHANGES
-- Top navigation Virtual Lab link is highlighted as a blue pill button.
-- A floating “🔬 Visit Virtual Lab” button is always visible near the top-right.
-- Desktop/tablet navigation spacing is adjusted so the Virtual Lab link does not disappear.
-- Mobile layout keeps the floating button and menu link.
+Clinical Biochemistry
+- Blood Glucose
+- Urea
+- Uric Acid
+- SGOT / AST
 
-GITHUB UPDATE
-1. Extract this ZIP.
-2. Open your website repository.
-3. Upload only index.html to the repository root.
-4. Replace the current index.html.
-5. Commit changes.
-6. Refresh the website with Ctrl+F5.
+Hematology
+- ABO & Rh Blood Grouping
+- Hemoglobin
+- Total Leucocyte Count
 
-The existing virtual-lab.html page does NOT need to be uploaded again.
+Microbiology
+- Gram Stain
+- AFB Stain
+
+Immunology / Serology
+- CRP
+- ASO
+- RF
+- HIV Rapid Test
+- HBsAg Rapid Test
+- HCV Rapid Test
+
+FILES TO UPLOAD TO GITHUB ROOT
+- virtual-lab.html  (replace existing file)
+- virtual-lab/module.html  (upload inside a folder named virtual-lab)
+
+IMPORTANT
+Final structure must be:
+virtual-lab.html
+virtual-lab/
+  module.html
+
+No index.html change is needed if your Visit Virtual Lab button already opens virtual-lab.html.
+
+All modules are educational simulations. Exact test volumes, times, wavelengths, cut-offs and result algorithms should follow the actual reagent/kit insert and laboratory SOP.
