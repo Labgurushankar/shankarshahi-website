@@ -1,30 +1,21 @@
-SHANKARSHAHI.COM.NP — RED CELL INDICES FINAL 404 FIX
+SHANKARSHAHI.COM.NP — VIRTUAL LAB UPDATE
 
-WHY 404 HAPPENED
-The website was trying to open:
-calculators/red-cell-indices.html
-but that file was not present in the live GitHub calculators folder.
+ADDED
+- Top navigation button: Visit Virtual Lab
+- Virtual Laboratory card on the home page
+- New page: virtual-lab.html
 
-THIS PACKAGE REMOVES THE FOLDER PROBLEM
-The Red Cell calculator is now linked directly from the website root:
-
-https://shankarshahi.com.np/red-cell-indices.html
-
-UPLOAD TO GITHUB
+GITHUB UPLOAD
 1. Extract this ZIP.
-2. Open:
+2. Open your GitHub repository:
    https://github.com/Labgurushankar/shankarshahi-website
-3. Click Add file > Upload files.
-4. Upload BOTH files directly to the REPOSITORY ROOT:
+3. Upload BOTH files to the repository root:
    - index.html
-   - red-cell-indices.html
-5. Replace the existing index.html.
-6. Commit changes.
-7. Wait briefly for GitHub Pages to publish, then press Ctrl+F5.
+   - virtual-lab.html
+4. Replace the existing index.html.
+5. Commit changes.
 
-IMPORTANT
-Do NOT put red-cell-indices.html inside the calculators folder for this version.
-Both index.html and red-cell-indices.html must be visible together in the repository root.
+EXPECTED URL
+https://shankarshahi.com.np/virtual-lab.html
 
-After upload, test:
-https://shankarshahi.com.np/red-cell-indices.html
+The Virtual Lab page is ready for adding interactive modules later.
