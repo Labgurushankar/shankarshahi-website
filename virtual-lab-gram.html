@@ -1,68 +1,204 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shankar Virtual Medical Laboratory | Gram Stain</title><style>
-:root{--ink:#183450;--blue:#176b94;--teal:#087b73;--bg:#edf4f9;--line:#cfdfeb;--red:#9f3333;--green:#136e43}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shankar Virtual Medical Laboratory | Gram Stain 2D Interactive</title>
+<style>
+:root{--ink:#183450;--blue:#176b94;--teal:#087b73;--bg:#edf4f9;--line:#cfdfeb;--red:#b63f52;--green:#136e43}
 *{box-sizing:border-box}
 body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.5 system-ui,Arial,sans-serif}
 header{background:linear-gradient(110deg,#0b3359,#0b847e);color:white;padding:17px max(16px,calc((100vw - 1220px)/2))}
 h1{margin:0;font-size:24px}header p{margin:4px 0 0;color:#d9f9fb}
 main{max-width:1250px;margin:18px auto;padding:0 14px}
-.topnav{max-width:1250px;margin:10px auto 0;padding:0 14px}.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
+.topnav{max-width:1250px;margin:10px auto 0;padding:0 14px}
+.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px}
 .card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
-h2{font-size:18px;margin:0 0 8px}h3{font-size:15px;margin:8px 0}p{margin:7px 0}.small{font-size:12px;color:#597388}
+h2{font-size:18px;margin:0 0 8px}h3{font-size:15px;margin:8px 0}p{margin:7px 0}
+.small{font-size:12px;color:#597388}
 .hint{background:#e6f7f4;border-left:4px solid var(--teal);padding:9px 11px;border-radius:7px}
 button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
-button:disabled{background:#a1b6bb;cursor:not-allowed}.secondary{color:#16496c;background:#e1f0f8}.danger{background:#aa4545}
+button:disabled{background:#a1b6bb;cursor:not-allowed}.secondary{color:#16496c;background:#e1f0f8}
 .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:10px 0}
-select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}input[type=number]{width:115px}
-.scroll{overflow:auto}
-.bench{position:relative;min-width:830px;height:340px;background:linear-gradient(#eff8ff 0 75%,#c6d9e7 75% 80%,#96a9b8 80%);border:1px solid #c5d9e6;border-radius:12px;touch-action:none;user-select:none}
-.source,.tube,.pipette,.slideObj,.tile,.cassetteObj{position:absolute;text-align:center;touch-action:none}
-.source{top:139px;width:112px}.cap{margin:auto;width:56px;height:18px;background:#136e9a;border-radius:7px 7px 2px 2px}
-.bottle{margin:auto;width:68px;height:95px;border:3px solid #749fb0;border-radius:8px 8px 15px 15px;background:linear-gradient(90deg,#c2e6eb,#fff 40%,#b9e1e9);display:flex;align-items:end;overflow:hidden}.liquid{height:45%;width:100%;background:#53b9cf99}
-.lablabel{background:#fffefa;border:1px solid #cde0e8;border-radius:5px;font-size:11px;font-weight:750;padding:3px;margin:3px auto;max-width:110px}
-.tube{top:122px;width:90px;height:170px}.tube .rim{width:39px;height:13px;border:3px solid #739ab4;border-radius:50%;background:#f6feff;margin:auto}
-.tube .glass{width:29px;height:106px;border:2px solid #739ab4;border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:#ffffffbb;position:relative;margin:-1px auto 0}
-.tube .fill{position:absolute;bottom:0;left:0;width:100%;height:0;background:#da94b6b3;transition:height .15s}.tube.ready .fill{height:78%;}.tube.incubated .fill{background:#edb45b99}
-.pipette{top:9px;left:585px;width:65px;height:190px;z-index:10;filter:drop-shadow(1px 3px 3px #173d5555)}
-.pipette .plunger{position:absolute;left:26px;top:0;width:13px;height:23px;border-radius:5px;background:#284762}.pipette .body{position:absolute;left:17px;top:19px;width:31px;height:111px;background:linear-gradient(90deg,#cadbe9,#fff,#aac2d3);border:2px solid #7190a7;border-radius:8px}
-.pipette .lcd{position:absolute;top:44px;left:20px;width:26px;font:700 10px monospace;background:#d6f9e2;border:1px solid #72918b}.pipette .tip{position:absolute;top:127px;left:27px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:51px solid #83c1e7}.pipette .ptxt{position:absolute;top:182px;left:-41px;width:148px;background:#fffffff0;border-radius:5px;font-size:10px}
+select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}
+input[type=text]{width:min(420px,100%)} .scroll{overflow:auto}
+.bench{position:relative;min-width:930px;height:400px;background:linear-gradient(#eff8ff 0 74%,#c6d9e7 74% 79%,#96a9b8 79%);border:1px solid #c5d9e6;border-radius:12px;touch-action:none;user-select:none;overflow:hidden}
+.obj{position:absolute;text-align:center;touch-action:none;user-select:none}
+.bottle{width:88px;cursor:grab}.bottle .cap{margin:auto;width:44px;height:14px;background:#136e9a;border-radius:6px 6px 2px 2px}
+.bottle .body{margin:auto;width:62px;height:86px;border:3px solid #749fb0;border-radius:8px 8px 15px 15px;background:linear-gradient(90deg,#c2e6eb,#fff 40%,#b9e1e9);display:flex;align-items:end;overflow:hidden}
+.bottle .liquid{height:54%;width:100%}
+.bottle .lablabel,.burner .lablabel,.wash .lablabel,.rack .lablabel,.mic .lablabel{background:#fffefa;border:1px solid #cde0e8;border-radius:5px;font-size:11px;font-weight:750;padding:3px;margin:4px auto;max-width:110px}
+.reag-cv{background:#7651bcbb}.reag-iodine{background:#6b5935bb}.reag-decolor{background:#d8dde2bb}.reag-saf{background:#e87495bb}
+.wash .body{width:72px;height:88px;border:3px solid #749fb0;border-radius:18px 18px 14px 14px;background:linear-gradient(90deg,#d4ecff,#fff 40%,#d1e7fb);margin:auto; position:relative}
+.wash .spout{position:absolute;top:12px;left:53px;width:34px;height:8px;background:#9cb8c6;border-radius:4px;transform:rotate(-20deg);transform-origin:left center}
+.rack .body{width:200px;height:54px;background:#8ea5b6;border:3px solid #6f8899;border-radius:10px;margin:auto;position:relative}
+.rack .slot{position:absolute;top:12px;width:40px;height:28px;border:2px dashed #dce8ef;border-radius:8px}
+.rack .slot:nth-child(1){left:14px}.rack .slot:nth-child(2){left:78px}.rack .slot:nth-child(3){left:142px}
+.slideObj{width:124px;height:30px;background:linear-gradient(90deg,#fcffff,#dcedf4 35%,#cde1ec 80%);border:2px solid #7d9db0;border-radius:4px;cursor:grab;box-shadow:0 3px 7px #113a4f22}
+.slideObj .smear{position:absolute;left:46px;top:6px;width:34px;height:16px;border-radius:4px;background:#cdd7de;transition:.2s}
+.slideObj .tag{position:absolute;left:4px;top:4px;width:28px;height:20px;background:#eef7fc;border-radius:3px;border:1px solid #b8d0df;font-size:10px;display:grid;place-items:center}
+.flame{width:46px;height:72px;position:relative;margin:auto}.flame .base{position:absolute;left:10px;bottom:0;width:26px;height:18px;background:#5b7182;border-radius:5px}
+.flame .fire{position:absolute;left:5px;bottom:14px;width:36px;height:48px;background:radial-gradient(circle at 50% 74%,#fadb7d 0 28%,#f08d2c 29% 58%,#cc462f 59% 100%);clip-path:path('M18 0 C28 12,36 20,35 31 C35 44,28 48,18 48 C8 48,1 44,1 31 C1 20,8 12,18 0 Z');opacity:.18;transition:.2s}
+.burner.on .fire{opacity:1}
+.mic .body{width:160px;height:140px;position:relative;margin:auto}.mic .stand{position:absolute;left:62px;bottom:10px;width:26px;height:92px;background:#223849;border-radius:10px}
+.mic .arm{position:absolute;left:48px;top:44px;width:72px;height:18px;background:#344d61;border-radius:10px;transform:rotate(-35deg)}
+.mic .tube{position:absolute;left:100px;top:12px;width:18px;height:52px;background:#50697d;border-radius:8px;transform:rotate(20deg)}
+.mic .stage{position:absolute;left:36px;top:78px;width:80px;height:10px;background:#4b6376;border-radius:4px}
+.mic .base{position:absolute;left:24px;bottom:0;width:110px;height:22px;background:#31495b;border-radius:12px}.mic .lens{position:absolute;left:84px;top:58px;width:10px;height:26px;background:#93a8b9;border-radius:4px}
 .status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.bad{background:#ffeded;color:var(--red)}.status.good{background:#e3f8e9;color:var(--green)}
-.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}
-.instruments{display:grid;grid-template-columns:1fr 1fr;gap:14px}.instrument{background:#edf4f9;border:1px solid #cbdae5;padding:13px;border-radius:12px}
-.machine{border-radius:12px;background:linear-gradient(120deg,#b2c6d4,#f6f9fc 38%,#91adc1);border:3px solid #7295ae;padding:13px;max-width:390px;margin:auto}.screen{font:700 18px/1.5 ui-monospace,Consolas,monospace;background:#0f3442;color:#b9f3b6;border:6px solid #345e70;border-radius:8px;text-align:center;padding:8px;min-height:59px}
-.readings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.readbox{border:1px solid #cddce7;padding:10px;border-radius:9px}.readbox b{display:block}.readbox input{width:100%;min-width:0}
-.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.note{font-size:12px;color:#526d84}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}
-.wells{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}.well{width:150px;text-align:center}.circle{width:100px;height:100px;margin:auto;border-radius:50%;border:3px solid #7a9aad;background:#fff;display:grid;place-items:center;font-weight:800}.circle.agglut{background-image:radial-gradient(circle,#9c2735 0 4px,transparent 5px);background-size:15px 15px}
-.slidebox{height:155px;border-radius:12px;background:#f0f4f7;border:2px solid #91a9b8;display:grid;place-items:center;font-weight:800;font-size:18px;transition:.2s}.microscope{background:#07111b;color:#fff;border-radius:12px;padding:15px;text-align:center;min-height:130px}
-.countgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:420px;margin:10px auto}.sq{border:1px solid #70899a;background:#fff;min-height:74px;padding:4px;text-align:center}
-.cassette{width:290px;height:100px;background:#f8f8f8;border:2px solid #aaa;border-radius:14px;margin:12px auto;position:relative}.window{position:absolute;left:85px;top:25px;width:120px;height:36px;background:#fff;border:1px solid #aaa}.cline,.tline{position:absolute;top:4px;width:4px;height:27px;background:#df4949}.cline{left:88px}.tline{left:30px}.samplewell{position:absolute;left:26px;top:30px;width:29px;height:29px;border:2px solid #aaa;border-radius:50%;display:grid;place-items:center;font-size:10px}
+.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}
+.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}
 .progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}
-@media(max-width:950px){.layout,.instruments{grid-template-columns:1fr}.readings{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
-@media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
-</style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Microbiology Simulator • Gram Stain • Version 5 interactive practical</p></header>
+.machine{border-radius:12px;background:linear-gradient(120deg,#b2c6d4,#f6f9fc 38%,#91adc1);border:3px solid #7295ae;padding:13px;max-width:390px;margin:auto}
+.screen{font:700 18px/1.5 ui-monospace,Consolas,monospace;background:#0f3442;color:#b9f3b6;border:6px solid #345e70;border-radius:8px;text-align:center;padding:8px;min-height:59px}
+.micview{width:min(100%,420px);aspect-ratio:1/1;margin:10px auto;border-radius:50%;border:12px solid #243648;background:#0f1720;position:relative;overflow:hidden}
+.field{position:absolute;inset:0;display:none}.field.active{display:block}
+.gp-cocci{background:radial-gradient(circle at 25% 24%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 31% 30%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 20% 32%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 64% 28%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 69% 34%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 60% 35%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 42% 62%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 47% 68%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 37% 69%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 74% 70%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 79% 76%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 70% 77%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 20% 76%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 27% 82%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 15% 84%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 50% 48%, #1d2432 0 200px, #ece5f7 201px 100%)}
+.gn-bacilli{background:linear-gradient(60deg, transparent 0 20%, #f08493 20% 24%, transparent 24% 100%),linear-gradient(135deg, transparent 0 42%, #f08493 42% 46%, transparent 46% 100%),linear-gradient(200deg, transparent 0 58%, #f08493 58% 62%, transparent 62% 100%),linear-gradient(18deg, transparent 0 68%, #f08493 68% 72%, transparent 72% 100%),linear-gradient(88deg, transparent 0 30%, #f08493 30% 34%, transparent 34% 100%),linear-gradient(150deg, transparent 0 80%, #f08493 80% 84%, transparent 84% 100%),linear-gradient(0deg, #ece5f7, #ece5f7);background-size:120px 120px}
+.mixed-field{background:radial-gradient(circle at 24% 22%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 29% 27%, #9168ff 0 7px, transparent 8px),linear-gradient(60deg, transparent 0 68%, #f08493 68% 72%, transparent 72% 100%),linear-gradient(145deg, transparent 0 44%, #f08493 44% 48%, transparent 48% 100%),radial-gradient(circle at 66% 62%, #9168ff 0 7px, transparent 8px),radial-gradient(circle at 72% 68%, #9168ff 0 7px, transparent 8px),linear-gradient(200deg, transparent 0 25%, #f08493 25% 29%, transparent 29% 100%),linear-gradient(20deg, transparent 0 84%, #f08493 84% 88%, transparent 88% 100%),linear-gradient(0deg, #ece5f7, #ece5f7);background-size:120px 120px}
+.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}
+.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}.list{margin:0;padding-left:18px}.list li{margin:6px 0}
+@media(max-width:950px){.layout{grid-template-columns:1fr}}
+@media print{header,.topnav,.toolbar,.hideprint{display:none!important}.card{break-inside:avoid}body{background:white}}
+</style>
+</head>
+<body>
+<header><h1>🦠 Shankar Virtual Medical Laboratory</h1><p>Microbiology • Gram Stain • 2D interactive practical (mouse-controlled V5-style simulator)</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
-<main><div class="layout"><div>
-<section class="card"><h2>1. Prepare & Stain Smear</h2><p class="small">Follow the stain sequence. Clicking a later reagent before the correct step records an error.</p><div id="slide" class="slidebox">Clean prepared slide</div><div class="toolbar"><button id="prep">Prepare Smear</button><button id="fix">Fix Smear</button><button onclick="applyStep(0)">1. Crystal Violet</button><button onclick="applyStep(1)">2. Gram Iodine</button><button onclick="applyStep(2)">3. Decolorizer</button><button onclick="applyStep(3)">4. Safranin</button><button class="secondary" onclick="location.reload()">↻ Restart</button></div></section></div><aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Smear prepared</div><div class="step" id="chk1">○ Smear fixed</div><div class="step" id="chk2">○ Primary stain applied</div><div class="step" id="chk3">○ Mordant/heat step completed</div><div class="step" id="chk4">○ Decolorization completed</div><div class="step" id="chk5">○ Counterstain applied</div><div class="step" id="chk6">○ Microscopy performed</div><div class="step" id="chk7">○ Interpretation recorded</div></div>
-<div class="metric"><span>Completed</span><b id="progress">0 / 8</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div>
-<h3>Instructor feedback</h3><div class="status" id="status">Start the practical.</div>
-<p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
-<section class="card"><h2>2. Microscope Examination</h2><div class="instruments"><div class="instrument"><div class="machine"><h3>🔬 MICROSCOPE</h3><div class="screen">100× Oil Objective</div><div class="toolbar"><button id="oil">Add Immersion Oil</button><button id="focus">Focus & Examine</button></div></div></div><div id="micro" class="microscope">Complete staining before microscopy.</div></div></section>
-<section class="card"><h2>3. Record Interpretation</h2><p class="small">Record Gram reaction, morphology and arrangement in context.</p><div class="toolbar"><input id="interp" style="width:430px" placeholder="Type microscopy interpretation"><button id="save">Save Interpretation</button></div><div id="finalResult" class="result">Awaiting microscopy.</div></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • Gram Stain Version 5 interactive simulation • Educational use only.</footer></main>
-<script>
-let done=Array(8).fill(false), errors=0;
-const $=id=>document.getElementById(id);
-function feedback(t,kind=''){$('status').textContent=t;$('status').className='status '+kind}
-function err(t){errors++;feedback('⚠ '+t,'bad');refresh()}
-function mark(i,t){done[i]=true;feedback(t||'Step completed.','good');refresh()}
-function refresh(){done.forEach((v,i)=>{let e=$('chk'+i);e.className='step '+(v?'ok':'');e.textContent=(v?'✓ ':'○ ')+e.textContent.replace(/^.[ ]?/,'')});$('progress').textContent=done.filter(Boolean).length+' / 8';$('errors').textContent=errors;$('score').textContent=Math.max(0,100-errors*8)}
+<main>
+<div class="layout">
+<div>
+<section class="card">
+<h2>1. Interactive Gram Stain Bench</h2>
+<p class="small">Drag the <b>slide</b> and the <b>reagent bottles / wash bottle / burner</b> with your mouse. When the correct object is placed in the working zone, click the matching action button to perform the step.</p>
+<div class="hint" id="hint">Start by dragging the slide to the staining rack, then click “Prepare Smear”.</div>
+<div class="toolbar hideprint">
+<button id="prepareBtn">Prepare Smear</button><button id="fixBtn">Heat Fix</button><button id="cvBtn">Crystal Violet</button><button id="wash1Btn">Wash</button><button id="iodineBtn">Gram Iodine</button><button id="wash2Btn">Wash</button><button id="decolorBtn">Decolorize</button><button id="wash3Btn">Wash</button><button id="safBtn">Safranin</button><button id="wash4Btn">Wash & Dry</button><button class="secondary" id="resetBtn">↻ Restart</button>
+</div>
+<div class="scroll"><div class="bench" id="bench">
+<div class="obj rack" id="rack" style="left:330px; top:150px;"><div class="body"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div><div class="lablabel">Staining Rack</div></div>
+<div class="obj slideObj" id="slide" style="left:82px; top:260px;"><div class="tag">SL</div><div class="smear" id="smear"></div></div>
+<div class="obj bottle" id="cvBottle" style="left:82px; top:30px;"><div class="cap"></div><div class="body"><div class="liquid reag-cv"></div></div><div class="lablabel">Crystal Violet</div></div>
+<div class="obj bottle" id="iodineBottle" style="left:182px; top:30px;"><div class="cap"></div><div class="body"><div class="liquid reag-iodine"></div></div><div class="lablabel">Gram Iodine</div></div>
+<div class="obj bottle" id="decolorBottle" style="left:282px; top:30px;"><div class="cap"></div><div class="body"><div class="liquid reag-decolor"></div></div><div class="lablabel">Decolorizer</div></div>
+<div class="obj bottle" id="safBottle" style="left:382px; top:30px;"><div class="cap"></div><div class="body"><div class="liquid reag-saf"></div></div><div class="lablabel">Safranin</div></div>
+<div class="obj wash" id="washBottle" style="left:522px; top:26px;"><div class="body"><div class="spout"></div></div><div class="lablabel">Wash Bottle</div></div>
+<div class="obj burner" id="burner" style="left:642px; top:44px;"><div class="flame"><div class="fire"></div><div class="base"></div></div><div class="lablabel">Bunsen Burner</div></div>
+<div class="obj mic" id="microscopeObj" style="left:716px; top:182px;"><div class="body"><div class="tube"></div><div class="arm"></div><div class="stand"></div><div class="stage"></div><div class="lens"></div><div class="base"></div></div><div class="lablabel">Microscope</div></div>
+</div></div>
+</section>
 
-const seq=["Crystal Violet", "Gram Iodine", "Decolorizer", "Safranin"], cols=["#7651bc", "#5d4a98", "#e7d8ec", "#f09ba6"];let prepared=false,fixed=false,idx=0,mic=false;
-prep.onclick=()=>{prepared=true;mark(0,'Thin smear prepared and air dried.')};fix.onclick=()=>{if(!prepared)return err('Prepare smear first.');fixed=true;mark(1,'Smear fixed.')};
-window.applyStep=i=>{if(!fixed)return err('Fix smear first.');if(i!==idx)return err('Wrong stain sequence. Follow the correct order.');$('slide').style.background=cols[i];$('slide').textContent=seq[i]+' applied';idx++;mark(2+i,seq[i-1]+' completed.')};
-oil.onclick=()=>{if(idx!==seq.length)return err('Complete staining first.');feedback('Immersion oil added.','good')};focus.onclick=()=>{if(idx!==seq.length)return err('Complete staining first.');mic=true;$('micro').innerHTML='Example field: <b style='color:#b77cff'>purple cocci</b> and <b style='color:#ff98a5'>pink bacilli</b> for interpretation practice.';mark(6,'Microscopy completed.')};
-save.onclick=()=>{if(!mic)return err('Examine slide first.');if(!interp.value.trim())return err('Enter an interpretation.');finalResult.innerHTML='<b>Practice report:</b> '+interp.value+'<br>Score: '+Math.max(0,100-errors*8)+'/100';mark(7,'Interpretation recorded.')};refresh();
-</script></body></html>
+<section class="card">
+<h2>2. Principle, Reagents & Procedure</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+<div><h3>Principle</h3><p>Gram-positive organisms retain the crystal violet–iodine complex after controlled decolorization and appear <b>purple</b>. Gram-negative organisms lose the primary stain on decolorization and take up the counterstain, appearing <b>pink/red</b>.</p></div>
+<div><h3>Reagents</h3><ul class="list"><li>Crystal violet</li><li>Gram iodine</li><li>Decolorizer</li><li>Safranin</li><li>Clean water / wash bottle</li></ul></div>
+<div><h3>Correct order</h3><ul class="list"><li>Prepare thin smear</li><li>Heat fixation</li><li>Crystal violet</li><li>Wash</li><li>Gram iodine</li><li>Wash</li><li>Decolorize</li><li>Wash immediately</li><li>Safranin</li><li>Wash and dry</li><li>Microscopy</li></ul></div>
+</div>
+</section>
+
+<section class="card">
+<h2>3. Microscope View & Interpretation</h2>
+<p class="small">After the stain is complete, drag the slide to the microscope and click the button below. The teaching case opens a selectable microscopy field.</p>
+<div class="toolbar hideprint"><button id="micBtn">Open Microscope View</button><select id="fieldSelect"><option value="gp">Gram Positive Cocci</option><option value="gn">Gram Negative Bacilli</option><option value="mixed">Mixed Field</option></select></div>
+<div class="machine"><h3>🔬 DIGITAL MICROSCOPE</h3><div class="screen" id="micScreen">READY FOR STAINED SLIDE</div></div>
+<div class="micview"><div class="field gp-cocci" id="field_gp"></div><div class="field gn-bacilli" id="field_gn"></div><div class="field mixed-field" id="field_mixed"></div></div>
+<div class="toolbar"><input type="text" id="interp" placeholder="Type interpretation e.g. Gram positive cocci in clusters"><button id="saveInterpBtn">Save Interpretation</button></div>
+</section>
+
+<section class="card">
+<h2>4. Practice Report</h2>
+<div id="finalResult" class="result">Complete the practical and save your microscopy interpretation.</div>
+<div class="toolbar"><button class="secondary" onclick="window.print()">Print Practice Report</button></div>
+</section>
+<footer class="footer">Shankar Virtual Medical Laboratory • Gram Stain 2D interactive module • Educational use only</footer>
+</div>
+
+<aside class="card">
+<h2>Progress & Assessment</h2>
+<div id="checklist">
+<div class="step" id="chk0">○ Slide placed on staining rack</div>
+<div class="step" id="chk1">○ Smear prepared</div>
+<div class="step" id="chk2">○ Heat fixation completed</div>
+<div class="step" id="chk3">○ Crystal violet applied</div>
+<div class="step" id="chk4">○ First wash completed</div>
+<div class="step" id="chk5">○ Gram iodine applied</div>
+<div class="step" id="chk6">○ Second wash completed</div>
+<div class="step" id="chk7">○ Decolorization completed</div>
+<div class="step" id="chk8">○ Immediate wash after decolorization</div>
+<div class="step" id="chk9">○ Safranin applied</div>
+<div class="step" id="chk10">○ Final wash and drying completed</div>
+<div class="step" id="chk11">○ Slide moved to microscope</div>
+<div class="step" id="chk12">○ Interpretation saved</div>
+</div>
+<div class="metric"><span>Completed</span><b id="progress">0 / 13</b></div>
+<div class="metric"><span>Errors</span><b id="errors">0</b></div>
+<div class="metric"><span>Score</span><b id="score">100</b></div>
+<div class="progressbar"><div id="bar"></div></div>
+<h3>Instructor feedback</h3>
+<div class="status" id="status">Start with the slide. Drag it to the staining rack.</div>
+<p class="small"><b>Teaching note:</b> This is a V5-style 2D practice simulator. Exact stain timing, smear thickness, decolorization control and reporting format must follow the laboratory SOP.</p>
+</aside>
+</div>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const totalChecks=13; let done=Array(totalChecks).fill(false), errors=0, step=0, currentField='gp';
+const state={slideOnRack:false,smearPrepared:false,heatFixed:false,cvApplied:false,wash1:false,iodineApplied:false,wash2:false,decolorized:false,wash3:false,safranin:false,dried:false,slideAtMicroscope:false,interpretationSaved:false};
+
+function feedback(msg,kind=''){ $('status').textContent=msg; $('status').className='status '+kind; }
+function mark(i,msg){ done[i]=true; if(msg) feedback(msg,'good'); refresh(); }
+function err(msg){ errors++; feedback('⚠ '+msg,'bad'); refresh(); }
+function refresh(){
+  done.forEach((v,i)=>{ const el=$('chk'+i); const t=el.textContent.replace(/^.[ ]?/,''); el.textContent=(v?'✓ ':'○ ')+t; el.className='step '+(v?'ok':''); });
+  const completed=done.filter(Boolean).length; $('progress').textContent=completed+' / '+totalChecks; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*5); $('bar').style.width=(completed/totalChecks*100)+'%'; updateBenchVisuals();
+}
+function updateBenchVisuals(){
+  const smear=$('smear');
+  if(!state.smearPrepared){smear.style.background='#cdd7de';}
+  else if(state.cvApplied && !state.decolorized){smear.style.background='#7b5ac3';}
+  else if(state.decolorized && !state.safranin){smear.style.background='#ddd4f0';}
+  else if(state.safranin){smear.style.background='#e58ba4';}
+}
+function zoneHit(a,b,margin=60){
+  const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();
+  const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2, bcx=br.left+br.width/2, bcy=br.top+br.height/2;
+  return Math.abs(acx-bcx)<(br.width/2+margin) && Math.abs(acy-bcy)<(br.height/2+margin);
+}
+function makeDraggable(el){
+  let startX=0,startY=0,origX=0,origY=0,dragging=false;
+  el.addEventListener('pointerdown',e=>{dragging=true; el.setPointerCapture(e.pointerId); startX=e.clientX; startY=e.clientY; origX=parseFloat(el.style.left||0); origY=parseFloat(el.style.top||0); el.style.cursor='grabbing';});
+  el.addEventListener('pointermove',e=>{ if(!dragging) return; el.style.left=(origX+e.clientX-startX)+'px'; el.style.top=(origY+e.clientY-startY)+'px'; });
+  function end(){ if(!dragging) return; dragging=false; el.style.cursor='grab'; checkPositions(); }
+  el.addEventListener('pointerup',end); el.addEventListener('pointercancel',end);
+}
+['slide','cvBottle','iodineBottle','decolorBottle','safBottle','washBottle','burner'].forEach(id=>makeDraggable($(id)));
+
+function checkPositions(){
+  if(zoneHit($('slide'),$('rack'),20)){ state.slideOnRack=true; mark(0,'Slide placed on staining rack.'); $('hint').textContent='Good. Now click “Prepare Smear”.'; }
+  if(state.dried && zoneHit($('slide'),$('microscopeObj'),40)){ state.slideAtMicroscope=true; mark(11,'Slide moved to microscope.'); $('hint').textContent='Now open microscope view and save your interpretation.'; }
+}
+
+$('prepareBtn').onclick=()=>{ if(!state.slideOnRack) return err('Drag the slide to the staining rack first.'); if(step!==0) return err('Follow the correct sequence.'); state.smearPrepared=true; step=1; mark(1,'Thin smear prepared on the slide.'); $('hint').textContent='Next: drag the burner near the slide and click “Heat Fix”.'; };
+$('fixBtn').onclick=()=>{ if(step!==1) return err('Prepare the smear first.'); if(!zoneHit($('burner'),$('slide'),70)) return err('Move the burner close to the slide first.'); $('burner').classList.add('on'); state.heatFixed=true; step=2; mark(2,'Heat fixation completed.'); $('hint').textContent='Next: drag Crystal Violet near the slide and click “Crystal Violet”.'; };
+$('cvBtn').onclick=()=>{ if(step!==2) return err('Heat fix the smear first.'); if(!zoneHit($('cvBottle'),$('slide'),70)) return err('Move Crystal Violet bottle near the slide.'); state.cvApplied=true; step=3; mark(3,'Crystal violet applied.'); $('hint').textContent='Next: use the wash bottle and click “Wash”.'; };
+$('wash1Btn').onclick=()=>{ if(step!==3) return err('Apply Crystal Violet first.'); if(!zoneHit($('washBottle'),$('slide'),70)) return err('Move wash bottle near the slide.'); state.wash1=true; step=4; mark(4,'First wash completed.'); $('hint').textContent='Next: drag Gram Iodine near the slide and click “Gram Iodine”.'; };
+$('iodineBtn').onclick=()=>{ if(step!==4) return err('Wash after Crystal Violet first.'); if(!zoneHit($('iodineBottle'),$('slide'),70)) return err('Move Gram Iodine bottle near the slide.'); state.iodineApplied=true; step=5; mark(5,'Gram iodine applied.'); $('hint').textContent='Next: use wash bottle again and click “Wash”.'; };
+$('wash2Btn').onclick=()=>{ if(step!==5) return err('Apply Gram Iodine first.'); if(!zoneHit($('washBottle'),$('slide'),70)) return err('Move wash bottle near the slide.'); state.wash2=true; step=6; mark(6,'Second wash completed.'); $('hint').textContent='Next: drag Decolorizer near the slide and click “Decolorize”.'; };
+$('decolorBtn').onclick=()=>{ if(step!==6) return err('Wash after iodine first.'); if(!zoneHit($('decolorBottle'),$('slide'),70)) return err('Move Decolorizer near the slide.'); state.decolorized=true; step=7; mark(7,'Controlled decolorization completed.'); $('hint').textContent='Important: immediately wash after decolorization.'; };
+$('wash3Btn').onclick=()=>{ if(step!==7) return err('Decolorize first.'); if(!zoneHit($('washBottle'),$('slide'),70)) return err('Move wash bottle near the slide.'); state.wash3=true; step=8; mark(8,'Immediate wash after decolorization completed.'); $('hint').textContent='Next: drag Safranin near the slide and click “Safranin”.'; };
+$('safBtn').onclick=()=>{ if(step!==8) return err('Wash immediately after decolorization first.'); if(!zoneHit($('safBottle'),$('slide'),70)) return err('Move Safranin bottle near the slide.'); state.safranin=true; step=9; mark(9,'Safranin applied.'); $('hint').textContent='Next: final wash and dry the slide.'; };
+$('wash4Btn').onclick=()=>{ if(step!==9) return err('Apply Safranin first.'); if(!zoneHit($('washBottle'),$('slide'),70)) return err('Move wash bottle near the slide.'); state.dried=true; step=10; mark(10,'Final wash and drying completed.'); $('hint').textContent='Now drag the slide to the microscope.'; };
+
+$('fieldSelect').onchange=()=>{ currentField=$('fieldSelect').value; showField(); };
+function showField(){ ['gp','gn','mixed'].forEach(k=>$('field_'+k).classList.remove('active')); $('field_'+currentField).classList.add('active'); }
+$('micBtn').onclick=()=>{ if(!state.slideAtMicroscope) return err('Drag the dried slide to the microscope first.'); $('micScreen').textContent='100x OIL IMMERSION • FIELD OPEN'; showField(); feedback('Microscope field opened. Observe morphology and save interpretation.','good'); };
+$('saveInterpBtn').onclick=()=>{ if(!state.slideAtMicroscope) return err('Open microscope after moving the slide to microscope.'); const t=$('interp').value.trim(); if(!t) return err('Type the microscopy interpretation first.'); state.interpretationSaved=true; mark(12,'Interpretation saved.'); $('finalResult').innerHTML='<b>Gram Stain Practice Result</b><br>Selected field: <b>'+$('fieldSelect').options[$('fieldSelect').selectedIndex].text+'</b><br>Interpretation: <b>'+t+'</b><br>Score: <b>'+Math.max(0,100-errors*5)+'/100</b><br>Status: Teaching/practice record only.'; };
+$('resetBtn').onclick=()=>location.reload();
+
+refresh();
+</script>
+</body>
+</html>

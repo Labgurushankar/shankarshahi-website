@@ -1,24 +1,24 @@
-SHANKARSHAHI.COM.NP — CLEAN QC HEADER + NAV UPDATE
+SHANKARSHAHI.COM.NP — MICROBIOLOGY GRAM STAIN 2D INTERACTIVE UPDATE
 
-CHANGES
-1. Removed the redundant top heading inside the QC section:
-   - LABORATORY QUALITY CONTROL SYSTEM
-   - Practical QC Calculators
-   - the long QC introduction sentence
-
-   The actual Clinical Laboratory Calculators and Practical QC Calculator Library cards remain unchanged.
-
-2. Removed YouTube from the TOP navigation bar only.
-   - This frees space so Contact can remain visible.
-   - YouTube content/link lower on the website is NOT removed.
-
-3. Virtual Lab top button and floating Visit Virtual Lab button remain unchanged.
+WHAT THIS UPDATE DOES
+- Replaces virtual-lab-gram.html with a more interactive 2D V5-style Gram Stain module
+- Mouse-controlled draggable objects:
+  slide, reagent bottles, wash bottle, burner
+- Correct step sequence enforced
+- Progress, errors, score and instructor feedback included
+- Microscope field with selectable:
+  Gram Positive Cocci / Gram Negative Bacilli / Mixed Field
+- Final interpretation save + print-friendly practice report
 
 GITHUB UPDATE
 1. Extract this ZIP.
-2. Upload only index.html to the repository root.
-3. Replace the existing index.html.
-4. Commit changes.
-5. Refresh with Ctrl+F5.
+2. Upload only:
+   virtual-lab-gram.html
+   to the repository ROOT
+3. Replace the existing virtual-lab-gram.html
+4. Commit changes
+5. Refresh the website with Ctrl+F5
 
-No other website files need to be changed.
+NOTE
+If your current virtual-lab.html already has the Gram Stain card linked to virtual-lab-gram.html,
+then NO virtual-lab.html change is needed.
