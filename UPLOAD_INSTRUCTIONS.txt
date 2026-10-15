@@ -1,24 +1,18 @@
-SHANKARSHAHI.COM.NP — MICROBIOLOGY GRAM STAIN 2D INTERACTIVE UPDATE
+SHANKARSHAHI.COM.NP — LATEST SHANKAR CLINICAL LABORATORY LIS LINK UPDATE
 
-WHAT THIS UPDATE DOES
-- Replaces virtual-lab-gram.html with a more interactive 2D V5-style Gram Stain module
-- Mouse-controlled draggable objects:
-  slide, reagent bottles, wash bottle, burner
-- Correct step sequence enforced
-- Progress, errors, score and instructor feedback included
-- Microscope field with selectable:
-  Gram Positive Cocci / Gram Negative Bacilli / Mixed Field
-- Final interpretation save + print-friendly practice report
+NEW VERIFIED GOOGLE DRIVE FILE
+File: latest updated lab software for use.exe
+
+CHANGE
+- Shankar Clinical Laboratory LIS download link updated to the latest Drive file.
+- Existing LIS download buttons now point to the latest file.
+- No EXE is stored in GitHub.
 
 GITHUB UPDATE
 1. Extract this ZIP.
-2. Upload only:
-   virtual-lab-gram.html
-   to the repository ROOT
-3. Replace the existing virtual-lab-gram.html
-4. Commit changes
-5. Refresh the website with Ctrl+F5
-
-NOTE
-If your current virtual-lab.html already has the Gram Stain card linked to virtual-lab-gram.html,
-then NO virtual-lab.html change is needed.
+2. Upload only index.html to the repository root.
+3. Replace the existing index.html.
+4. Commit changes.
+5. Wait for GitHub Pages deployment.
+6. Refresh shankarshahi.com.np with Ctrl+F5.
+7. Test the LIS download button.
