@@ -1,31 +1,30 @@
-SHANKARSHAHI.COM.NP — REALISTIC VIRTUAL LAB PHOTO UPDATE
+SHANKARSHAHI.COM.NP — FINAL REALISTIC VIRTUAL LAB UPDATE
 
-UPDATED FILES
-- virtual-lab-bloodgroup.html
-- virtual-lab-aso.html
-- virtual-lab-crp.html
-- virtual-lab-rf.html
+THIS PACKAGE INCLUDES
+1. virtual-lab.html  (updated landing page text)
+2. virtual-lab-bloodgroup.html
+3. virtual-lab-aso.html
+4. virtual-lab-crp.html
+5. virtual-lab-rf.html
+6. virtual-bloodgroup-result.png
+7. virtual-aso-result.png
+8. virtual-crp-result.png
+9. virtual-rf-result.png
 
-NEW IMAGE ASSETS
-- virtual-bloodgroup-result.png
-- virtual-aso-result.png
-- virtual-crp-result.png
-- virtual-rf-result.png
+WHAT IS UPDATED
+- Blood Group, ASO, CRP and RF modules now use more realistic reaction photos.
+- Mouse drag/drop for sample and reagent bottles added.
+- After mixing, realistic reaction image appears.
+- Virtual Lab landing page text also updated to match the new realistic modules.
 
-WHAT CHANGED
-- Realistic reaction photos added
-- Mouse-draggable bottles added
-- Drag patient sample / reagent into drop zones
-- After mixing, realistic training photo appears
-- Better interpretation workflow and feedback
-
-GITHUB UPDATE
+HOW TO UPLOAD TO GITHUB
 1. Extract this ZIP.
-2. Upload ALL files from this ZIP to the repository ROOT.
-3. Replace existing files if asked.
-4. Commit changes.
-5. Wait for GitHub Pages deployment.
-6. Refresh the website using Ctrl+F5.
+2. Open your website repository.
+3. Upload ALL files from this package to the repository ROOT.
+4. Replace existing files if GitHub asks.
+5. Commit changes.
+6. Wait for GitHub Pages deployment.
+7. Refresh the website with Ctrl + F5.
 
 IMPORTANT
-All image files must be uploaded together with the HTML files.
+All PNG image files must be uploaded together with the HTML files.
