@@ -1,68 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shankar Virtual Medical Laboratory | ASO Latex Agglutination</title><style>
-:root{--ink:#183450;--blue:#176b94;--teal:#087b73;--bg:#edf4f9;--line:#cfdfeb;--red:#9f3333;--green:#136e43}
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shankar Virtual Medical Laboratory | ASO Latex Test</title><style>
+:root{--ink:#183450; --blue:#176b94; --teal:#087b73; --bg:#edf4f9; --line:#cfdfeb; --red:#9f3333; --green:#136e43;}
 *{box-sizing:border-box}
 body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.5 system-ui,Arial,sans-serif}
 header{background:linear-gradient(110deg,#0b3359,#0b847e);color:white;padding:17px max(16px,calc((100vw - 1220px)/2))}
-h1{margin:0;font-size:24px}header p{margin:4px 0 0;color:#d9f9fb}
-main{max-width:1250px;margin:18px auto;padding:0 14px}
-.topnav{max-width:1250px;margin:10px auto 0;padding:0 14px}.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px}
-.card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
-h2{font-size:18px;margin:0 0 8px}h3{font-size:15px;margin:8px 0}p{margin:7px 0}.small{font-size:12px;color:#597388}
-.hint{background:#e6f7f4;border-left:4px solid var(--teal);padding:9px 11px;border-radius:7px}
-button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
-button:disabled{background:#a1b6bb;cursor:not-allowed}.secondary{color:#16496c;background:#e1f0f8}.danger{background:#aa4545}
+h1{margin:0;font-size:24px} header p{margin:4px 0 0;color:#d9f9fb}
+main{max-width:1240px;margin:18px auto;padding:0 14px}
+.topnav{max-width:1240px;margin:10px auto 0;padding:0 14px}
+.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
+h2{font-size:18px;margin:0 0 8px} h3{font-size:15px;margin:8px 0}
+.small{font-size:12px;color:#597388}
 .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:10px 0}
-select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}input[type=number]{width:115px}
-.scroll{overflow:auto}
-.bench{position:relative;min-width:830px;height:340px;background:linear-gradient(#eff8ff 0 75%,#c6d9e7 75% 80%,#96a9b8 80%);border:1px solid #c5d9e6;border-radius:12px;touch-action:none;user-select:none}
-.source,.tube,.pipette,.slideObj,.tile,.cassetteObj{position:absolute;text-align:center;touch-action:none}
-.source{top:139px;width:112px}.cap{margin:auto;width:56px;height:18px;background:#136e9a;border-radius:7px 7px 2px 2px}
-.bottle{margin:auto;width:68px;height:95px;border:3px solid #749fb0;border-radius:8px 8px 15px 15px;background:linear-gradient(90deg,#c2e6eb,#fff 40%,#b9e1e9);display:flex;align-items:end;overflow:hidden}.liquid{height:45%;width:100%;background:#53b9cf99}
-.lablabel{background:#fffefa;border:1px solid #cde0e8;border-radius:5px;font-size:11px;font-weight:750;padding:3px;margin:3px auto;max-width:110px}
-.tube{top:122px;width:90px;height:170px}.tube .rim{width:39px;height:13px;border:3px solid #739ab4;border-radius:50%;background:#f6feff;margin:auto}
-.tube .glass{width:29px;height:106px;border:2px solid #739ab4;border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:#ffffffbb;position:relative;margin:-1px auto 0}
-.tube .fill{position:absolute;bottom:0;left:0;width:100%;height:0;background:#da94b6b3;transition:height .15s}.tube.ready .fill{height:78%;}.tube.incubated .fill{background:#edb45b99}
-.pipette{top:9px;left:585px;width:65px;height:190px;z-index:10;filter:drop-shadow(1px 3px 3px #173d5555)}
-.pipette .plunger{position:absolute;left:26px;top:0;width:13px;height:23px;border-radius:5px;background:#284762}.pipette .body{position:absolute;left:17px;top:19px;width:31px;height:111px;background:linear-gradient(90deg,#cadbe9,#fff,#aac2d3);border:2px solid #7190a7;border-radius:8px}
-.pipette .lcd{position:absolute;top:44px;left:20px;width:26px;font:700 10px monospace;background:#d6f9e2;border:1px solid #72918b}.pipette .tip{position:absolute;top:127px;left:27px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:51px solid #83c1e7}.pipette .ptxt{position:absolute;top:182px;left:-41px;width:148px;background:#fffffff0;border-radius:5px;font-size:10px}
-.status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.bad{background:#ffeded;color:var(--red)}.status.good{background:#e3f8e9;color:var(--green)}
-.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}
-.instruments{display:grid;grid-template-columns:1fr 1fr;gap:14px}.instrument{background:#edf4f9;border:1px solid #cbdae5;padding:13px;border-radius:12px}
-.machine{border-radius:12px;background:linear-gradient(120deg,#b2c6d4,#f6f9fc 38%,#91adc1);border:3px solid #7295ae;padding:13px;max-width:390px;margin:auto}.screen{font:700 18px/1.5 ui-monospace,Consolas,monospace;background:#0f3442;color:#b9f3b6;border:6px solid #345e70;border-radius:8px;text-align:center;padding:8px;min-height:59px}
-.readings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.readbox{border:1px solid #cddce7;padding:10px;border-radius:9px}.readbox b{display:block}.readbox input{width:100%;min-width:0}
-.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.note{font-size:12px;color:#526d84}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}
-.wells{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}.well{width:150px;text-align:center}.circle{width:100px;height:100px;margin:auto;border-radius:50%;border:3px solid #7a9aad;background:#fff;display:grid;place-items:center;font-weight:800}.circle.agglut{background-image:radial-gradient(circle,#9c2735 0 4px,transparent 5px);background-size:15px 15px}
-.slidebox{height:155px;border-radius:12px;background:#f0f4f7;border:2px solid #91a9b8;display:grid;place-items:center;font-weight:800;font-size:18px;transition:.2s}.microscope{background:#07111b;color:#fff;border-radius:12px;padding:15px;text-align:center;min-height:130px}
-.countgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:420px;margin:10px auto}.sq{border:1px solid #70899a;background:#fff;min-height:74px;padding:4px;text-align:center}
-.cassette{width:290px;height:100px;background:#f8f8f8;border:2px solid #aaa;border-radius:14px;margin:12px auto;position:relative}.window{position:absolute;left:85px;top:25px;width:120px;height:36px;background:#fff;border:1px solid #aaa}.cline,.tline{position:absolute;top:4px;width:4px;height:27px;background:#df4949}.cline{left:88px}.tline{left:30px}.samplewell{position:absolute;left:26px;top:30px;width:29px;height:29px;border:2px solid #aaa;border-radius:50%;display:grid;place-items:center;font-size:10px}
-.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}
-@media(max-width:950px){.layout,.instruments{grid-template-columns:1fr}.readings{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.readings{grid-template-columns:1fr 1fr}h1{font-size:20px}}
-@media print{header,.bench,.toolbar,.instruments button,.hideprint,.topnav{display:none!important}.card{break-inside:avoid}body{background:white}}
+button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
+button.secondary{color:#16496c;background:#e1f0f8}
+select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}
+.workbench{position:relative;min-height:360px;border:1px solid #c9d9e5;border-radius:14px;overflow:hidden;background:linear-gradient(#eef7fd 0 74%, #ccddea 74% 79%, #95a8b7 79%)}
+.instrument{position:absolute;text-align:center;user-select:none;touch-action:none;cursor:grab}
+.instrument .caption{margin-top:6px;font-size:11px;font-weight:700;background:#fffffff2;border:1px solid #d3e2ec;border-radius:6px;padding:4px 6px;min-width:82px}
+.dropzone{position:absolute;border:2px dashed #90aabb;border-radius:12px;background:#ffffff88;display:flex;align-items:center;justify-content:center;text-align:center;color:#416178;font-weight:700;padding:8px}
+.dropzone.filled{border-style:solid;background:#e7f6ee;color:#136e43}
+.bottle{width:88px;height:126px;position:relative;margin:auto}.bottle .cap{width:48px;height:14px;background:#175f8c;border-radius:6px 6px 2px 2px;margin:0 auto}.bottle .body{width:64px;height:90px;margin:0 auto;border:3px solid #7b9fb3;border-radius:8px 8px 16px 16px;background:linear-gradient(90deg,#d6edf4,#fff 45%,#d0e7f1);position:relative;overflow:hidden}.bottle .liquid{position:absolute;left:0;right:0;bottom:0;height:46%;background:#87bfe299}.bottle.red .liquid{background:#cb546599}.bottle.blue .liquid{background:#5b9fd799}.bottle.white .liquid{background:#eef3f8}.bottle.pale .liquid{background:#eee7b399}
+.cardboard{width:220px;height:140px;margin:auto;border-radius:16px;border:2px solid #adb9c4;background:linear-gradient(180deg,#fdfdfd,#f2f6f9);position:relative}.cardboard.dark{background:linear-gradient(180deg,#2b3340,#111721);border-color:#48596d}
+.circle{position:absolute;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;border:3px solid #7a97ab;background:#fff;color:#173a58}.cardboard.dark .circle{border-color:#f7f7f7;background:#202c39;color:#fff}.circle.agglut{background-image:radial-gradient(circle,#b63447 0 4px,transparent 5px);background-size:15px 15px}.circle.smooth{background:#f0f4f7}
+.photoWrap{border:1px solid #cfe0eb;border-radius:14px;background:#f5fbff;padding:12px}.photoWrap img{width:100%;max-width:860px;display:block;margin:auto;border-radius:12px;border:1px solid #d1e1eb;background:#fff}.hidden{display:none!important}
+.status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.good{background:#e3f8e9;color:var(--green)}.status.bad{background:#ffeded;color:var(--red)}
+.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}.note{font-size:12px;color:#526d84}
+@media (max-width:950px){.layout{grid-template-columns:1fr}}
+@media print{header,.topnav,.toolbar,.hideprint{display:none!important}.card{break-inside:avoid}body{background:#fff}}
 </style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology Simulator • ASO Latex Agglutination • Version 5 interactive practical</p></header>
+<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology Simulator • Anti-Streptolysin O (ASO) Latex Test • realistic photo-assisted module</p></header>
 <div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
 <main><div class="layout"><div>
-<section class="card"><h2>1. Prepare Reaction Card</h2><p class="small">Run Positive Control, Negative Control and Patient Sample together.</p>
-<div class="wells"><div class="well"><h3>Positive Control</h3><div id="pos" class="circle">PC</div></div><div class="well"><h3>Negative Control</h3><div id="neg" class="circle">NC</div></div><div class="well"><h3>Patient</h3><div id="pat" class="circle">PT</div></div></div>
-<div class="toolbar"><button id="sample">Add Samples/Controls</button><button id="latex">Add Latex Reagent</button><button id="mix">Mix</button><button id="rotate">Rotate Card</button></div></section></div><aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Controls/sample placed</div><div class="step" id="chk1">○ Latex reagent added</div><div class="step" id="chk2">○ Reactions mixed</div><div class="step" id="chk3">○ Card rotated</div><div class="step" id="chk4">○ Control result checked</div><div class="step" id="chk5">○ Patient reaction interpreted</div></div>
-<div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div>
-<h3>Instructor feedback</h3><div class="status" id="status">Start the practical.</div>
-<p class="note">Teaching simulation only. Follow the actual kit insert, validated procedure, QC policy and laboratory SOP for patient testing.</p></aside></div>
-<section class="card"><h2>2. Read Agglutination</h2><div class="toolbar"><button id="read">Read Reactions</button></div><div id="obs" class="result">Awaiting reaction.</div></section>
-<section class="card"><h2>3. Interpret Result</h2><label>Patient reaction <select id="sel"><option>Reactive – visible agglutination</option><option>Non-reactive – smooth suspension</option><option>Invalid – control failure</option></select></label><div class="toolbar"><button id="interpret">Interpret</button></div><div id="finalResult" class="result">Complete the reaction first.</div></section>
-<footer class="footer">Shankar Virtual Medical Laboratory • ASO Latex Agglutination Version 5 interactive simulation • Educational use only.</footer></main>
+<section class="card"><h2>1. Prepare Reaction Card</h2><p class="small">Drag the patient sample bottle and the ASO Latex Reagent bottle with your mouse to the marked drop zones. Then click <b>Mix Reaction</b> to reveal a more realistic reaction photo.</p>
+<div class="toolbar hideprint"><button id="mixBtn">Mix Reaction</button><button id="rotateBtn">Rotate Card</button><button id="readBtn">Read Result</button><button class="secondary" id="resetBtn">↻ Restart</button></div>
+<div class="workbench">
+  <div class="instrument" id="sampleBottle" style="left:46px;top:26px;"><div class="bottle pale"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Patient Sample</div></div>
+  <div class="instrument" id="reagentBottle" style="left:170px;top:26px;"><div class="bottle blue"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">ASO Latex Reagent</div></div>
+  <div class="dropzone" id="zoneSample" style="left:320px;top:26px;width:140px;height:110px;">Drop Patient Sample Here</div>
+  <div class="dropzone" id="zoneReagent" style="left:485px;top:26px;width:140px;height:110px;">Drop Reagent Here</div>
+  <div style="position:absolute;left:240px;top:155px;right:40px;"><div class="photoWrap"><div id="placeholderArea"><div class="cardboard dark"><div class="circle agglut" style="left:15px;top:28px;">PC</div><div class="circle smooth" style="left:73px;top:28px;">NC</div><div class="circle" id="patientCircle" style="left:131px;top:28px;">PT</div></div><div class="small" style="margin-top:8px">Before mixing: training card illustration</div></div><div id="photoArea" class="hidden"><img src="virtual-aso-result.png" alt="ASO Latex Agglutination Test realistic reaction photo"><div class="small" style="margin-top:8px">After mixing: more realistic training photo</div></div></div></div>
+</div></section>
+<section class="card"><h2>2. Interpret Result</h2><p class="small">Controls must be valid before interpreting the patient result.</p><label>Patient reaction <select id="interpretSelect"><option>Reactive – visible agglutination</option><option>Non-reactive – smooth suspension</option><option>Invalid – control failure</option></select></label><div class="toolbar"><button id="interpretBtn">Interpret</button></div><div id="finalResult" class="result">Complete the reaction first.</div></section>
+<footer class="footer">ASO Latex Agglutination Test • realistic photo-supported interactive training module • Educational use only.</footer></div>
+<aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Patient sample placed</div><div class="step" id="chk1">○ ASO Latex Reagent placed</div><div class="step" id="chk2">○ Reaction mixed</div><div class="step" id="chk3">○ Card rotated</div><div class="step" id="chk4">○ Controls/result observed</div><div class="step" id="chk5">○ Patient interpretation recorded</div></div><div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div><div class="progressbar"><div id="bar"></div></div><h3>Instructor feedback</h3><div class="status" id="status">Start by dragging the patient sample bottle to its drop zone.</div><p class="note">Teaching simulation only. Follow the actual kit insert, QC policy and laboratory SOP for patient testing.</p></aside></div></main>
 <script>
-let done=Array(6).fill(false), errors=0;
-const $=id=>document.getElementById(id);
-function feedback(t,kind=''){$('status').textContent=t;$('status').className='status '+kind}
-function err(t){errors++;feedback('⚠ '+t,'bad');refresh()}
-function mark(i,t){done[i]=true;feedback(t||'Step completed.','good');refresh()}
-function refresh(){done.forEach((v,i)=>{let e=$('chk'+i);e.className='step '+(v?'ok':'');e.textContent=(v?'✓ ':'○ ')+e.textContent.replace(/^.[ ]?/,'')});$('progress').textContent=done.filter(Boolean).length+' / 6';$('errors').textContent=errors;$('score').textContent=Math.max(0,100-errors*8)}
+const $ = id => document.getElementById(id);
+function makeDraggable(el){let dragging=false,startX=0,startY=0,origX=0,origY=0;el.addEventListener('pointerdown',e=>{dragging=true;el.setPointerCapture(e.pointerId);startX=e.clientX;startY=e.clientY;origX=parseFloat(el.style.left||0);origY=parseFloat(el.style.top||0);el.style.cursor='grabbing';});el.addEventListener('pointermove',e=>{if(!dragging)return;el.style.left=(origX+e.clientX-startX)+'px';el.style.top=(origY+e.clientY-startY)+'px';});function end(){if(!dragging)return;dragging=false;el.style.cursor='grab';if(window.onDragEnd)window.onDragEnd(el);}el.addEventListener('pointerup', end);el.addEventListener('pointercancel', end);}
+function zoneHit(a,b,margin=45){const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2;const bcx=br.left+br.width/2, bcy=br.top+br.height/2;return Math.abs(acx-bcx) < (br.width/2+margin) && Math.abs(acy-bcy) < (br.height/2+margin);}
 
-let s=0;sample.onclick=()=>{s=1;mark(0,'Controls and patient sample placed.')};latex.onclick=()=>{if(s<1)return err('Add samples first.');s=2;mark(1,'Latex reagent added.')};mix.onclick=()=>{if(s<2)return err('Add latex reagent first.');s=3;mark(2,'Reactions mixed separately.')};rotate.onclick=()=>{if(s<3)return err('Mix reactions first.');s=4;mark(3,'Reaction card rotated for teaching time.')};
-read.onclick=()=>{if(s<4)return err('Rotate the card first.');$('pos').classList.add('agglut');$('pat').classList.add('agglut');obs.innerHTML='Positive Control: <b>AGGLUTINATION</b> • Negative Control: <b>SMOOTH</b> • Patient: <b>AGGLUTINATION</b>';mark(4,'Controls acceptable.');};
-interpret.onclick=()=>{if(!done[4])return err('Validate controls first.');finalResult.innerHTML='<b>ASO Latex Agglutination result:</b> '+sel.value+'<br>Score: '+Math.max(0,100-errors*8)+'/100';mark(5,'Patient reaction interpreted.')};refresh();
+let done=Array(6).fill(false), errors=0;const state={sample:false,reagent:false,mixed:false,rotated:false,read:false};
+function feedback(t,kind=''){ $('status').textContent=t; $('status').className='status '+kind; }
+function mark(i,t){ done[i]=true; feedback(t,'good'); refresh(); }
+function err(t){ errors++; feedback('⚠ '+t,'bad'); refresh(); }
+function refresh(){done.forEach((v,i)=>{ const e=$('chk'+i); const tx=e.textContent.replace(/^.[ ]?/,''); e.textContent=(v?'✓ ':'○ ')+tx; e.className='step '+(v?'ok':''); }); const c=done.filter(Boolean).length; $('progress').textContent=c+' / 6'; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*8); $('bar').style.width=(c/6*100)+'%';}
+['sampleBottle','reagentBottle'].forEach(id=>makeDraggable($(id)));
+window.onDragEnd=(el)=>{if(el.id==='sampleBottle' && zoneHit(el,$('zoneSample'),35)){$('zoneSample').classList.add('filled'); $('zoneSample').textContent='Patient Sample Added'; state.sample=true; mark(0,'Patient sample positioned on the reaction card.');} if(el.id==='reagentBottle' && zoneHit(el,$('zoneReagent'),35)){$('zoneReagent').classList.add('filled'); $('zoneReagent').textContent='ASO Latex Reagent Added'; state.reagent=true; mark(1,'ASO Latex Reagent positioned on the reaction card.');}};
+$('mixBtn').onclick=()=>{if(!state.sample || !state.reagent) return err('Place both patient sample and ASO Latex Reagent first.'); state.mixed=true; $('photoArea').classList.remove('hidden'); $('placeholderArea').classList.add('hidden'); $('patientCircle').classList.add('agglut'); mark(2,'Reaction mixed. Realistic training photo displayed.');};
+$('rotateBtn').onclick=()=>{ if(!state.mixed) return err('Mix the reaction first.'); state.rotated=true; mark(3,'Card rotated for teaching time.'); };
+$('readBtn').onclick=()=>{ if(!state.rotated) return err('Rotate the card first.'); state.read=true; mark(4,'Reaction observed. Positive control reactive, negative control smooth, patient observed.'); };
+$('interpretBtn').onclick=()=>{ if(!state.read) return err('Read the reaction first.'); $('finalResult').innerHTML='<b>ASO Latex Agglutination Test result:</b> '+$('interpretSelect').value+'<br>Expected training pattern: <b>Positive control agglutinates, negative control remains smooth, patient shows visible agglutination</b><br>Score: <b>'+Math.max(0,100-errors*8)+'/100</b>'; mark(5,'Patient reaction interpreted and recorded.'); };
+$('resetBtn').onclick=()=>location.reload(); refresh();
 </script></body></html>
