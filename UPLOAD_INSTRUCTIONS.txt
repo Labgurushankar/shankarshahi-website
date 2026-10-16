@@ -1,30 +1,20 @@
-SHANKARSHAHI.COM.NP — FINAL REALISTIC VIRTUAL LAB UPDATE
+SHANKARSHAHI.COM.NP — LATEST SHANKAR CLINICAL LABORATORY LIS LINK UPDATE
 
-THIS PACKAGE INCLUDES
-1. virtual-lab.html  (updated landing page text)
-2. virtual-lab-bloodgroup.html
-3. virtual-lab-aso.html
-4. virtual-lab-crp.html
-5. virtual-lab-rf.html
-6. virtual-bloodgroup-result.png
-7. virtual-aso-result.png
-8. virtual-crp-result.png
-9. virtual-rf-result.png
+NEW GOOGLE DRIVE FILE
+latest updated lab soft for use.exe
 
-WHAT IS UPDATED
-- Blood Group, ASO, CRP and RF modules now use more realistic reaction photos.
-- Mouse drag/drop for sample and reagent bottles added.
-- After mixing, realistic reaction image appears.
-- Virtual Lab landing page text also updated to match the new realistic modules.
+UPDATED
+- Shankar Clinical Laboratory LIS main download button
+- Shankar Clinical Laboratory LIS entry in Download Center
+- QMS / Combined Suite download link is unchanged
 
-HOW TO UPLOAD TO GITHUB
+GITHUB UPDATE
 1. Extract this ZIP.
-2. Open your website repository.
-3. Upload ALL files from this package to the repository ROOT.
-4. Replace existing files if GitHub asks.
-5. Commit changes.
-6. Wait for GitHub Pages deployment.
-7. Refresh the website with Ctrl + F5.
+2. Upload ONLY index.html to the repository root.
+3. Replace the existing index.html.
+4. Commit changes.
+5. Wait for GitHub Pages deployment.
+6. Refresh shankarshahi.com.np with Ctrl+F5.
+7. Test the Lab LIS download button.
 
-IMPORTANT
-All PNG image files must be uploaded together with the HTML files.
+The EXE itself remains on Google Drive; it is not added to GitHub.
