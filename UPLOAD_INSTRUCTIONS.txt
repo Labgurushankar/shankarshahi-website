@@ -1,24 +1,24 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB SKETCH PATTERN UPDATE
+SHANKARSHAHI.COM.NP — VIRTUAL LAB RDT UPDATE
 
 UPDATED FILES
 - virtual-lab.html
-- virtual-lab-bloodgroup.html
-- virtual-lab-aso.html
-- virtual-lab-crp.html
-- virtual-lab-rf.html
+- virtual-lab-hiv.html
+- virtual-lab-hbsag.html
+- virtual-lab-hcv.html
 
-WHAT CHANGED
-- Blood Group, ASO, CRP and RF now follow a sketch-pattern card style similar to the provided hand-drawn workflow.
-- Drag-and-drop interaction kept.
-- Blood grouping layout: Anti-A, Anti-B, Anti-D and EDTA sample to a reaction card.
-- ASO / CRP / RF layout: Latex reagent + positive control + negative control + patient serum to a reaction card.
-- A lower "mixed" card shows the final reaction pattern.
-- Virtual Lab landing page descriptions updated.
+WHAT IS NEW
+- HIV, HBsAg and HCV modules now use RDT cassette workflow.
+- User can drag patient sample to sample well.
+- User can drag buffer to buffer well.
+- Positive training outcome shows 2 bands (C + T).
+- Negative training outcome shows only 1 control band (C).
+- Invalid training outcome shows absent control band.
+- virtual-lab.html text/link descriptions updated.
 
 HOW TO UPDATE GITHUB
 1. Extract this ZIP.
-2. Upload all files in this ZIP to the repository ROOT.
-3. Replace existing files if asked.
+2. Upload all files from this ZIP to your repository ROOT.
+3. Replace the old files if GitHub asks.
 4. Commit changes.
 5. Wait for GitHub Pages deployment.
 6. Refresh the website with Ctrl + F5.
