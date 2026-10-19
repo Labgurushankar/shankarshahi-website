@@ -1,64 +1,133 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shankar Virtual Medical Laboratory | RF Latex Test</title><style>
-:root{--ink:#183450; --blue:#176b94; --teal:#087b73; --bg:#edf4f9; --line:#cfdfeb; --red:#9f3333; --green:#136e43;}
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>🧪 Shankar Virtual Medical Laboratory</title><style>
+:root{--ink:#17334d;--sub:#5e7386;--line:#cfdae3;--bg:#eef4f8;--panel:#ffffff;--accent:#116d8c;--btn:#0a827a;--good:#14683a;--bad:#9b2a2a;--paper:#fcfcfb;--pencil:#4f4f56;}
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.5 system-ui,Arial,sans-serif}
-header{background:linear-gradient(110deg,#0b3359,#0b847e);color:white;padding:17px max(16px,calc((100vw - 1220px)/2))}
-h1{margin:0;font-size:24px} header p{margin:4px 0 0;color:#d9f9fb}
-main{max-width:1240px;margin:18px auto;padding:0 14px}
-.topnav{max-width:1240px;margin:10px auto 0;padding:0 14px}
-.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
-h2{font-size:18px;margin:0 0 8px} h3{font-size:15px;margin:8px 0}
-.small{font-size:12px;color:#597388}
-.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:10px 0}
-button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
-button.secondary{color:#16496c;background:#e1f0f8}
-select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}
-.workbench{position:relative;min-height:360px;border:1px solid #c9d9e5;border-radius:14px;overflow:hidden;background:linear-gradient(#eef7fd 0 74%, #ccddea 74% 79%, #95a8b7 79%)}
-.instrument{position:absolute;text-align:center;user-select:none;touch-action:none;cursor:grab}
-.instrument .caption{margin-top:6px;font-size:11px;font-weight:700;background:#fffffff2;border:1px solid #d3e2ec;border-radius:6px;padding:4px 6px;min-width:82px}
-.dropzone{position:absolute;border:2px dashed #90aabb;border-radius:12px;background:#ffffff88;display:flex;align-items:center;justify-content:center;text-align:center;color:#416178;font-weight:700;padding:8px}
-.dropzone.filled{border-style:solid;background:#e7f6ee;color:#136e43}
-.bottle{width:88px;height:126px;position:relative;margin:auto}.bottle .cap{width:48px;height:14px;background:#175f8c;border-radius:6px 6px 2px 2px;margin:0 auto}.bottle .body{width:64px;height:90px;margin:0 auto;border:3px solid #7b9fb3;border-radius:8px 8px 16px 16px;background:linear-gradient(90deg,#d6edf4,#fff 45%,#d0e7f1);position:relative;overflow:hidden}.bottle .liquid{position:absolute;left:0;right:0;bottom:0;height:46%;background:#87bfe299}.bottle.red .liquid{background:#cb546599}.bottle.blue .liquid{background:#5b9fd799}.bottle.white .liquid{background:#eef3f8}.bottle.pale .liquid{background:#eee7b399}
-.cardboard{width:220px;height:140px;margin:auto;border-radius:16px;border:2px solid #adb9c4;background:linear-gradient(180deg,#fdfdfd,#f2f6f9);position:relative}.cardboard.dark{background:linear-gradient(180deg,#2b3340,#111721);border-color:#48596d}
-.circle{position:absolute;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;border:3px solid #7a97ab;background:#fff;color:#173a58}.cardboard.dark .circle{border-color:#f7f7f7;background:#202c39;color:#fff}.circle.agglut{background-image:radial-gradient(circle,#b63447 0 4px,transparent 5px);background-size:15px 15px}.circle.smooth{background:#f0f4f7}
-.photoWrap{border:1px solid #cfe0eb;border-radius:14px;background:#f5fbff;padding:12px}.photoWrap img{width:100%;max-width:860px;display:block;margin:auto;border-radius:12px;border:1px solid #d1e1eb;background:#fff}.hidden{display:none!important}
-.status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.good{background:#e3f8e9;color:var(--green)}.status.bad{background:#ffeded;color:var(--red)}
-.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}.note{font-size:12px;color:#526d84}
-@media (max-width:950px){.layout{grid-template-columns:1fr}}
-@media print{header,.topnav,.toolbar,.hideprint{display:none!important}.card{break-inside:avoid}body{background:#fff}}
-</style></head><body>
-<header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology Simulator • Rheumatoid Factor (RF) Latex Test • realistic photo-assisted module</p></header>
-<div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
-<main><div class="layout"><div>
-<section class="card"><h2>1. Prepare Reaction Card</h2><p class="small">Drag the patient sample bottle and the RF Latex Reagent bottle with your mouse to the marked drop zones. Then click <b>Mix Reaction</b> to reveal a more realistic reaction photo.</p>
-<div class="toolbar hideprint"><button id="mixBtn">Mix Reaction</button><button id="rotateBtn">Rotate Card</button><button id="readBtn">Read Result</button><button class="secondary" id="resetBtn">↻ Restart</button></div>
-<div class="workbench">
-  <div class="instrument" id="sampleBottle" style="left:46px;top:26px;"><div class="bottle pale"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Patient Sample</div></div>
-  <div class="instrument" id="reagentBottle" style="left:170px;top:26px;"><div class="bottle blue"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">RF Latex Reagent</div></div>
-  <div class="dropzone" id="zoneSample" style="left:320px;top:26px;width:140px;height:110px;">Drop Patient Sample Here</div>
-  <div class="dropzone" id="zoneReagent" style="left:485px;top:26px;width:140px;height:110px;">Drop Reagent Here</div>
-  <div style="position:absolute;left:240px;top:155px;right:40px;"><div class="photoWrap"><div id="placeholderArea"><div class="cardboard dark"><div class="circle agglut" style="left:15px;top:28px;">PC</div><div class="circle smooth" style="left:73px;top:28px;">NC</div><div class="circle" id="patientCircle" style="left:131px;top:28px;">PT</div></div><div class="small" style="margin-top:8px">Before mixing: training card illustration</div></div><div id="photoArea" class="hidden"><img src="virtual-rf-result.png" alt="Rheumatoid Factor (RF) Latex Test realistic reaction photo"><div class="small" style="margin-top:8px">After mixing: more realistic training photo</div></div></div></div>
-</div></section>
-<section class="card"><h2>2. Interpret Result</h2><p class="small">Controls must be valid before interpreting the patient result.</p><label>Patient reaction <select id="interpretSelect"><option>Reactive – visible agglutination</option><option>Non-reactive – smooth suspension</option><option>Invalid – control failure</option></select></label><div class="toolbar"><button id="interpretBtn">Interpret</button></div><div id="finalResult" class="result">Complete the reaction first.</div></section>
-<footer class="footer">Rheumatoid Factor (RF) Latex Test • realistic photo-supported interactive training module • Educational use only.</footer></div>
-<aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Patient sample placed</div><div class="step" id="chk1">○ RF Latex Reagent placed</div><div class="step" id="chk2">○ Reaction mixed</div><div class="step" id="chk3">○ Card rotated</div><div class="step" id="chk4">○ Controls/result observed</div><div class="step" id="chk5">○ Patient interpretation recorded</div></div><div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div><div class="progressbar"><div id="bar"></div></div><h3>Instructor feedback</h3><div class="status" id="status">Start by dragging the patient sample bottle to its drop zone.</div><p class="note">Teaching simulation only. Follow the actual kit insert, QC policy and laboratory SOP for patient testing.</p></aside></div></main>
-<script>
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{padding:18px 20px;background:linear-gradient(115deg,#0d375b,#0b8a86);color:#fff}
+header h1{margin:0;font-size:25px} header p{margin:6px 0 0;color:#d8fbff}
+.topnav,.wrap{max-width:1180px;margin:auto;padding:0 16px}
+.topnav{margin-top:12px}.topnav a{display:inline-block;padding:8px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);text-decoration:none;color:#176b94;font-weight:700}
+.wrap{padding-top:18px;padding-bottom:24px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(8,44,71,.06);margin-bottom:14px}
+.card h2{margin:0 0 8px;font-size:20px}.muted{color:var(--sub);font-size:12px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.toolbar button{border:0;border-radius:10px;padding:10px 14px;background:var(--btn);color:#fff;font-weight:700;cursor:pointer}.toolbar button.secondary{background:#dceef6;color:#194b6c}
+.sketch-board{background:linear-gradient(#fff,#fbfbfa);border:1px solid #d9e3ea;border-radius:18px;padding:18px}
+.source-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px;align-items:end;margin-bottom:16px}
+.source{position:relative;text-align:center;padding-top:6px}
+.instrument{position:relative;display:inline-block;user-select:none;touch-action:none;cursor:grab}
+.instrument.dragging{cursor:grabbing;z-index:50}
+.instrument-label{margin-top:6px;font-weight:800;color:#223d58}
+.smallcap{font-size:11px;color:var(--sub)}
+.bottle,.tube{position:relative;margin:auto}
+.bottle{width:54px;height:102px}.bottle .tip{width:16px;height:28px;border:3px solid #687480;border-bottom:none;border-radius:10px 10px 0 0;margin:0 auto;background:#fff}
+.bottle .neck{width:20px;height:10px;background:#697683;margin:0 auto;border-radius:4px}
+.bottle .body{width:44px;height:58px;border:3px solid #687480;border-radius:8px 8px 12px 12px;background:linear-gradient(90deg,#edf4fb,#fff 45%,#e8eff5);margin:0 auto;overflow:hidden;position:relative}
+.bottle .fill{position:absolute;left:0;right:0;bottom:0;height:46%;background:#95c0e2}
+.bottle.red .fill{background:#e2979e}.bottle.blue .fill{background:#9ac2e7}.bottle.clear .fill{background:#f2f7fb}
+.tube{width:52px;height:106px}.tube .cap{width:40px;height:16px;border:3px solid #687480;border-bottom:none;border-radius:10px 10px 0 0;background:#f4f6f8;margin:0 auto}
+.tube .body{width:40px;height:76px;border:3px solid #687480;border-radius:6px 6px 16px 16px;background:linear-gradient(90deg,#fff,#f3f7fa 45%,#ebf0f4);margin:0 auto;overflow:hidden;position:relative}
+.tube .seg{height:33%;border-top:2px solid #d5dde4}.tube .blood{position:absolute;left:0;right:0;bottom:0;height:35%;background:#ca8b93}
+.flow-row{display:grid;grid-template-columns:1fr 56px 1fr;gap:10px;align-items:center}
+.arrow-down{text-align:center;color:#52687a;font-size:30px;font-weight:900}
+.sketch-card{background:var(--paper);border:2px solid #7d8087;border-radius:8px;min-height:150px;padding:20px 18px;position:relative;transform:rotate(-1.5deg);box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.sketch-card::before{content:'';position:absolute;inset:7px;border:1px dashed #d7d0c9;border-radius:6px;pointer-events:none}
+.well-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.well-col{text-align:center}
+.well-title{font-weight:800;font-size:14px;margin-bottom:8px}
+.well{width:76px;height:76px;margin:0 auto;border:3px solid #686b73;border-radius:50%;background:radial-gradient(circle at 40% 35%, #ffffff 0, #f6f6f3 45%, #ece9e1 100%);position:relative;display:flex;align-items:center;justify-content:center;color:#556270;font-weight:900}
+.well::after{content:'';position:absolute;inset:9px;border:2px solid rgba(88,92,99,.42);border-radius:50%}
+.well.ready{box-shadow:0 0 0 5px #e7f6ee}.well.mixed-positive{background:radial-gradient(circle, #d5a7a7 0 15%, #f7ece4 16% 32%, transparent 33%),radial-gradient(circle, #cf8b8b 0 8%, transparent 9%),radial-gradient(circle, #af5757 0 5%, transparent 6%),radial-gradient(circle, #9d5252 0 4%, transparent 5%),radial-gradient(circle at 30% 34%, #f5eae4, #e9dfd8);background-size:auto, 26px 26px, 20px 20px, 24px 24px, auto;background-position:center,12px 18px,38px 34px,26px 47px,center}
+.well.mixed-negative{background:radial-gradient(circle at 45% 38%, #faf6f3, #ece7e0 70%, #e1ddd8)}
+.well-note{font-size:12px;color:#5f6d7b;margin-top:8px;min-height:18px}
+.drop-slot,.card-zone{margin-top:10px;border:2px dashed #acbbc7;border-radius:10px;min-height:42px;padding:6px 8px;display:flex;align-items:center;justify-content:center;text-align:center;background:#fbfdff;color:#4c677c;font-weight:700}
+.drop-slot.done,.card-zone.done{background:#e7f6ee;border-style:solid;color:var(--good)}
+.mix-panel{margin-top:16px;text-align:center;font-size:13px;color:#5a6773}
+.resultbox{background:#123549;color:#d3f9d4;border-radius:10px;padding:14px;font:15px ui-monospace,Consolas,monospace;min-height:60px}
+.side .step{padding:7px 8px;border-radius:7px;background:#f0f5fa;margin:6px 0;font-size:12px}.side .step.ok{background:#e4f7e9;color:var(--good)}
+.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}
+.status{border-radius:10px;background:#edf6ff;padding:11px;min-height:72px}.status.good{background:#e3f8e9;color:var(--good)}.status.bad{background:#ffeded;color:var(--bad)}
+.interpret-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+select{width:100%;padding:10px;border:1px solid #b7cbdc;border-radius:8px;background:#fff}
+.footer{text-align:center;color:#61778a;font-size:12px;padding-top:6px}
+@media (max-width:950px){.layout{grid-template-columns:1fr}.flow-row{grid-template-columns:1fr}.arrow-down{transform:rotate(90deg)}.source-row{grid-template-columns:repeat(2,minmax(120px,1fr))}}
+@media print{header,.topnav,.toolbar{display:none!important}.card{break-inside:avoid}body{background:#fff}}
+</style></head><body><header><h1>🧪 Shankar Virtual Medical Laboratory</h1><p>Interactive Immunology / Serology Simulator • RF Latex Test sketch-card pattern</p></header><div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div><div class="wrap"><div class="layout"><div>
+<div class="card"><h2>1. Prepare RF Latex Test Reaction Card</h2><p class="muted">This module follows the requested pattern: reagent bottle on top, positive control, negative control and patient sample arranged above a reaction card. Drag the latex reagent to the reagent zone, then drag each sample/control to its own circle.</p>
+<div class="toolbar"><button id="mixBtn">Mix Card</button><button id="readBtn">Read Pattern</button><button class="secondary" id="resetBtn">↻ Restart</button></div>
+<div class="sketch-board">
+  <div class="source-row">
+    <div class="source"><div class="instrument" id="reagent" style="left:0;top:0"><div class="bottle blue"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">RF Latex Reagent<div class="smallcap">Drag to card zone</div></div></div>
+    <div class="source"><div class="instrument" id="posCtrl" style="left:0;top:0"><div class="bottle red"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">Positive Control</div></div>
+    <div class="source"><div class="instrument" id="negCtrl" style="left:0;top:0"><div class="bottle clear"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">Negative Control</div></div>
+    <div class="source"><div class="instrument" id="patient" style="left:0;top:0"><div class="tube"><div class="cap"></div><div class="body"><div class="seg"></div><div class="seg"></div><div class="blood"></div></div></div></div><div class="instrument-label">Patient Serum</div></div>
+  </div>
+  <div class="flow-row">
+    <div class="sketch-card">
+      <div class="card-zone" id="reagentZone">Drop RF Latex Reagent here → reagent will be used for all 3 circles</div>
+      <div class="well-grid" style="margin-top:18px">
+        <div class="well-col"><div class="well-title">Positive Control</div><div class="well" id="wellPC">PC</div><div class="drop-slot" id="slotPC">Drop positive control</div><div class="well-note" id="notePC"></div></div>
+        <div class="well-col"><div class="well-title">Negative Control</div><div class="well" id="wellNC">NC</div><div class="drop-slot" id="slotNC">Drop negative control</div><div class="well-note" id="noteNC"></div></div>
+        <div class="well-col"><div class="well-title">Patient</div><div class="well" id="wellPT">PT</div><div class="drop-slot" id="slotPT">Drop patient serum</div><div class="well-note" id="notePT"></div></div>
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="sketch-card"><div class="well-grid">
+      <div class="well-col"><div class="well-title">Positive Control</div><div class="well" id="mixPC">?</div><div class="well-note" id="mixNotePC">Not mixed yet</div></div>
+      <div class="well-col"><div class="well-title">Negative Control</div><div class="well" id="mixNC">?</div><div class="well-note" id="mixNoteNC">Not mixed yet</div></div>
+      <div class="well-col"><div class="well-title">Patient</div><div class="well" id="mixPT">?</div><div class="well-note" id="mixNotePT">Not mixed yet</div></div>
+    </div><div class="mix-panel">Teaching pattern: Positive control reactive, negative control smooth, patient reactive.</div></div>
+  </div>
+</div></div>
+<div class="card"><h2>2. Interpret RF Latex Test Result</h2><p class="muted">Select the observed patient reaction and record the interpretation.</p><div class="interpret-grid"><label>Patient reaction<select id="interpretSelect"><option>Reactive / visible agglutination</option><option>Non-reactive / smooth suspension</option><option>Invalid run</option></select></label></div><div class="toolbar"><button id="interpretBtn">Interpret RF Latex Test</button></div><div class="resultbox" id="finalResult">Complete the reaction card first.</div></div>
+<div class="footer">RF Latex Test educational simulation • Sketch-pattern card style • Follow laboratory SOP and kit insert.</div></div>
+<div class="side card"><h2>Progress & Assessment</h2><div class="step" id="chk0">RF Latex Reagent added to reaction card</div><div class="step" id="chk1">Positive control added</div><div class="step" id="chk2">Negative control added</div><div class="step" id="chk3">Patient serum added</div><div class="step" id="chk4">Card mixed and reaction read</div><div class="step" id="chk5">RF Latex Test interpretation completed</div><div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div><div class="progressbar"><div id="bar"></div></div><h3>Instructor feedback</h3><div class="status" id="status">Drag the RF Latex Reagent to the card, then add positive control, negative control and patient serum to the three circles.</div></div></div></div><script>
 const $ = id => document.getElementById(id);
-function makeDraggable(el){let dragging=false,startX=0,startY=0,origX=0,origY=0;el.addEventListener('pointerdown',e=>{dragging=true;el.setPointerCapture(e.pointerId);startX=e.clientX;startY=e.clientY;origX=parseFloat(el.style.left||0);origY=parseFloat(el.style.top||0);el.style.cursor='grabbing';});el.addEventListener('pointermove',e=>{if(!dragging)return;el.style.left=(origX+e.clientX-startX)+'px';el.style.top=(origY+e.clientY-startY)+'px';});function end(){if(!dragging)return;dragging=false;el.style.cursor='grab';if(window.onDragEnd)window.onDragEnd(el);}el.addEventListener('pointerup', end);el.addEventListener('pointercancel', end);}
-function zoneHit(a,b,margin=45){const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2;const bcx=br.left+br.width/2, bcy=br.top+br.height/2;return Math.abs(acx-bcx) < (br.width/2+margin) && Math.abs(acy-bcy) < (br.height/2+margin);}
+function makeDraggable(el){
+  let dragging=false,startX=0,startY=0,origX=0,origY=0;
+  el.addEventListener('pointerdown',e=>{
+    dragging=true; el.setPointerCapture(e.pointerId);
+    startX=e.clientX; startY=e.clientY;
+    origX=parseFloat(el.style.left||0); origY=parseFloat(el.style.top||0);
+    el.classList.add('dragging');
+  });
+  el.addEventListener('pointermove',e=>{
+    if(!dragging) return;
+    el.style.left=(origX+e.clientX-startX)+'px';
+    el.style.top=(origY+e.clientY-startY)+'px';
+  });
+  function end(){ if(!dragging) return; dragging=false; el.classList.remove('dragging'); if(window.onDragEnd) window.onDragEnd(el); }
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+}
+function zoneHit(a,b,margin=28){ const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect(); const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2; const bcx=br.left+br.width/2, bcy=br.top+br.height/2; return Math.abs(acx-bcx) <= (br.width/2+margin) && Math.abs(acy-bcy) <= (br.height/2+margin); }
+function setupScore(total){
+  const done=Array(total).fill(false); let errors=0;
+  function refresh(){ done.forEach((v,i)=>{ const e=$('chk'+i); if(!e) return; const tx=e.dataset.base || e.textContent.replace(/^.[ ]?/,''); e.dataset.base=tx; e.textContent=(v?'✓ ':'○ ')+tx; e.className='step'+(v?' ok':''); }); const c=done.filter(Boolean).length; $('progress').textContent=c+' / '+total; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*6); $('bar').style.width=((c/total)*100)+'%'; }
+  function feedback(t,k=''){ $('status').textContent=t; $('status').className='status '+k; }
+  function mark(i,t){ done[i]=true; feedback(t,'good'); refresh(); }
+  function err(t){ errors++; feedback('⚠ '+t,'bad'); refresh(); }
+  refresh();
+  return {done,mark,err,feedback,refresh,get score(){ return Math.max(0,100-errors*6); }};
+}
 
-let done=Array(6).fill(false), errors=0;const state={sample:false,reagent:false,mixed:false,rotated:false,read:false};
-function feedback(t,kind=''){ $('status').textContent=t; $('status').className='status '+kind; }
-function mark(i,t){ done[i]=true; feedback(t,'good'); refresh(); }
-function err(t){ errors++; feedback('⚠ '+t,'bad'); refresh(); }
-function refresh(){done.forEach((v,i)=>{ const e=$('chk'+i); const tx=e.textContent.replace(/^.[ ]?/,''); e.textContent=(v?'✓ ':'○ ')+tx; e.className='step '+(v?'ok':''); }); const c=done.filter(Boolean).length; $('progress').textContent=c+' / 6'; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*8); $('bar').style.width=(c/6*100)+'%';}
-['sampleBottle','reagentBottle'].forEach(id=>makeDraggable($(id)));
-window.onDragEnd=(el)=>{if(el.id==='sampleBottle' && zoneHit(el,$('zoneSample'),35)){$('zoneSample').classList.add('filled'); $('zoneSample').textContent='Patient Sample Added'; state.sample=true; mark(0,'Patient sample positioned on the reaction card.');} if(el.id==='reagentBottle' && zoneHit(el,$('zoneReagent'),35)){$('zoneReagent').classList.add('filled'); $('zoneReagent').textContent='RF Latex Reagent Added'; state.reagent=true; mark(1,'RF Latex Reagent positioned on the reaction card.');}};
-$('mixBtn').onclick=()=>{if(!state.sample || !state.reagent) return err('Place both patient sample and RF Latex Reagent first.'); state.mixed=true; $('photoArea').classList.remove('hidden'); $('placeholderArea').classList.add('hidden'); $('patientCircle').classList.add('agglut'); mark(2,'Reaction mixed. Realistic training photo displayed.');};
-$('rotateBtn').onclick=()=>{ if(!state.mixed) return err('Mix the reaction first.'); state.rotated=true; mark(3,'Card rotated for teaching time.'); };
-$('readBtn').onclick=()=>{ if(!state.rotated) return err('Rotate the card first.'); state.read=true; mark(4,'Reaction observed. Positive control reactive, negative control smooth, patient observed.'); };
-$('interpretBtn').onclick=()=>{ if(!state.read) return err('Read the reaction first.'); $('finalResult').innerHTML='<b>Rheumatoid Factor (RF) Latex Test result:</b> '+$('interpretSelect').value+'<br>Expected training pattern: <b>Positive control agglutinates, negative control remains smooth, patient shows visible agglutination</b><br>Score: <b>'+Math.max(0,100-errors*8)+'/100</b>'; mark(5,'Patient reaction interpreted and recorded.'); };
-$('resetBtn').onclick=()=>location.reload(); refresh();
+
+const tracker = setupScore(6);
+const state = {reagent:false,pc:false,nc:false,pt:false,mixed:false};
+['reagent','posCtrl','negCtrl','patient'].forEach(id=>makeDraggable($(id)));
+window.onDragEnd = (el)=>{
+  if(el.id==='reagent' && zoneHit(el,$('reagentZone'),34)){ $('reagentZone').textContent='RF Latex Reagent added to all circles'; $('reagentZone').classList.add('done'); ['notePC','noteNC','notePT'].forEach(id=>$(id).textContent='reagent ready'); state.reagent=true; tracker.mark(0,'RF Latex Reagent added to the reaction card.'); }
+  else if(el.id==='posCtrl' && zoneHit(el,$('slotPC'))){ $('slotPC').textContent='Positive control added'; $('slotPC').classList.add('done'); $('wellPC').classList.add('ready'); $('notePC').textContent=(state.reagent?'reagent + ':'')+'sample added'; state.pc=true; tracker.mark(1,'Positive control added to the first circle.'); }
+  else if(el.id==='negCtrl' && zoneHit(el,$('slotNC'))){ $('slotNC').textContent='Negative control added'; $('slotNC').classList.add('done'); $('wellNC').classList.add('ready'); $('noteNC').textContent=(state.reagent?'reagent + ':'')+'sample added'; state.nc=true; tracker.mark(2,'Negative control added to the second circle.'); }
+  else if(el.id==='patient' && zoneHit(el,$('slotPT'))){ $('slotPT').textContent='Patient serum added'; $('slotPT').classList.add('done'); $('wellPT').classList.add('ready'); $('notePT').textContent=(state.reagent?'reagent + ':'')+'sample added'; state.pt=true; tracker.mark(3,'Patient serum added to the third circle.'); }
+};
+$('mixBtn').onclick = ()=>{
+  if(!(state.reagent && state.pc && state.nc && state.pt)) return tracker.err('Add reagent, controls and patient serum before mixing.');
+  state.mixed=true;
+  $('mixPC').className='well mixed-positive'; $('mixPC').textContent=''; $('mixNotePC').textContent='Agglutination';
+  $('mixNC').className='well mixed-negative'; $('mixNC').textContent=''; $('mixNoteNC').textContent='Smooth / no agglutination';
+  $('mixPT').className='well mixed-positive'; $('mixPT').textContent=''; $('mixNotePT').textContent='Visible agglutination';
+  tracker.mark(4,'Reaction card mixed. Final sketch-pattern results displayed below.');
+};
+$('readBtn').onclick = ()=>{ if(!state.mixed) return tracker.err('Mix the reaction card first.'); tracker.feedback('Observed pattern: positive control reactive, negative control smooth, patient reactive.','good'); };
+$('interpretBtn').onclick = ()=>{ if(!state.mixed) return tracker.err('Complete the reaction card and mix before interpreting.'); const v=$('interpretSelect').value; $('finalResult').innerHTML='<b>RF Latex Test interpretation:</b> '+v+'<br>Control check: Positive control reactive, negative control non-reactive.<br>Score: <b>'+tracker.score+'/100</b>'; tracker.mark(5,'RF Latex Test interpretation completed.'); };
+$('resetBtn').onclick = ()=> location.reload();
 </script></body></html>

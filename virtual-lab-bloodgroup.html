@@ -1,67 +1,151 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shankar Virtual Medical Laboratory | ABO & Rh Blood Grouping</title><style>
-:root{--ink:#183450; --blue:#176b94; --teal:#087b73; --bg:#edf4f9; --line:#cfdfeb; --red:#9f3333; --green:#136e43;}
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>🩸 Shankar Virtual Medical Laboratory</title><style>
+:root{--ink:#17334d;--sub:#5e7386;--line:#cfdae3;--bg:#eef4f8;--panel:#ffffff;--accent:#116d8c;--btn:#0a827a;--good:#14683a;--bad:#9b2a2a;--paper:#fcfcfb;--pencil:#4f4f56;}
 *{box-sizing:border-box}
-body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.5 system-ui,Arial,sans-serif}
-header{background:linear-gradient(110deg,#0b3359,#0b847e);color:white;padding:17px max(16px,calc((100vw - 1220px)/2))}
-h1{margin:0;font-size:24px} header p{margin:4px 0 0;color:#d9f9fb}
-main{max-width:1240px;margin:18px auto;padding:0 14px}
-.topnav{max-width:1240px;margin:10px auto 0;padding:0 14px}
-.topnav a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:#176b94;font-weight:700}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:14px;box-shadow:0 4px 13px #082c4709}
-h2{font-size:18px;margin:0 0 8px} h3{font-size:15px;margin:8px 0}
-.small{font-size:12px;color:#597388}
-.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:10px 0}
-button{border:0;border-radius:8px;padding:10px 12px;color:white;background:var(--teal);cursor:pointer;font-weight:700}
-button.secondary{color:#16496c;background:#e1f0f8}
-select,input{padding:9px;border:1px solid #b7cbdc;border-radius:8px;max-width:100%}
-.workbench{position:relative;min-height:360px;border:1px solid #c9d9e5;border-radius:14px;overflow:hidden;background:linear-gradient(#eef7fd 0 74%, #ccddea 74% 79%, #95a8b7 79%)}
-.instrument{position:absolute;text-align:center;user-select:none;touch-action:none;cursor:grab}
-.instrument .caption{margin-top:6px;font-size:11px;font-weight:700;background:#fffffff2;border:1px solid #d3e2ec;border-radius:6px;padding:4px 6px;min-width:82px}
-.dropzone{position:absolute;border:2px dashed #90aabb;border-radius:12px;background:#ffffff88;display:flex;align-items:center;justify-content:center;text-align:center;color:#416178;font-weight:700;padding:8px}
-.dropzone.filled{border-style:solid;background:#e7f6ee;color:#136e43}
-.bottle{width:88px;height:126px;position:relative;margin:auto}.bottle .cap{width:48px;height:14px;background:#175f8c;border-radius:6px 6px 2px 2px;margin:0 auto}.bottle .body{width:64px;height:90px;margin:0 auto;border:3px solid #7b9fb3;border-radius:8px 8px 16px 16px;background:linear-gradient(90deg,#d6edf4,#fff 45%,#d0e7f1);position:relative;overflow:hidden}.bottle .liquid{position:absolute;left:0;right:0;bottom:0;height:46%;background:#87bfe299}.bottle.red .liquid{background:#cb546599}.bottle.blue .liquid{background:#5b9fd799}.bottle.white .liquid{background:#eef3f8}.bottle.pale .liquid{background:#eee7b399}
-.cardboard{width:220px;height:140px;margin:auto;border-radius:16px;border:2px solid #adb9c4;background:linear-gradient(180deg,#fdfdfd,#f2f6f9);position:relative}.cardboard.dark{background:linear-gradient(180deg,#2b3340,#111721);border-color:#48596d}
-.circle{position:absolute;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;border:3px solid #7a97ab;background:#fff;color:#173a58}.cardboard.dark .circle{border-color:#f7f7f7;background:#202c39;color:#fff}.circle.agglut{background-image:radial-gradient(circle,#b63447 0 4px,transparent 5px);background-size:15px 15px}.circle.smooth{background:#f0f4f7}
-.photoWrap{border:1px solid #cfe0eb;border-radius:14px;background:#f5fbff;padding:12px}.photoWrap img{width:100%;max-width:860px;display:block;margin:auto;border-radius:12px;border:1px solid #d1e1eb;background:#fff}.hidden{display:none!important}
-.status{border-radius:8px;background:#edf6ff;padding:11px;min-height:61px}.status.good{background:#e3f8e9;color:var(--green)}.status.bad{background:#ffeded;color:var(--red)}
-.step{padding:7px 8px;border-radius:6px;background:#f0f5fa;margin:5px 0;font-size:12px}.step.ok{background:#e4f7e9;color:#136c41}.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}.result{font:16px ui-monospace,Consolas,monospace;background:#123549;color:#d3f9d4;padding:15px;border-radius:9px;min-height:55px}.footer{text-align:center;font-size:12px;color:#587085;padding-bottom:20px}.note{font-size:12px;color:#526d84}
-@media (max-width:950px){.layout{grid-template-columns:1fr}}
-@media print{header,.topnav,.toolbar,.hideprint{display:none!important}.card{break-inside:avoid}body{background:#fff}}
-</style></head><body>
-<header><h1>🩸 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • ABO & Rh Blood Grouping • realistic photo-assisted module</p></header>
-<div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div>
-<main><div class="layout"><div>
-<section class="card"><h2>1. Prepare Blood Grouping Card</h2><p class="small">Drag the patient red cell sample and the three antisera bottles (Anti-A, Anti-B, Anti-D) to the drop zones. Then click <b>Mix & Reveal</b> to show a more realistic result photo.</p>
-<div class="toolbar hideprint"><button id="mixBtn">Mix & Reveal</button><button id="readBtn">Read Reactions</button><button class="secondary" id="resetBtn">↻ Restart</button></div>
-<div class="workbench">
-<div class="instrument" id="sampleBottle" style="left:36px;top:22px;"><div class="bottle red"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Patient Cell Sample</div></div>
-<div class="instrument" id="antiABottle" style="left:144px;top:22px;"><div class="bottle blue"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Anti-A</div></div>
-<div class="instrument" id="antiBBottle" style="left:252px;top:22px;"><div class="bottle blue"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Anti-B</div></div>
-<div class="instrument" id="antiDBottle" style="left:360px;top:22px;"><div class="bottle blue"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div><div class="caption">Anti-D</div></div>
-<div class="dropzone" id="zoneSample" style="left:488px;top:18px;width:132px;height:72px;">Patient Sample</div>
-<div class="dropzone" id="zoneA" style="left:630px;top:18px;width:90px;height:72px;">Anti-A</div>
-<div class="dropzone" id="zoneB" style="left:730px;top:18px;width:90px;height:72px;">Anti-B</div>
-<div class="dropzone" id="zoneD" style="left:830px;top:18px;width:90px;height:72px;">Anti-D</div>
-<div style="position:absolute;left:205px;top:120px;right:40px;"><div class="photoWrap"><div id="placeholderArea"><div class="cardboard"><div class="circle" id="wa" style="left:14px;top:30px;">A</div><div class="circle smooth" id="wb" style="left:73px;top:30px;">B</div><div class="circle" id="wd" style="left:132px;top:30px;">D</div></div><div class="small" style="margin-top:8px">Before mixing: training card illustration</div></div><div id="photoArea" class="hidden"><img src="virtual-bloodgroup-result.png" alt="ABO and Rh grouping realistic photo"><div class="small" style="margin-top:8px">After mixing: more realistic blood grouping training photo</div></div></div></div>
-</div></section>
-<section class="card"><h2>2. Interpret Blood Group</h2><p class="small">This training case is designed to show agglutination with Anti-A and Anti-D, while Anti-B remains smooth.</p><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px"><label>Anti-A<select id="selA"><option>Positive</option><option>Negative</option></select></label><label>Anti-B<select id="selB"><option>Negative</option><option>Positive</option></select></label><label>Anti-D<select id="selD"><option>Positive</option><option>Negative</option></select></label></div><div class="toolbar"><button id="interpretBtn">Interpret ABO / Rh</button></div><div id="finalResult" class="result">Complete the reaction first.</div></section>
-<footer class="footer">ABO & Rh Blood Grouping • realistic photo-supported training module • Educational use only.</footer></div>
-<aside class="card"><h2>Progress & Assessment</h2><div id="checklist"><div class="step" id="chk0">○ Patient sample placed</div><div class="step" id="chk1">○ Anti-A placed</div><div class="step" id="chk2">○ Anti-B placed</div><div class="step" id="chk3">○ Anti-D placed</div><div class="step" id="chk4">○ Reactions mixed and read</div><div class="step" id="chk5">○ ABO / Rh interpretation completed</div></div><div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div><div class="progressbar"><div id="bar"></div></div><h3>Instructor feedback</h3><div class="status" id="status">Start by dragging the patient sample and the three antisera bottles to their correct zones.</div><p class="note">Teaching simulation only. Follow the actual kit insert, QC policy and laboratory SOP for patient testing.</p></aside></div></main>
-<script>
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{padding:18px 20px;background:linear-gradient(115deg,#0d375b,#0b8a86);color:#fff}
+header h1{margin:0;font-size:25px} header p{margin:6px 0 0;color:#d8fbff}
+.topnav,.wrap{max-width:1180px;margin:auto;padding:0 16px}
+.topnav{margin-top:12px}.topnav a{display:inline-block;padding:8px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);text-decoration:none;color:#176b94;font-weight:700}
+.wrap{padding-top:18px;padding-bottom:24px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(8,44,71,.06);margin-bottom:14px}
+.card h2{margin:0 0 8px;font-size:20px}.muted{color:var(--sub);font-size:12px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.toolbar button{border:0;border-radius:10px;padding:10px 14px;background:var(--btn);color:#fff;font-weight:700;cursor:pointer}.toolbar button.secondary{background:#dceef6;color:#194b6c}
+.sketch-board{background:linear-gradient(#fff,#fbfbfa);border:1px solid #d9e3ea;border-radius:18px;padding:18px}
+.source-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px;align-items:end;margin-bottom:16px}
+.source{position:relative;text-align:center;padding-top:6px}
+.instrument{position:relative;display:inline-block;user-select:none;touch-action:none;cursor:grab}
+.instrument.dragging{cursor:grabbing;z-index:50}
+.instrument-label{margin-top:6px;font-weight:800;color:#223d58}
+.smallcap{font-size:11px;color:var(--sub)}
+.bottle,.tube{position:relative;margin:auto}
+.bottle{width:54px;height:102px}.bottle .tip{width:16px;height:28px;border:3px solid #687480;border-bottom:none;border-radius:10px 10px 0 0;margin:0 auto;background:#fff}
+.bottle .neck{width:20px;height:10px;background:#697683;margin:0 auto;border-radius:4px}
+.bottle .body{width:44px;height:58px;border:3px solid #687480;border-radius:8px 8px 12px 12px;background:linear-gradient(90deg,#edf4fb,#fff 45%,#e8eff5);margin:0 auto;overflow:hidden;position:relative}
+.bottle .fill{position:absolute;left:0;right:0;bottom:0;height:46%;background:#95c0e2}
+.bottle.red .fill{background:#e2979e}.bottle.blue .fill{background:#9ac2e7}.bottle.clear .fill{background:#f2f7fb}
+.tube{width:52px;height:106px}.tube .cap{width:40px;height:16px;border:3px solid #687480;border-bottom:none;border-radius:10px 10px 0 0;background:#f4f6f8;margin:0 auto}
+.tube .body{width:40px;height:76px;border:3px solid #687480;border-radius:6px 6px 16px 16px;background:linear-gradient(90deg,#fff,#f3f7fa 45%,#ebf0f4);margin:0 auto;overflow:hidden;position:relative}
+.tube .seg{height:33%;border-top:2px solid #d5dde4}.tube .blood{position:absolute;left:0;right:0;bottom:0;height:35%;background:#ca8b93}
+.flow-row{display:grid;grid-template-columns:1fr 56px 1fr;gap:10px;align-items:center}
+.arrow-down{text-align:center;color:#52687a;font-size:30px;font-weight:900}
+.sketch-card{background:var(--paper);border:2px solid #7d8087;border-radius:8px;min-height:150px;padding:20px 18px;position:relative;transform:rotate(-1.5deg);box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.sketch-card::before{content:'';position:absolute;inset:7px;border:1px dashed #d7d0c9;border-radius:6px;pointer-events:none}
+.well-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.well-col{text-align:center}
+.well-title{font-weight:800;font-size:14px;margin-bottom:8px}
+.well{width:76px;height:76px;margin:0 auto;border:3px solid #686b73;border-radius:50%;background:radial-gradient(circle at 40% 35%, #ffffff 0, #f6f6f3 45%, #ece9e1 100%);position:relative;display:flex;align-items:center;justify-content:center;color:#556270;font-weight:900}
+.well::after{content:'';position:absolute;inset:9px;border:2px solid rgba(88,92,99,.42);border-radius:50%}
+.well.ready{box-shadow:0 0 0 5px #e7f6ee}.well.mixed-positive{background:radial-gradient(circle, #d5a7a7 0 15%, #f7ece4 16% 32%, transparent 33%),radial-gradient(circle, #cf8b8b 0 8%, transparent 9%),radial-gradient(circle, #af5757 0 5%, transparent 6%),radial-gradient(circle, #9d5252 0 4%, transparent 5%),radial-gradient(circle at 30% 34%, #f5eae4, #e9dfd8);background-size:auto, 26px 26px, 20px 20px, 24px 24px, auto;background-position:center,12px 18px,38px 34px,26px 47px,center}
+.well.mixed-negative{background:radial-gradient(circle at 45% 38%, #faf6f3, #ece7e0 70%, #e1ddd8)}
+.well-note{font-size:12px;color:#5f6d7b;margin-top:8px;min-height:18px}
+.drop-slot,.card-zone{margin-top:10px;border:2px dashed #acbbc7;border-radius:10px;min-height:42px;padding:6px 8px;display:flex;align-items:center;justify-content:center;text-align:center;background:#fbfdff;color:#4c677c;font-weight:700}
+.drop-slot.done,.card-zone.done{background:#e7f6ee;border-style:solid;color:var(--good)}
+.mix-panel{margin-top:16px;text-align:center;font-size:13px;color:#5a6773}
+.resultbox{background:#123549;color:#d3f9d4;border-radius:10px;padding:14px;font:15px ui-monospace,Consolas,monospace;min-height:60px}
+.side .step{padding:7px 8px;border-radius:7px;background:#f0f5fa;margin:6px 0;font-size:12px}.side .step.ok{background:#e4f7e9;color:var(--good)}
+.metric{display:flex;justify-content:space-between;border-bottom:1px solid #e4eef5;padding:7px 0}.progressbar{height:10px;background:#dfeaf1;border-radius:999px;overflow:hidden}.progressbar>div{height:100%;width:0;background:#087b73;transition:.2s}
+.status{border-radius:10px;background:#edf6ff;padding:11px;min-height:72px}.status.good{background:#e3f8e9;color:var(--good)}.status.bad{background:#ffeded;color:var(--bad)}
+.interpret-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+select{width:100%;padding:10px;border:1px solid #b7cbdc;border-radius:8px;background:#fff}
+.footer{text-align:center;color:#61778a;font-size:12px;padding-top:6px}
+@media (max-width:950px){.layout{grid-template-columns:1fr}.flow-row{grid-template-columns:1fr}.arrow-down{transform:rotate(90deg)}.source-row{grid-template-columns:repeat(2,minmax(120px,1fr))}}
+@media print{header,.topnav,.toolbar{display:none!important}.card{break-inside:avoid}body{background:#fff}}
+</style></head><body><header><h1>🩸 Shankar Virtual Medical Laboratory</h1><p>Interactive Hematology Simulator • Blood grouping in sketch-card pattern</p></header><div class="topnav"><a href="virtual-lab.html">← Virtual Lab Home</a></div><div class="wrap"><div class="layout"><div>
+<div class="card"><h2>1. Prepare Blood Group Card</h2><p class="muted">This module follows a hand-card pattern: Anti-A, Anti-B, Anti-D on top, EDTA sample on the side, then add and mix on the slide/card below.</p>
+<div class="toolbar"><button id="mixBtn">Mix on Card</button><button id="readBtn">Read Pattern</button><button class="secondary" id="resetBtn">↻ Restart</button></div>
+<div class="sketch-board">
+  <div class="source-row">
+    <div class="source"><div class="instrument" id="antiA" style="left:0;top:0"><div class="bottle blue"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">Anti-A</div></div>
+    <div class="source"><div class="instrument" id="antiB" style="left:0;top:0"><div class="bottle blue"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">Anti-B</div></div>
+    <div class="source"><div class="instrument" id="antiD" style="left:0;top:0"><div class="bottle blue"><div class="tip"></div><div class="neck"></div><div class="body"><div class="fill"></div></div></div></div><div class="instrument-label">Anti-D</div></div>
+    <div class="source"><div class="instrument" id="sampleTube" style="left:0;top:0"><div class="tube"><div class="cap"></div><div class="body"><div class="seg"></div><div class="seg"></div><div class="blood"></div></div></div></div><div class="instrument-label">EDTA Sample<div class="smallcap">Drag to sample zone</div></div></div>
+  </div>
+  <div class="flow-row">
+    <div class="sketch-card">
+      <div class="well-grid">
+        <div class="well-col"><div class="well-title">Anti-A well</div><div class="well" id="wellA">A</div><div class="drop-slot" id="slotA">Drop Anti-A</div><div class="well-note" id="noteA"></div></div>
+        <div class="well-col"><div class="well-title">Anti-B well</div><div class="well" id="wellB">B</div><div class="drop-slot" id="slotB">Drop Anti-B</div><div class="well-note" id="noteB"></div></div>
+        <div class="well-col"><div class="well-title">Anti-D well</div><div class="well" id="wellD">D</div><div class="drop-slot" id="slotD">Drop Anti-D</div><div class="well-note" id="noteD"></div></div>
+      </div>
+      <div class="card-zone" id="sampleZone" style="margin-top:18px">Drop EDTA sample here → sample will be added to all 3 wells</div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="sketch-card" id="mixedCard"><div class="well-grid">
+      <div class="well-col"><div class="well-title">Anti-A</div><div class="well" id="mixA">?</div><div class="well-note" id="mixNoteA">Not mixed yet</div></div>
+      <div class="well-col"><div class="well-title">Anti-B</div><div class="well" id="mixB">?</div><div class="well-note" id="mixNoteB">Not mixed yet</div></div>
+      <div class="well-col"><div class="well-title">Anti-D</div><div class="well" id="mixD">?</div><div class="well-note" id="mixNoteD">Not mixed yet</div></div>
+    </div><div class="mix-panel">Training pattern: Anti-A positive, Anti-B negative, Anti-D positive.</div></div>
+  </div>
+</div></div>
+<div class="card"><h2>2. Interpret Result</h2><p class="muted">Choose the observed pattern and generate the interpretation.</p>
+<div class="interpret-grid"><label>Anti-A<select id="selA"><option>Positive</option><option>Negative</option></select></label><label>Anti-B<select id="selB"><option>Negative</option><option>Positive</option></select></label><label>Anti-D<select id="selD"><option>Positive</option><option>Negative</option></select></label></div><div class="toolbar"><button id="interpretBtn">Interpret ABO / Rh</button></div><div class="resultbox" id="finalResult">Complete the card first.</div></div>
+<div class="footer">Blood grouping educational simulation • Sketch-pattern card style • Follow laboratory SOP and kit insert.</div></div>
+<div class="side card"><h2>Progress & Assessment</h2><div class="step" id="chk0">Anti-A placed in well A</div><div class="step" id="chk1">Anti-B placed in well B</div><div class="step" id="chk2">Anti-D placed in well D</div><div class="step" id="chk3">EDTA sample added to card</div><div class="step" id="chk4">Card mixed and reaction read</div><div class="step" id="chk5">ABO/Rh interpretation completed</div><div class="metric"><span>Completed</span><b id="progress">0 / 6</b></div><div class="metric"><span>Errors</span><b id="errors">0</b></div><div class="metric"><span>Score</span><b id="score">100</b></div><div class="progressbar"><div id="bar"></div></div><h3>Instructor feedback</h3><div class="status" id="status">Drag Anti-A, Anti-B and Anti-D into the correct wells, then drag the EDTA sample into the sample zone.</div></div></div></div><script>
 const $ = id => document.getElementById(id);
-function makeDraggable(el){let dragging=false,startX=0,startY=0,origX=0,origY=0;el.addEventListener('pointerdown',e=>{dragging=true;el.setPointerCapture(e.pointerId);startX=e.clientX;startY=e.clientY;origX=parseFloat(el.style.left||0);origY=parseFloat(el.style.top||0);el.style.cursor='grabbing';});el.addEventListener('pointermove',e=>{if(!dragging)return;el.style.left=(origX+e.clientX-startX)+'px';el.style.top=(origY+e.clientY-startY)+'px';});function end(){if(!dragging)return;dragging=false;el.style.cursor='grab';if(window.onDragEnd)window.onDragEnd(el);}el.addEventListener('pointerup', end);el.addEventListener('pointercancel', end);}
-function zoneHit(a,b,margin=45){const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2;const bcx=br.left+br.width/2, bcy=br.top+br.height/2;return Math.abs(acx-bcx) < (br.width/2+margin) && Math.abs(acy-bcy) < (br.height/2+margin);}
+function makeDraggable(el){
+  let dragging=false,startX=0,startY=0,origX=0,origY=0;
+  el.addEventListener('pointerdown',e=>{
+    dragging=true; el.setPointerCapture(e.pointerId);
+    startX=e.clientX; startY=e.clientY;
+    origX=parseFloat(el.style.left||0); origY=parseFloat(el.style.top||0);
+    el.classList.add('dragging');
+  });
+  el.addEventListener('pointermove',e=>{
+    if(!dragging) return;
+    el.style.left=(origX+e.clientX-startX)+'px';
+    el.style.top=(origY+e.clientY-startY)+'px';
+  });
+  function end(){ if(!dragging) return; dragging=false; el.classList.remove('dragging'); if(window.onDragEnd) window.onDragEnd(el); }
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+}
+function zoneHit(a,b,margin=28){ const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect(); const acx=ar.left+ar.width/2, acy=ar.top+ar.height/2; const bcx=br.left+br.width/2, bcy=br.top+br.height/2; return Math.abs(acx-bcx) <= (br.width/2+margin) && Math.abs(acy-bcy) <= (br.height/2+margin); }
+function setupScore(total){
+  const done=Array(total).fill(false); let errors=0;
+  function refresh(){ done.forEach((v,i)=>{ const e=$('chk'+i); if(!e) return; const tx=e.dataset.base || e.textContent.replace(/^.[ ]?/,''); e.dataset.base=tx; e.textContent=(v?'✓ ':'○ ')+tx; e.className='step'+(v?' ok':''); }); const c=done.filter(Boolean).length; $('progress').textContent=c+' / '+total; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*6); $('bar').style.width=((c/total)*100)+'%'; }
+  function feedback(t,k=''){ $('status').textContent=t; $('status').className='status '+k; }
+  function mark(i,t){ done[i]=true; feedback(t,'good'); refresh(); }
+  function err(t){ errors++; feedback('⚠ '+t,'bad'); refresh(); }
+  refresh();
+  return {done,mark,err,feedback,refresh,get score(){ return Math.max(0,100-errors*6); }};
+}
 
-let done=Array(6).fill(false), errors=0;const state={sample:false,a:false,b:false,d:false,mixed:false,read:false};
-function feedback(t,kind=''){ $('status').textContent=t; $('status').className='status '+kind; }
-function mark(i,t){ done[i]=true; feedback(t,'good'); refresh(); }
-function err(t){ errors++; feedback('⚠ '+t,'bad'); refresh(); }
-function refresh(){done.forEach((v,i)=>{ const e=$('chk'+i); const tx=e.textContent.replace(/^.[ ]?/,''); e.textContent=(v?'✓ ':'○ ')+tx; e.className='step '+(v?'ok':''); }); const c=done.filter(Boolean).length; $('progress').textContent=c+' / 6'; $('errors').textContent=errors; $('score').textContent=Math.max(0,100-errors*8); $('bar').style.width=(c/6*100)+'%';}
-['sampleBottle','antiABottle','antiBBottle','antiDBottle'].forEach(id=>makeDraggable($(id)));
-window.onDragEnd=(el)=>{const rules=[['sampleBottle','zoneSample','sample',0,'Patient sample placed on grouping card.'],['antiABottle','zoneA','a',1,'Anti-A placed.'],['antiBBottle','zoneB','b',2,'Anti-B placed.'],['antiDBottle','zoneD','d',3,'Anti-D placed.']]; for (const [source,zone,key,idx,msg] of rules){ if(el.id===source && zoneHit(el,$(zone),32)){ $(zone).classList.add('filled'); $(zone).textContent=$(zone).textContent + ' ✓'; state[key]=true; mark(idx,msg); } } };
-$('mixBtn').onclick=()=>{ if(!(state.sample && state.a && state.b && state.d)) return err('Place patient sample and all three antisera first.'); state.mixed=true; $('wa').classList.add('agglut'); $('wb').classList.add('smooth'); $('wd').classList.add('agglut'); $('placeholderArea').classList.add('hidden'); $('photoArea').classList.remove('hidden'); mark(4,'Reactions mixed and realistic result photo displayed.'); };
-$('readBtn').onclick=()=>{ if(!state.mixed) return err('Mix the reactions first.'); state.read=true; feedback('Observed pattern: Anti-A positive, Anti-B negative, Anti-D positive.','good'); };
-$('interpretBtn').onclick=()=>{ if(!state.mixed) return err('Mix and observe the reactions first.'); const a=$('selA').value, b=$('selB').value, d=$('selD').value; let group='Unexpected pattern'; if(a==='Positive' && b==='Negative' && d==='Positive') group='A Rh-positive (A+)'; $('finalResult').innerHTML='<b>ABO / Rh interpretation:</b> '+group+'<br>Recorded reactions: Anti-A '+a+', Anti-B '+b+', Anti-D '+d+'<br>Score: <b>'+Math.max(0,100-errors*8)+'/100</b>'; mark(5,'ABO / Rh interpretation completed.'); };
-$('resetBtn').onclick=()=>location.reload(); refresh();
+
+const tracker = setupScore(6);
+const state = {A:false,B:false,D:false,sample:false,mixed:false,read:false};
+['antiA','antiB','antiD','sampleTube'].forEach(id=>makeDraggable($(id)));
+window.onDragEnd = (el)=>{
+  if(el.id==='antiA' && zoneHit(el,$('slotA'))){ $('slotA').textContent='Anti-A added'; $('slotA').classList.add('done'); $('wellA').classList.add('ready'); $('noteA').textContent='Antisera added'; state.A=true; tracker.mark(0,'Anti-A added to the first well.'); }
+  else if(el.id==='antiB' && zoneHit(el,$('slotB'))){ $('slotB').textContent='Anti-B added'; $('slotB').classList.add('done'); $('wellB').classList.add('ready'); $('noteB').textContent='Antisera added'; state.B=true; tracker.mark(1,'Anti-B added to the second well.'); }
+  else if(el.id==='antiD' && zoneHit(el,$('slotD'))){ $('slotD').textContent='Anti-D added'; $('slotD').classList.add('done'); $('wellD').classList.add('ready'); $('noteD').textContent='Antisera added'; state.D=true; tracker.mark(2,'Anti-D added to the third well.'); }
+  else if(el.id==='sampleTube' && zoneHit(el,$('sampleZone'),40)){ $('sampleZone').textContent='EDTA sample added to all wells'; $('sampleZone').classList.add('done'); ['noteA','noteB','noteD'].forEach(id=>{ const e=$(id); e.textContent = (e.textContent? e.textContent+' + ':'') + 'sample added'; }); state.sample=true; tracker.mark(3,'EDTA sample distributed to all three wells.'); }
+};
+$('mixBtn').onclick = ()=>{
+  if(!(state.A && state.B && state.D && state.sample)) return tracker.err('Add all three antisera and the EDTA sample before mixing.');
+  state.mixed=true; state.read=true;
+  $('mixA').className='well mixed-positive'; $('mixA').textContent=''; $('mixNoteA').textContent='Agglutination';
+  $('mixB').className='well mixed-negative'; $('mixB').textContent=''; $('mixNoteB').textContent='Smooth / no agglutination';
+  $('mixD').className='well mixed-positive'; $('mixD').textContent=''; $('mixNoteD').textContent='Agglutination';
+  tracker.mark(4,'Card mixed. Final pattern shown on the lower sketch card.');
+};
+$('readBtn').onclick = ()=>{
+  if(!state.mixed) return tracker.err('Mix the card first.');
+  tracker.feedback('Observed pattern: Anti-A positive, Anti-B negative, Anti-D positive.','good');
+};
+$('interpretBtn').onclick = ()=>{
+  if(!state.mixed) return tracker.err('Complete the card and mix before interpreting.');
+  const a=$('selA').value, b=$('selB').value, d=$('selD').value;
+  let group='Unexpected pattern';
+  if(a==='Positive' && b==='Negative' && d==='Positive') group='A Rh-positive (A+)';
+  else if(a==='Positive' && b==='Negative' && d==='Negative') group='A Rh-negative (A−)';
+  else if(a==='Negative' && b==='Positive' && d==='Positive') group='B Rh-positive (B+)';
+  else if(a==='Negative' && b==='Positive' && d==='Negative') group='B Rh-negative (B−)';
+  else if(a==='Positive' && b==='Positive' && d==='Positive') group='AB Rh-positive (AB+)';
+  else if(a==='Positive' && b==='Positive' && d==='Negative') group='AB Rh-negative (AB−)';
+  else if(a==='Negative' && b==='Negative' && d==='Positive') group='O Rh-positive (O+)';
+  else if(a==='Negative' && b==='Negative' && d==='Negative') group='O Rh-negative (O−)';
+  $('finalResult').innerHTML = '<b>Blood group interpretation:</b> '+group+'<br>Observed pattern: Anti-A '+a+', Anti-B '+b+', Anti-D '+d+'<br>Score: <b>'+tracker.score+'/100</b>';
+  tracker.mark(5,'ABO/Rh interpretation completed.');
+};
+$('resetBtn').onclick = ()=> location.reload();
 </script></body></html>

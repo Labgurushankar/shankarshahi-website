@@ -1,20 +1,24 @@
-SHANKARSHAHI.COM.NP — LATEST SHANKAR CLINICAL LABORATORY LIS LINK UPDATE
+SHANKARSHAHI.COM.NP — VIRTUAL LAB SKETCH PATTERN UPDATE
 
-NEW GOOGLE DRIVE FILE
-latest updated lab soft for use.exe
+UPDATED FILES
+- virtual-lab.html
+- virtual-lab-bloodgroup.html
+- virtual-lab-aso.html
+- virtual-lab-crp.html
+- virtual-lab-rf.html
 
-UPDATED
-- Shankar Clinical Laboratory LIS main download button
-- Shankar Clinical Laboratory LIS entry in Download Center
-- QMS / Combined Suite download link is unchanged
+WHAT CHANGED
+- Blood Group, ASO, CRP and RF now follow a sketch-pattern card style similar to the provided hand-drawn workflow.
+- Drag-and-drop interaction kept.
+- Blood grouping layout: Anti-A, Anti-B, Anti-D and EDTA sample to a reaction card.
+- ASO / CRP / RF layout: Latex reagent + positive control + negative control + patient serum to a reaction card.
+- A lower "mixed" card shows the final reaction pattern.
+- Virtual Lab landing page descriptions updated.
 
-GITHUB UPDATE
+HOW TO UPDATE GITHUB
 1. Extract this ZIP.
-2. Upload ONLY index.html to the repository root.
-3. Replace the existing index.html.
+2. Upload all files in this ZIP to the repository ROOT.
+3. Replace existing files if asked.
 4. Commit changes.
 5. Wait for GitHub Pages deployment.
-6. Refresh shankarshahi.com.np with Ctrl+F5.
-7. Test the Lab LIS download button.
-
-The EXE itself remains on Google Drive; it is not added to GitHub.
+6. Refresh the website with Ctrl + F5.
