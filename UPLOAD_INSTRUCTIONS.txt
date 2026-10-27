@@ -1,24 +1,22 @@
-SHANKARSHAHI.COM.NP — VIRTUAL LAB RDT UPDATE
+SHANKAR SHAHI WEBSITE — LIS DOWNLOAD LINK UPDATE
 
-UPDATED FILES
-- virtual-lab.html
-- virtual-lab-hiv.html
-- virtual-lab-hbsag.html
-- virtual-lab-hcv.html
+Updated page: index.html
+New Google Drive link:
+https://drive.google.com/file/d/15Ol-QnzqMXy0_k3MlJNqVbXJm6lJHeFz/view?usp=sharing
 
-WHAT IS NEW
-- HIV, HBsAg and HCV modules now use RDT cassette workflow.
-- User can drag patient sample to sample well.
-- User can drag buffer to buffer well.
-- Positive training outcome shows 2 bands (C + T).
-- Negative training outcome shows only 1 control band (C).
-- Invalid training outcome shows absent control band.
-- virtual-lab.html text/link descriptions updated.
+Changes included:
+- Replaced the old Shankar Clinical Laboratory LIS download URL with the newly supplied Google Drive URL in both the main LIS section and Download Center.
+- Updated the button labels to “Download Latest LIS Software”.
+- Updated the visible LIS label/description so it no longer says “90-Day Free Trial”.
+- No EXE installer is included in this ZIP; the website button opens the Google Drive file.
 
 HOW TO UPDATE GITHUB
-1. Extract this ZIP.
-2. Upload all files from this ZIP to your repository ROOT.
-3. Replace the old files if GitHub asks.
-4. Commit changes.
-5. Wait for GitHub Pages deployment.
-6. Refresh the website with Ctrl + F5.
+1. Download and extract this ZIP.
+2. Open your GitHub repository: Labgurushankar/shankarshahi-website.
+3. Upload the included index.html to the repository ROOT (same level as the existing index.html).
+4. Choose Replace/Overwrite if prompted.
+5. Commit the change.
+6. After deployment, open https://shankarshahi.com.np/ and press Ctrl + F5.
+
+IMPORTANT
+This ZIP contains only index.html and this instruction file. Upload index.html to the repository root; do not upload the ZIP itself as the website page.
